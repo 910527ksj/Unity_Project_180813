@@ -440,6 +440,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 5
   playerAnim: {fileID: 620163389}
+  firePos: {fileID: 1938587969}
+  bullet: {fileID: 1227760883976760, guid: d8c81395e9ffc6f47a98a8d41e768ceb, type: 2}
+  shotDelay: 0
+  shotCool: 1
+  limtX: 7.5
 --- !u!1 &631435098
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,7 +695,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1938587969}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.142857, z: 0}
+  m_LocalPosition: {x: 0, y: -0.6, z: 0.1}
   m_LocalScale: {x: 1.4285713, y: 1.4285713, z: 1}
   m_Children: []
   m_Father: {fileID: 620163391}
