@@ -17,4 +17,12 @@ public class BulletScript : MonoBehaviour {
     {
         transform.Translate(0, bulletSpeed * Time.deltaTime, 0);
 	}
+
+    private void OnTriggerEnter2D(Collider2D coll)
+    {
+        if(coll.tag == "Enemy")
+        {
+            Destroy(gameObject);
+        }
+    }
 }

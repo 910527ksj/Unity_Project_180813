@@ -11,6 +11,8 @@ public class PlayerScript : MonoBehaviour {
     public float shotDelay;
     public float shotCool;
     public float limtX;
+    public float playerHp;
+
 
     void Start()
     {
@@ -87,6 +89,14 @@ public class PlayerScript : MonoBehaviour {
         if (transform.position.x < -limtX)
         {
             transform.position = new Vector3(-limtX, transform.position.y, transform.position.z);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D coll)
+    {
+        if(coll.tag == "Enemy"  )
+        {
+            playerHp -= 1;
         }
     }
 }
