@@ -12,7 +12,11 @@ public class EnemyScript : MonoBehaviour {
 
 	void Start ()
     {
-        EnemyRigidbody2D.velocity = new Vector2(enemyMove, 0);
+        if(gameObject.name == "Enemy_Blue_01")
+        {
+            EnemyRigidbody2D.velocity = new Vector2(enemyMove, 0);
+        }
+
     }
 	
 	
@@ -31,9 +35,13 @@ public class EnemyScript : MonoBehaviour {
             enemyHp -= 1;
             if (enemyHp <= 0)
             {
-                Instantiate(enemyChange, transform.position, Quaternion.identity);
-                Instantiate(enemyChange);
                 Destroy(gameObject);
+                GameObject obj1 = Instantiate(enemyChange) as GameObject;
+                obj1.transform.position = transform.position;
+                obj1.GetComponent<Rigidbody2D>().velocity = new Vector2 (-enemyMove,0);
+                GameObject obj2 = Instantiate(enemyChange) as GameObject;
+                obj2.transform.position = transform.position;
+                obj2.GetComponent<Rigidbody2D>().velocity = new Vector2(enemyMove, 0);
             }
         }
     }
