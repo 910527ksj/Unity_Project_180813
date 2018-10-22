@@ -12,7 +12,21 @@ public class PlayerScript : MonoBehaviour {
     public float shotCool;
     public float limtX;
     public float playerHp;
-
+    public bool isUnBeatTime;
+    public SpriteRenderer spriteRenderer;
+    public Rigidbody2D rb2D;
+    bool AttackedVelocityTime()
+    {
+        if (true)
+        {
+            float countTime = 0;
+            countTime += Time.deltaTime;
+        }
+        if (false)
+        {
+            float countTime = 0;
+        }
+    }
 
     void Start()
     {
@@ -90,13 +104,60 @@ public class PlayerScript : MonoBehaviour {
         {
             transform.position = new Vector3(-limtX, transform.position.y, transform.position.z);
         }
+        //if (transform.position.y < -2.5f)
+        //{
+        //    transform.position = new Vector3(transform.position.x, -2.5f, -0.1f);
+        //}
     }
 
-    private void OnTriggerEnter2D(Collider2D coll)
+    IEnumerator UnBeatTime()
     {
-        if(coll.tag == "Enemy"  )
+        int countTime = 0;
+
+        while (countTime < 10)
         {
-            playerHp -= 1;
+            if (countTime % 2 == 0)
+            {
+                spriteRenderer.color = new Color32(255, 255, 255, 90);
+            }
+            else
+            {
+                spriteRenderer.color = new Color32(255, 255, 255, 180);
+            }
+
+            yield return new WaitForSeconds(0.2f);
+
+            countTime++;
+        }
+        spriteRenderer.color = new Color32(255, 255, 255, 255);
+
+        isUnBeatTime = false;
+
+        yield return null;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag == "Enemy"  )
+        {                        
+            Vector2 attackedVelocity = Vector2.zero;
+            if (other.gameObject.transform.position.x > transform.position.x)
+            {                                              
+                attackedVelocity = new Vector2(-2, 0);                
+                if (countTime == 2)
+                {
+                    attackedVelocity = new Vector2(0, 0);
+                    countTime = 0;
+                }
+            }
+            else
+            {
+                attackedVelocity = new Vector2(2f,0);
+            }
+            rb2D.AddForce(attackedVelocity, ForceMode2D.Impulse);
+            playerHp -= 1;            
+            isUnBeatTime = true;
+            StartCoroutine("UnBeatTime");
         }
     }
 }

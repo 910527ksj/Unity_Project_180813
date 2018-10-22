@@ -6,27 +6,28 @@ public class EnemyScript : MonoBehaviour {
 
     public GameObject enemyChange;
     public float enemyHp;
-    public Rigidbody2D EnemyRigidbody2D;
+    public Rigidbody2D enemyRigidbody2D;
     public float limitY;
-    public float enemyMove;
+    public int enemyMove;
 
 	void Start ()
     {
-        if(gameObject.name == "Enemy_Blue_01")
+        if (gameObject.name == "Enemy_Blue_01")
         {
-            EnemyRigidbody2D.velocity = new Vector2(enemyMove, 0);
+            enemyMove = Random.Range(0, 2).Equals(0) ? -2 : 2; // 삼항연산자 - 0,1 을 랜덤으로 하고(확률50%) 0은 -1 , 1은 2
+            enemyRigidbody2D.velocity = new Vector2(enemyMove, 0);
         }
-
     }
-	
-	
+		
 	void Update ()
-    {
-        if(transform.position.y >= limitY   )
+    {        
+        if (transform.position.y >= limitY)
         {
-            transform.position = new Vector2(transform.position.x,limitY); 
+            transform.position = new Vector3(transform.position.x, limitY, transform.position.z);
         }
-	}
+    }
+
+    
 
     private void OnTriggerEnter2D(Collider2D coll)
     {
@@ -47,6 +48,6 @@ public class EnemyScript : MonoBehaviour {
     }
     private void OnCollisionEnter2D(Collision2D coll)
     {
-
+      
     }
 }
