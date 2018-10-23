@@ -10,6 +10,7 @@ public class BulletScript : MonoBehaviour {
 	void Start ()
     {
         Destroy(gameObject, deleteTime);
+        //Debug.Log("Arrow Position  :::::::::::::::::  "+transform.position);
 	}
 	
 	
