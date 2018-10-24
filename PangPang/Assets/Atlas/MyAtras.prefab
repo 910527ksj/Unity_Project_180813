@@ -67,8 +67,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: AttackBtn
-    x: 3924
-    y: 983
+    x: 1073
+    y: 36
     width: 133
     height: 137
     borderLeft: 0
@@ -80,8 +80,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 2
   - name: Back btn
-    x: 4002
-    y: 1510
+    x: 1208
+    y: 102
     width: 69
     height: 71
     borderLeft: 0
@@ -93,8 +93,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 3
   - name: Ban
-    x: 4032
-    y: 860
+    x: 1003
+    y: 2
     width: 48
     height: 48
     borderLeft: 0
@@ -106,8 +106,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: buttonbackground
-    x: 753
-    y: 11
+    x: 1424
+    y: 2
     width: 163
     height: 51
     borderLeft: 0
@@ -119,8 +119,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: cancel
-    x: 4059
-    y: 1086
+    x: 2320
+    y: 860
     width: 34
     height: 34
     borderLeft: 0
@@ -132,8 +132,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: cart
-    x: 1718
-    y: 4
+    x: 4061
+    y: 1942
     width: 33
     height: 33
     borderLeft: 0
@@ -145,8 +145,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: cartoonhammer
-    x: 3924
-    y: 1122
+    x: 623
+    y: 12
     width: 162
     height: 161
     borderLeft: 0
@@ -158,8 +158,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: check
-    x: 4059
-    y: 1050
+    x: 1381
+    y: 3
     width: 34
     height: 34
     borderLeft: 0
@@ -171,8 +171,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Coin icon
-    x: 4002
-    y: 1802
+    x: 1910
+    y: 134
     width: 74
     height: 80
     borderLeft: 0
@@ -184,8 +184,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 2
   - name: diamond
-    x: 4059
-    y: 1014
+    x: 1345
+    y: 3
     width: 34
     height: 34
     borderLeft: 0
@@ -197,8 +197,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: easy
-    x: 3924
-    y: 808
+    x: 787
+    y: 14
     width: 106
     height: 36
     borderLeft: 0
@@ -210,8 +210,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Gem icon
-    x: 4002
-    y: 1884
+    x: 2690
+    y: 1459
     width: 82
     height: 75
     borderLeft: 0
@@ -223,7 +223,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 2
   - name: gold
-    x: 1089
+    x: 1121
     y: 3
     width: 29
     height: 31
@@ -236,8 +236,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: green
-    x: 1823
-    y: 29
+    x: 2100
+    y: 32
     width: 106
     height: 36
     borderLeft: 0
@@ -249,8 +249,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hammer
-    x: 3924
-    y: 1285
+    x: 459
+    y: 12
     width: 162
     height: 161
     borderLeft: 0
@@ -262,8 +262,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hard
-    x: 1858
-    y: 137
+    x: 1697
+    y: 17
     width: 106
     height: 36
     borderLeft: 0
@@ -275,8 +275,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hp
-    x: 4059
-    y: 984
+    x: 1152
+    y: 6
     width: 30
     height: 28
     borderLeft: 0
@@ -288,8 +288,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: HpBackGround
-    x: 1537
-    y: 105
+    x: 2369
+    y: 1466
     width: 319
     height: 68
     borderLeft: 0
@@ -301,8 +301,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 3
   - name: HpForGround
-    x: 462
-    y: 24
+    x: 1424
+    y: 55
     width: 289
     height: 38
     borderLeft: 0
@@ -314,8 +314,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: innerbackground
-    x: 918
-    y: 32
+    x: 1208
+    y: 7
     width: 135
     height: 30
     borderLeft: 0
@@ -327,7 +327,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 5
   - name: kisspng-speech-balloon-royalty-free-comic-book-pop-art-5abf2328d72012.6216578715224758168812
-    x: 2793
+    x: 3419
     y: 1441
     width: 605
     height: 607
@@ -340,8 +340,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: left
-    x: 1788
-    y: 5
+    x: 1053
+    y: 2
     width: 32
     height: 32
     borderLeft: 0
@@ -353,8 +353,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: levelselect
-    x: 246
-    y: 8
+    x: 1208
+    y: 39
     width: 214
     height: 54
     borderLeft: 0
@@ -365,9 +365,35 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: Lose
+    x: 1767
+    y: 428
+    width: 551
+    height: 504
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: LoseExit
+    x: 1811
+    y: 22
+    width: 90
+    height: 90
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: medium
-    x: 1931
-    y: 99
+    x: 1589
+    y: 17
     width: 106
     height: 36
     borderLeft: 0
@@ -379,8 +405,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: mesage
-    x: 3400
-    y: 818
+    x: 2369
+    y: 823
     width: 522
     height: 628
     borderLeft: 0
@@ -392,8 +418,8 @@ MonoBehaviour:
     paddingTop: 4
     paddingBottom: 4
   - name: messageexit
-    x: 4002
-    y: 1961
+    x: 1903
+    y: 25
     width: 87
     height: 87
     borderLeft: 0
@@ -405,8 +431,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: messagetitle
-    x: 0
-    y: 64
+    x: 1767
+    y: 216
     width: 1076
     height: 210
     borderLeft: 0
@@ -418,8 +444,8 @@ MonoBehaviour:
     paddingTop: 11
     paddingBottom: 53
   - name: money
-    x: 4032
-    y: 822
+    x: 2320
+    y: 896
     width: 36
     height: 36
     borderLeft: 0
@@ -431,7 +457,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: mp
-    x: 1120
+    x: 1184
     y: 2
     width: 22
     height: 32
@@ -444,8 +470,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Music icon
-    x: 4057
-    y: 1468
+    x: 1033
+    y: 67
     width: 33
     height: 40
     borderLeft: 0
@@ -457,8 +483,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 3
   - name: pause
-    x: 1753
-    y: 4
+    x: 2320
+    y: 825
     width: 33
     height: 33
     borderLeft: 0
@@ -470,8 +496,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Pause btn
-    x: 4002
-    y: 1656
+    x: 1986
+    y: 143
     width: 69
     height: 71
     borderLeft: 0
@@ -483,8 +509,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 3
   - name: Play btn
-    x: 4002
-    y: 1729
+    x: 2128
+    y: 143
     width: 69
     height: 71
     borderLeft: 0
@@ -495,9 +521,48 @@ MonoBehaviour:
     paddingRight: 2
     paddingTop: 1
     paddingBottom: 2
+  - name: PlayExitNoBtn
+    x: 2063
+    y: 70
+    width: 69
+    height: 71
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 1
+    paddingBottom: 3
+  - name: PlayExitPopUp
+    x: 1290
+    y: 95
+    width: 359
+    height: 179
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 6
+    paddingRight: 5
+    paddingTop: 6
+    paddingBottom: 6
+  - name: PlayExitYesBtn
+    x: 1992
+    y: 70
+    width: 69
+    height: 71
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 1
+    paddingBottom: 3
   - name: Poision copy
-    x: 4020
-    y: 910
+    x: 4026
+    y: 1977
     width: 57
     height: 71
     borderLeft: 0
@@ -509,8 +574,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: PotionBtn
-    x: 3924
-    y: 884
+    x: 1715
+    y: 62
     width: 94
     height: 97
     borderLeft: 0
@@ -522,8 +587,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 2
   - name: pVs20Tm
-    x: 3400
-    y: 1448
+    x: 1767
+    y: 934
     width: 600
     height: 600
     borderLeft: 0
@@ -535,8 +600,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: qastuion
-    x: 1683
-    y: 4
+    x: 4026
+    y: 1907
     width: 33
     height: 33
     borderLeft: 0
@@ -548,8 +613,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Rank
-    x: 1648
-    y: 4
+    x: 4061
+    y: 1907
     width: 33
     height: 33
     borderLeft: 0
@@ -561,8 +626,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: red
-    x: 3924
-    y: 846
+    x: 1992
+    y: 32
     width: 106
     height: 36
     borderLeft: 0
@@ -574,7 +639,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: redbutton
-    x: 1078
+    x: 0
     y: 36
     width: 457
     height: 137
@@ -586,8 +651,21 @@ MonoBehaviour:
     paddingRight: 1
     paddingTop: 4
     paddingBottom: 1
+  - name: ReStart
+    x: 1651
+    y: 161
+    width: 112
+    height: 113
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: right
-    x: 1055
+    x: 1087
     y: 2
     width: 32
     height: 32
@@ -600,8 +678,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: seting
-    x: 1613
-    y: 4
+    x: 4026
+    y: 1942
     width: 33
     height: 33
     borderLeft: 0
@@ -613,8 +691,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: SettingBarBase
-    x: 1537
-    y: 39
+    x: 787
+    y: 109
     width: 284
     height: 64
     borderLeft: 0
@@ -626,8 +704,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 2
   - name: Settings btn
-    x: 4002
-    y: 1583
+    x: 2057
+    y: 143
     width: 69
     height: 71
     borderLeft: 0
@@ -639,8 +717,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 3
   - name: shiled
-    x: 4032
-    y: 786
+    x: 4026
+    y: 1871
     width: 30
     height: 34
     borderLeft: 0
@@ -652,8 +730,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: sound
-    x: 1578
-    y: 4
+    x: 2320
+    y: 790
     width: 33
     height: 33
     borderLeft: 0
@@ -665,8 +743,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Sound icon
-    x: 1537
-    y: 3
+    x: 1765
+    y: 180
     width: 39
     height: 34
     borderLeft: 0
@@ -678,8 +756,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: start
-    x: 4002
-    y: 1455
+    x: 1651
+    y: 106
     width: 53
     height: 53
     borderLeft: 0
@@ -703,9 +781,35 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: Win
+    x: 2793
+    y: 1453
+    width: 624
+    height: 595
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: WinNext
+    x: 1811
+    y: 114
+    width: 97
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: yellow
-    x: 1823
-    y: 67
+    x: 895
+    y: 14
     width: 106
     height: 36
     borderLeft: 0
@@ -717,7 +821,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: "\uC0C1\uB2E8\uBC14"
-    x: 1078
+    x: 0
     y: 175
     width: 1288
     height: 99
@@ -730,8 +834,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: "\uC0C1\uBC18\uBC1402"
-    x: 0
-    y: 7
+    x: 787
+    y: 52
     width: 244
     height: 55
     borderLeft: 0

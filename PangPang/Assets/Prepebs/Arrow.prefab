@@ -70,6 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 17
   deleteTime: 2
+  hitEffect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 2}
 --- !u!212 &212314240929976450
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -104,7 +105,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: a04eb8517a3826247b99967cd3b069e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

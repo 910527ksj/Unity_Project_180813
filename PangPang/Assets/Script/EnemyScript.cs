@@ -9,6 +9,7 @@ public class EnemyScript : MonoBehaviour {
     public Rigidbody2D enemyRigidbody2D;
     public float limitY;
     public int enemyMove;
+    public GameObject dieEffect;
 
 	void Start ()
     {
@@ -36,6 +37,7 @@ public class EnemyScript : MonoBehaviour {
             enemyHp -= 1;
             if (enemyHp <= 0)
             {
+                Instantiate(dieEffect, transform.position,transform.rotation);
                 Destroy(gameObject);
                 GameObject obj1 = Instantiate(enemyChange) as GameObject;
                 obj1.transform.position = transform.position;

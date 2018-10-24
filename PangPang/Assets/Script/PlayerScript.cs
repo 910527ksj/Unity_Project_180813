@@ -15,6 +15,8 @@ public class PlayerScript : MonoBehaviour {
     public float playerMaxHp;
     public UIProgressBar hpBar;
 
+    public GameObject dieEffect;
+
     public bool isUnBeatTime;
     public SpriteRenderer spriteRenderer;
     public Rigidbody2D rb2D;
@@ -22,6 +24,11 @@ public class PlayerScript : MonoBehaviour {
     public bool AttackedVelocityTime;
     public float timeA;
     public float timeB = 0.1f;
+
+    public bool attackTouch;
+
+    public GameObject losePopUp;
+    public GameObject pausePopUpCheck;
 
     void Start()
     {
@@ -67,7 +74,7 @@ public class PlayerScript : MonoBehaviour {
 
 
 
-        if (Input.GetKey(KeyCode.Space)) // 이 밑 로직들은 제자리 공격시 캐릭터 x값에 따라 다른 모션을 취하기 위한 로직
+        if (Input.GetKey(KeyCode.Space) || attackTouch == true) // 이 밑 로직들은 제자리 공격시 캐릭터 x값에 따라 다른 모션을 취하기 위한 로직
         {
                 //ArrowFire(); // 발사 함수 불러오기
                 //*firePos.GetComponent<FireScript>().Fire(); //  fireScript에서 fire 함수 불러오기
@@ -76,7 +83,7 @@ public class PlayerScript : MonoBehaviour {
                     playerAnim.SetBool("Left Bool", true);
                     if (shotDelay > shotCool)
                     {
-                        firePos.GetComponent<FireScript>().Fire();
+                        firePos.GetComponent<FireScript>().Fire(); //  fireScript에서 fire 함수 불러오기
                         shotDelay = 0;
                     }
                 }
@@ -141,6 +148,38 @@ public class PlayerScript : MonoBehaviour {
         }
     }
 
+    public void UsePotionBtnClick()
+    {
+        if (pausePopUpCheck.activeSelf == true)
+        {
+            if (playerHp > 0)
+            {
+                playerHp += 1;
+            }
+
+            if (playerHp >= 5)
+            {
+                playerHp = 5;
+            }
+        }
+    }
+    
+    public void AttackBtnClick()
+    {
+       if(pausePopUpCheck.activeSelf == true)
+        {
+            attackTouch = true;
+        }
+    }
+
+    public void AttackBtnRelease()
+    {
+        if(pausePopUpCheck.activeSelf == true)
+        {
+            attackTouch = false;
+        }
+    }
+
     void PlayerMoveLimit() // 이동제한 함수
     {
         if (transform.position.y < -2.5f)
@@ -165,6 +204,22 @@ public class PlayerScript : MonoBehaviour {
     //    arrow.transform.position = firePos.transform.position;
     //    Debug.Log(arrow.transform.position);
     //}
+
+
+
+    //IEnumerator PlayerDiePause() // 코루틴을 이용한 시간 정지, 이 스크립트에서는 사용 불가. 이유는 사망시 오브젝트가 파괴 되므로
+    //{
+    //    Time.timeScale = 1.0f;
+    //    yield return new WaitForSeconds(2f);
+    //    Time.timeScale = 0.0f;
+    //}
+
+    //void TimeScaleStop() // 인보크를 이용한 시간 정지, 이 스크립트에서는 사용 불가. 이유는 사망시 오브젝트가 파괴 되므로
+    //{
+    //    Time.timeScale = 0f;
+    //}
+
+
 
     IEnumerator UnBeatTime() // 코루틴 - 깜박임(무적처럼 보이게하기 위한) 효과
     {
@@ -220,6 +275,13 @@ public class PlayerScript : MonoBehaviour {
                 //    attackVel = new Vector2(10f, 5f);
                 //}
                 //rb2D.AddForce(attackVel, ForceMode2D.Impulse);
+            }
+            if(playerHp ==0)
+            {
+                hpBar.value = 0;
+                Instantiate(dieEffect, transform.position, transform.rotation);
+                Destroy(gameObject);
+                losePopUp.SetActive(true);
             }
         }
     }

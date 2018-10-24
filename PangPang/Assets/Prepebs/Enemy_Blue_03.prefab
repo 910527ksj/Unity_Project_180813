@@ -94,6 +94,7 @@ MonoBehaviour:
   enemyRigidbody2D: {fileID: 50914449021660154}
   limitY: 1
   enemyMove: 2
+  dieEffect: {fileID: 100000, guid: f2dba9e16cd347f44a395b8204544ee5, type: 2}
 --- !u!212 &212258110527248940
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -128,7 +129,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 245c7d85597634b40b98cec57dd64e93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

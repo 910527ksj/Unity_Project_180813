@@ -6,6 +6,7 @@ public class BulletScript : MonoBehaviour {
 
     public float bulletSpeed;
     public float deleteTime;
+    public GameObject hitEffect;
 
 	void Start ()
     {
@@ -23,6 +24,7 @@ public class BulletScript : MonoBehaviour {
     {
         if(coll.tag == "Enemy")
         {
+            Instantiate(hitEffect,transform.position,transform.rotation);
             Destroy(gameObject);
         }
     }
