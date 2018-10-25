@@ -5,14 +5,20 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour {
 
     public float playerSpeed;
+    public float limtX;
     public Animator playerAnim;
     public GameObject firePos;
     //public GameObject bullet;
+
     public float shotDelay;
     public float shotCool;
-    public float limtX;
+    public float curShotCool;
+    public UIProgressBar shotBar;
+    public UILabel shotCoolLabel;
+
     public float playerHp;
     public float playerMaxHp;
+    public float curPlayerHp;
     public UIProgressBar hpBar;
 
     public GameObject dieEffect;
@@ -25,10 +31,19 @@ public class PlayerScript : MonoBehaviour {
     public float timeA;
     public float timeB = 0.1f;
 
-    public bool attackTouch;
+    //public bool attackTouch;
 
     public GameObject losePopUp;
     public GameObject pausePopUpCheck;
+    public GameObject exitLobbyCheck;
+
+    public float chargeGage;
+    public float chargeMax;
+    public float curCharge;
+    public bool chargeGageBool;
+    public GameObject chargeEffect;
+    public UIProgressBar chargeBar;
+
 
     void Start()
     {
@@ -39,12 +54,15 @@ public class PlayerScript : MonoBehaviour {
 
     void Update ()
     {
-        shotDelay += Time.deltaTime;
+        ShotDelay();
 
-        playerMaxHp = playerHp / 5; // hp,max 만든 다음 -> ( /5 ) = hp수치를 써주면 됌. 프로그레스바 벨류가 1이므로 비율을 맞추기위해 나누기5 해줌
-        hpBar.value = playerMaxHp;
+        curPlayerHp = playerHp / playerMaxHp; // hp,max 만든 다음 -> ( /5(playerMaxHp) ) = hp수치를 써주면 됌. 프로그레스바 벨류가 1이므로 비율을 맞추기위해 나누기5 해줌
+        hpBar.value = curPlayerHp;
 
-        PlayerMoveLimit();
+        ChargeGageBar(); // 업데이트가 길면 안되므로 함수로 만들어서 적으면 정상 작동 함
+
+
+        PlayerMoveLimit(); // 업데이트가 길면 안되므로 함수로 만들어서 적으면 정상 작동 함
 
         //if (transform.position.y < -2.5f) 
         //// 플레이어 높이 제한 ( 맨위에 둬야는 이유는 함수로 사용 안할 시 업데이트는 순서대로 돌아가므로 자 객체인 firepos의 월드포지션이 계속 내려감 
@@ -74,14 +92,14 @@ public class PlayerScript : MonoBehaviour {
 
 
 
-        if (Input.GetKey(KeyCode.Space) || attackTouch == true) // 이 밑 로직들은 제자리 공격시 캐릭터 x값에 따라 다른 모션을 취하기 위한 로직
+        if (Input.GetKeyDown(KeyCode.Space) ) // 이 밑 로직들은 제자리 공격시 캐릭터 x값에 따라 다른 모션을 취하기 위한 로직
         {
                 //ArrowFire(); // 발사 함수 불러오기
                 //*firePos.GetComponent<FireScript>().Fire(); //  fireScript에서 fire 함수 불러오기
                 if (gameObject.transform.position.x < 0)
                 {
                     playerAnim.SetBool("Left Bool", true);
-                    if (shotDelay > shotCool)
+                    if (shotDelay >= shotCool)
                     {
                         firePos.GetComponent<FireScript>().Fire(); //  fireScript에서 fire 함수 불러오기
                         shotDelay = 0;
@@ -90,7 +108,7 @@ public class PlayerScript : MonoBehaviour {
                 if (gameObject.transform.position.x >= 0)
                 {
                     playerAnim.SetBool("Right Bool", true);
-                    if (shotDelay > shotCool)
+                    if (shotDelay >= shotCool)
                     {
                         firePos.GetComponent<FireScript>().Fire();
                         shotDelay = 0;
@@ -98,25 +116,69 @@ public class PlayerScript : MonoBehaviour {
                 }
         }                  
 
-        if (Input.GetKey(KeyCode.Space) && Input.GetKey(KeyCode.RightArrow)) // 이 밑 로직들은 캐릭터 좌,우 이동시 기존 모션과 반대로 공격모션 취하기 위한 로직
+        if (Input.GetKeyDown(KeyCode.Space) && Input.GetKey(KeyCode.RightArrow)) // 이 밑 로직들은 캐릭터 좌,우 이동시 기존 모션과 반대로 공격모션 취하기 위한 로직
         {
             GetComponent<Animator>().Play("right");
-            if (shotDelay > shotCool)
+            if (shotDelay >= shotCool)
             {
                 firePos.GetComponent<FireScript>().Fire();
                 shotDelay = 0;
             }
         }
-        if (Input.GetKey(KeyCode.Space) && Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.Space) && Input.GetKey(KeyCode.LeftArrow))
         {
             GetComponent<Animator>().Play("left");
-            if (shotDelay > shotCool)
+            if (shotDelay >= shotCool)
             {
                 firePos.GetComponent<FireScript>().Fire();
                 shotDelay = 0;
+            }
+        }
+        if(Input.GetKey(KeyCode.Space) || chargeGageBool == true) // 챠지 어택 게이지 모으기 , 스페이스 누르고 있으면
+        {
+            chargeGage += Time.deltaTime;
+            chargeEffect.SetActive(true);
+            if(chargeGage > chargeMax)
+            {
+                chargeGage = chargeMax;
             }
         }
 
+        if (Input.GetKeyUp(KeyCode.Space)) // 챠지 어택 , 스페이스 손 떼면
+        {
+            if (gameObject.transform.position.x < 0)
+            {
+                playerAnim.SetBool("Left Bool", true);
+                if (chargeGage >= chargeMax)
+                {
+                    Debug.Log("chargeMax");
+                    firePos.GetComponent<FireScript>().ChargeAttack();
+                    chargeGage = 0;
+                    chargeEffect.SetActive(false);
+                }
+                else
+                {
+                    chargeGage = 0;
+                    chargeEffect.SetActive(false);
+                }
+            }
+            if (gameObject.transform.position.x >= 0)
+            {
+                playerAnim.SetBool("Right Bool", true);
+                if (chargeGage >= chargeMax)
+                {
+                    Debug.Log("chargeMax");
+                    firePos.GetComponent<FireScript>().ChargeAttack();
+                    chargeGage = 0;
+                    chargeEffect.SetActive(false);
+                }
+                else
+                {
+                    chargeGage = 0;
+                    chargeEffect.SetActive(false);
+                }
+            }
+        }
 
 
         //if (transform.position.x > limtX) // 좌,우 이동 제한
@@ -148,9 +210,47 @@ public class PlayerScript : MonoBehaviour {
         }
     }
 
+    void ShotDelay() // 기본 공격 쿨타임 
+    {
+        shotDelay += Time.deltaTime;
+        if(shotDelay > shotCool)
+        {
+            shotDelay = shotCool;
+        }
+        /*----------- 게이지 ----------- */
+        curShotCool = shotDelay / shotCool;
+        shotBar.value = curShotCool;
+        /*----------- 게이지 ----------- */
+
+        /*----------- 타이머 ----------- */
+        curShotCool = (float)(shotBar.value);
+        shotCoolLabel.text = "" + curShotCool;
+
+        StartCoroutine("CoolTimeCounter");
+        /*----------- 타이머 ----------- */
+    }
+
+    IEnumerator CoolTimeCounter() // 기본 공격 타이머 코루틴
+    {
+        while(curShotCool > 0   )
+        {
+            yield return new WaitForSeconds(1.0f);
+
+            //curShotCool -= 1.0f;
+            shotCoolLabel.text = "" + curShotCool;
+        }
+    }
+
+
+    void ChargeGageBar()
+    {
+        curCharge = chargeGage / chargeMax;
+        chargeBar.value = curCharge;
+    }
+
     public void UsePotionBtnClick()
     {
-        if (pausePopUpCheck.activeSelf == true)
+        if (pausePopUpCheck.activeSelf == true && exitLobbyCheck.activeSelf == false)
         {
             if (playerHp > 0)
             {
@@ -163,22 +263,101 @@ public class PlayerScript : MonoBehaviour {
             }
         }
     }
-    
-    public void AttackBtnClick()
+
+    public void AttackBtnClick() // 버튼 한번 클릭시 공격
     {
-       if(pausePopUpCheck.activeSelf == true)
+        PlayerMoveLimit();
+        if (pausePopUpCheck.activeSelf == true && exitLobbyCheck.activeSelf == false)
         {
-            attackTouch = true;
+            if (gameObject.transform.position.x < 0)
+            {
+                GetComponent<Animator>().Play("left");
+                if (shotDelay >= shotCool)
+                {
+                    firePos.GetComponent<FireScript>().Fire(); //  fireScript에서 fire 함수 불러오기
+                    shotDelay = 0;
+                }
+            }
+            if (gameObject.transform.position.x >= 0)
+            {
+                GetComponent<Animator>().Play("right");
+                if (shotDelay >= shotCool)
+                {
+                    firePos.GetComponent<FireScript>().Fire();
+                    shotDelay = 0;
+                }
+            }
         }
     }
 
-    public void AttackBtnRelease()
+    public void ChargeAttackBtnPress() // 챠지 어택 
     {
-        if(pausePopUpCheck.activeSelf == true)
+        if (pausePopUpCheck.activeSelf == true && exitLobbyCheck.activeSelf == false)
         {
-            attackTouch = false;
+            chargeGageBool = true;
+            chargeEffect.SetActive(true);
         }
     }
+
+    public void ChargeAttackRelease() // 챠지 어택 해제
+    {
+        PlayerMoveLimit();
+        if (pausePopUpCheck.activeSelf == true && exitLobbyCheck.activeSelf == false)
+        {
+            if (gameObject.transform.position.x < 0)
+            {
+                GetComponent<Animator>().Play("left");
+                if (chargeGage >= chargeMax)
+                {
+                    Debug.Log("chargeMax");
+                    firePos.GetComponent<FireScript>().ChargeAttack();
+                    chargeGage = 0;
+                    chargeGageBool = false;
+                    chargeEffect.SetActive(false);
+                }
+                else
+                {
+                    chargeGage = 0;
+                    chargeGageBool = false;
+                    chargeEffect.SetActive(false);
+                }
+            }
+            if (gameObject.transform.position.x >= 0)
+            {
+                GetComponent<Animator>().Play("right");
+                if (chargeGage >= chargeMax)
+                {
+                    Debug.Log("chargeMax");
+                    firePos.GetComponent<FireScript>().ChargeAttack();
+                    chargeGage = 0;
+                    chargeGageBool = false;
+                    chargeEffect.SetActive(false);
+                }
+                else
+                {
+                    chargeGage = 0;
+                    chargeGageBool = false;
+                    chargeEffect.SetActive(false);
+                }
+            }
+        }
+    }
+
+    //public void AttackBtnClick() // 버튼 누를시 기본 공격
+    //{
+    //   if(pausePopUpCheck.activeSelf == true && exitLobbyCheck.activeSelf == false)
+    //    {
+    //        attackTouch = true;
+    //    }
+    //}
+
+    //public void AttackBtnRelease() // 버튼 손떼면 기본공격 해제
+    //{
+    //    if(pausePopUpCheck.activeSelf == true && exitLobbyCheck.activeSelf == false)
+    //    {
+    //        attackTouch = false;
+    //    }
+    //}
 
     void PlayerMoveLimit() // 이동제한 함수
     {

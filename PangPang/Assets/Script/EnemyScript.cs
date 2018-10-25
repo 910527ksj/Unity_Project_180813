@@ -47,6 +47,21 @@ public class EnemyScript : MonoBehaviour {
                 obj2.GetComponent<Rigidbody2D>().velocity = new Vector2(enemyMove, 0);
             }
         }
+        if (coll.tag == "ChargeAttack")
+        {
+            enemyHp -= 3;
+            if (enemyHp <= 0)
+            {
+                Instantiate(dieEffect, transform.position, transform.rotation);
+                Destroy(gameObject);
+                GameObject obj1 = Instantiate(enemyChange) as GameObject;
+                obj1.transform.position = transform.position;
+                obj1.GetComponent<Rigidbody2D>().velocity = new Vector2(-enemyMove, 0);
+                GameObject obj2 = Instantiate(enemyChange) as GameObject;
+                obj2.transform.position = transform.position;
+                obj2.GetComponent<Rigidbody2D>().velocity = new Vector2(enemyMove, 0);
+            }
+        }
     }
     private void OnCollisionEnter2D(Collision2D coll)
     {

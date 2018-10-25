@@ -15,6 +15,9 @@ public class BtnScript : MonoBehaviour {
 
     public GameObject losePopUpCheck;
 
+    public GameObject lobbyPopUp;
+
+
     void Start()
     {
 
@@ -48,7 +51,7 @@ public class BtnScript : MonoBehaviour {
 
     public void Pause()
     {
-        if (losePopUpCheck.activeSelf == false)
+        if (losePopUpCheck.activeSelf == false && lobbyPopUp.activeSelf == false)
         {
             Time.timeScale = 0.0f;
             pauseLabel.SetActive(true);
@@ -67,8 +70,8 @@ public class BtnScript : MonoBehaviour {
    
 
     public void BgmStop()
-    {
-        bgmStopSprite.SetActive(true);
+    {        
+            bgmStopSprite.SetActive(true);
     }
 
     public void BgmReStart()
@@ -86,5 +89,34 @@ public class BtnScript : MonoBehaviour {
     public void PlaySoundReStart()
     {
         playSoundStopSprite.SetActive(false);
+    }
+
+
+    public void LobbyPopUp()
+    {
+        if (pauseSprite.activeSelf == true && losePopUpCheck.activeSelf == false)
+        {
+            if (lobbyPopUp.activeSelf == false)
+            {
+                lobbyPopUp.SetActive(true);
+                Time.timeScale = 0.0f;
+            }
+            else if (lobbyPopUp.activeSelf == true)
+            {
+                lobbyPopUp.SetActive(false);
+                Time.timeScale = 1.0f;
+            }
+        }
+    }
+
+    public void LobbyExitClick()
+    {
+
+    }
+
+    public void LobbyExitCancel()
+    {
+        lobbyPopUp.SetActive(false);
+        Time.timeScale = 1.0f;
     }
 }
