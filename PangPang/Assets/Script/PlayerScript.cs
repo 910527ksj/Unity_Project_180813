@@ -20,6 +20,7 @@ public class PlayerScript : MonoBehaviour {
     public float playerMaxHp;
     public float curPlayerHp;
     public UIProgressBar hpBar;
+    public UILabel hpLabel;
 
     public GameObject dieEffect;
 
@@ -61,8 +62,9 @@ public class PlayerScript : MonoBehaviour {
 
         ChargeGageBar(); // 업데이트가 길면 안되므로 함수로 만들어서 적으면 정상 작동 함
 
-
         PlayerMoveLimit(); // 업데이트가 길면 안되므로 함수로 만들어서 적으면 정상 작동 함
+
+        hpLabel.text = "HP  :  " + playerHp.ToString();
 
         //if (transform.position.y < -2.5f) 
         //// 플레이어 높이 제한 ( 맨위에 둬야는 이유는 함수로 사용 안할 시 업데이트는 순서대로 돌아가므로 자 객체인 firepos의 월드포지션이 계속 내려감 
@@ -99,19 +101,19 @@ public class PlayerScript : MonoBehaviour {
                 if (gameObject.transform.position.x < 0)
                 {
                     playerAnim.SetBool("Left Bool", true);
-                    if (shotDelay >= shotCool)
+                    if (shotDelay <= 0)
                     {
                         firePos.GetComponent<FireScript>().Fire(); //  fireScript에서 fire 함수 불러오기
-                        shotDelay = 0;
+                         shotDelay = shotCool;
                     }
                 }
                 if (gameObject.transform.position.x >= 0)
                 {
                     playerAnim.SetBool("Right Bool", true);
-                    if (shotDelay >= shotCool)
+                    if (shotDelay <= 0)
                     {
                         firePos.GetComponent<FireScript>().Fire();
-                        shotDelay = 0;
+                         shotDelay = shotCool;
                     }
                 }
         }                  
@@ -119,28 +121,32 @@ public class PlayerScript : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space) && Input.GetKey(KeyCode.RightArrow)) // 이 밑 로직들은 캐릭터 좌,우 이동시 기존 모션과 반대로 공격모션 취하기 위한 로직
         {
             GetComponent<Animator>().Play("right");
-            if (shotDelay >= shotCool)
+            if (shotDelay <= 0)
             {
                 firePos.GetComponent<FireScript>().Fire();
-                shotDelay = 0;
+                shotDelay = shotCool;
             }
         }
         if (Input.GetKeyDown(KeyCode.Space) && Input.GetKey(KeyCode.LeftArrow))
         {
             GetComponent<Animator>().Play("left");
-            if (shotDelay >= shotCool)
+            if (shotDelay <= 0)
             {
                 firePos.GetComponent<FireScript>().Fire();
-                shotDelay = 0;
+                shotDelay = shotCool;
             }
         }
-        if(Input.GetKey(KeyCode.Space) || chargeGageBool == true) // 챠지 어택 게이지 모으기 , 스페이스 누르고 있으면
+        if(Input.GetKey(KeyCode.Space) ) // 챠지 어택 게이지 모으기 , 스페이스 누르고 있으면
         {
             chargeGage += Time.deltaTime;
             chargeEffect.SetActive(true);
             if(chargeGage > chargeMax)
             {
                 chargeGage = chargeMax;
+                if(chargeGage == chargeMax)
+                {
+                    chargeGageBool = true;
+                }
             }
         }
 
@@ -149,32 +155,60 @@ public class PlayerScript : MonoBehaviour {
             if (gameObject.transform.position.x < 0)
             {
                 playerAnim.SetBool("Left Bool", true);
-                if (chargeGage >= chargeMax)
+                if (chargeGage >= chargeMax && chargeGageBool == true)
                 {
                     Debug.Log("chargeMax");
-                    firePos.GetComponent<FireScript>().ChargeAttack();
+                    firePos.GetComponent<FireScript>().Charge100Attack();
                     chargeGage = 0;
                     chargeEffect.SetActive(false);
                 }
                 else
                 {
                     chargeGage = 0;
+                    chargeEffect.SetActive(false);
+                }
+                if (chargeBar.value > 0.5 && chargeBar.value < 1.0)
+                {
+                    Debug.Log("chargeMiddle");
+                    firePos.GetComponent<FireScript>().Charge50Attack();
+                    chargeGage = 0;
+                    chargeGageBool = false;
+                    chargeEffect.SetActive(false);
+                }
+                else
+                {
+                    chargeGage = 0;
+                    chargeGageBool = false;
                     chargeEffect.SetActive(false);
                 }
             }
             if (gameObject.transform.position.x >= 0)
             {
                 playerAnim.SetBool("Right Bool", true);
-                if (chargeGage >= chargeMax)
+                if (chargeGage >= chargeMax && chargeGageBool == true)
                 {
                     Debug.Log("chargeMax");
-                    firePos.GetComponent<FireScript>().ChargeAttack();
+                    firePos.GetComponent<FireScript>().Charge100Attack();
                     chargeGage = 0;
                     chargeEffect.SetActive(false);
                 }
                 else
                 {
                     chargeGage = 0;
+                    chargeEffect.SetActive(false);
+                }
+                if (chargeBar.value > 0.5 && chargeBar.value < 1.0)
+                {
+                    Debug.Log("chargeMiddle");
+                    firePos.GetComponent<FireScript>().Charge50Attack();
+                    chargeGage = 0;
+                    chargeGageBool = false;
+                    chargeEffect.SetActive(false);
+                }
+                else
+                {
+                    chargeGage = 0;
+                    chargeGageBool = false;
                     chargeEffect.SetActive(false);
                 }
             }
@@ -212,10 +246,10 @@ public class PlayerScript : MonoBehaviour {
 
     void ShotDelay() // 기본 공격 쿨타임 
     {
-        shotDelay += Time.deltaTime;
-        if(shotDelay > shotCool)
+        shotDelay -= Time.deltaTime;
+        if(shotDelay < 0)
         {
-            shotDelay = shotCool;
+            shotDelay = 0;
         }
         /*----------- 게이지 ----------- */
         curShotCool = shotDelay / shotCool;
@@ -223,22 +257,18 @@ public class PlayerScript : MonoBehaviour {
         /*----------- 게이지 ----------- */
 
         /*----------- 타이머 ----------- */
-        curShotCool = (float)(shotBar.value);
-        shotCoolLabel.text = "" + curShotCool;
+        //curShotCool = (float)(shotBar.value); // shotBar.value = curShotCool; 와 중복 된다 , INT로 보여지고 싶으면 FLOAT대신 쓰면 됌
 
-        StartCoroutine("CoolTimeCounter");
-        /*----------- 타이머 ----------- */
-    }
-
-    IEnumerator CoolTimeCounter() // 기본 공격 타이머 코루틴
-    {
-        while(curShotCool > 0   )
+        float coolText = shotBar.value; 
+        coolText *= shotDelay;  
+        // 변수 만들어 준 이유는 쿨타임 변경시 보여지는 초도 같이 수정되기 위해서. 변수 만들고 *= 안해줄시 1에서만 줄어들고 속도가 느려지거나 빨라짐
+        shotCoolLabel.text = "" + coolText.ToString("N1");
+        if(coolText == 0.0f)
         {
-            yield return new WaitForSeconds(1.0f);
-
-            //curShotCool -= 1.0f;
-            shotCoolLabel.text = "" + curShotCool;
+            shotCoolLabel.text = "";
         }
+
+        /*----------- 타이머 ----------- */
     }
 
 
@@ -272,19 +302,19 @@ public class PlayerScript : MonoBehaviour {
             if (gameObject.transform.position.x < 0)
             {
                 GetComponent<Animator>().Play("left");
-                if (shotDelay >= shotCool)
+                if (shotDelay <= 0)
                 {
                     firePos.GetComponent<FireScript>().Fire(); //  fireScript에서 fire 함수 불러오기
-                    shotDelay = 0;
+                    shotDelay = shotCool;
                 }
             }
             if (gameObject.transform.position.x >= 0)
             {
                 GetComponent<Animator>().Play("right");
-                if (shotDelay >= shotCool)
+                if (shotDelay <= 0)
                 {
                     firePos.GetComponent<FireScript>().Fire();
-                    shotDelay = 0;
+                    shotDelay = shotCool;
                 }
             }
         }
@@ -293,8 +323,7 @@ public class PlayerScript : MonoBehaviour {
     public void ChargeAttackBtnPress() // 챠지 어택 
     {
         if (pausePopUpCheck.activeSelf == true && exitLobbyCheck.activeSelf == false)
-        {
-            chargeGageBool = true;
+        {           
             chargeEffect.SetActive(true);
         }
     }
@@ -307,10 +336,24 @@ public class PlayerScript : MonoBehaviour {
             if (gameObject.transform.position.x < 0)
             {
                 GetComponent<Animator>().Play("left");
-                if (chargeGage >= chargeMax)
+                if (chargeGage >= chargeMax && chargeGageBool == true)
                 {
                     Debug.Log("chargeMax");
-                    firePos.GetComponent<FireScript>().ChargeAttack();
+                    firePos.GetComponent<FireScript>().Charge100Attack();
+                    chargeGage = 0;
+                    chargeGageBool = false;
+                    chargeEffect.SetActive(false);
+                }
+                else
+                {
+                    chargeGage = 0;
+                    chargeGageBool = false;
+                    chargeEffect.SetActive(false);
+                }
+                if( chargeBar.value > 0.5 && chargeBar.value < 1.0)
+                {
+                    Debug.Log("chargeMiddle");
+                    firePos.GetComponent<FireScript>().Charge50Attack();
                     chargeGage = 0;
                     chargeGageBool = false;
                     chargeEffect.SetActive(false);
@@ -325,10 +368,24 @@ public class PlayerScript : MonoBehaviour {
             if (gameObject.transform.position.x >= 0)
             {
                 GetComponent<Animator>().Play("right");
-                if (chargeGage >= chargeMax)
+                if (chargeGage >= chargeMax && chargeGageBool == true)
                 {
                     Debug.Log("chargeMax");
-                    firePos.GetComponent<FireScript>().ChargeAttack();
+                    firePos.GetComponent<FireScript>().Charge100Attack();
+                    chargeGage = 0;
+                    chargeGageBool = false;
+                    chargeEffect.SetActive(false);
+                }
+                else
+                {
+                    chargeGage = 0;
+                    chargeGageBool = false;
+                    chargeEffect.SetActive(false);
+                }
+                if (chargeBar.value > 0.5 && chargeBar.value < 1.0)
+                {
+                    Debug.Log("chargeMiddle");
+                    firePos.GetComponent<FireScript>().Charge50Attack();
                     chargeGage = 0;
                     chargeGageBool = false;
                     chargeEffect.SetActive(false);
@@ -458,9 +515,10 @@ public class PlayerScript : MonoBehaviour {
             if(playerHp ==0)
             {
                 hpBar.value = 0;
-                Instantiate(dieEffect, transform.position, transform.rotation);
-                Destroy(gameObject);
+                Instantiate(dieEffect, transform.position, transform.rotation);                
                 losePopUp.SetActive(true);
+                hpLabel.text = "HP  :  0";
+                Destroy(gameObject);
             }
         }
     }

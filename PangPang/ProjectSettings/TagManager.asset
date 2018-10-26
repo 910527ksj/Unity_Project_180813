@@ -8,7 +8,8 @@ TagManager:
   - Enemy
   - Arrow
   - FxTemporaire
-  - ChargeAttack
+  - Charge50Attack
+  - Charge100Attack
   layers:
   - Default
   - TransparentFX
