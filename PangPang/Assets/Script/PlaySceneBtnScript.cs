@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BtnScript : MonoBehaviour {
+public class PlaySceneBtnScript : MonoBehaviour {
 
 
 
@@ -111,7 +111,7 @@ public class BtnScript : MonoBehaviour {
 
     public void LobbyExitClick()
     {
-
+        
     }
 
     public void LobbyExitCancel()
