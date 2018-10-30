@@ -111,7 +111,7 @@ public class PlaySceneBtnScript : MonoBehaviour {
 
     public void LobbyExitClick()
     {
-        
+        Application.LoadLevel("Lobby");
     }
 
     public void LobbyExitCancel()

@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour {
 
+    static PlayerScript _instancePlayer;
+    public static PlayerScript InstancePlayer()
+    {
+        return _instancePlayer;
+    }
+
     public float playerSpeed;
     public float limtX;
     public Animator playerAnim;
@@ -45,10 +51,17 @@ public class PlayerScript : MonoBehaviour {
     public GameObject chargeEffect;
     public UIProgressBar chargeBar;
 
+    public UILabel haveGold;
+    public UILabel haveGem;
+    public UILabel havePotion;
 
     void Start()
     {
-        shotDelay = 1;
+        if (_instancePlayer == null)
+        {
+            _instancePlayer = this;
+        }
+        //shotDelay = 1;
     }
 
 
@@ -65,6 +78,7 @@ public class PlayerScript : MonoBehaviour {
         PlayerMoveLimit(); // 업데이트가 길면 안되므로 함수로 만들어서 적으면 정상 작동 함
 
         hpLabel.text = "HP  :  " + playerHp.ToString();
+
 
         //if (transform.position.y < -2.5f) 
         //// 플레이어 높이 제한 ( 맨위에 둬야는 이유는 함수로 사용 안할 시 업데이트는 순서대로 돌아가므로 자 객체인 firepos의 월드포지션이 계속 내려감 

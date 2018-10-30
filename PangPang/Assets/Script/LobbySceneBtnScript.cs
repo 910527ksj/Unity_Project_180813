@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class LobbySceneBtnScript : MonoBehaviour {
 
+    static LobbySceneBtnScript _instanceLobby;
+    public static LobbySceneBtnScript InstanceLobby()
+    {
+        return _instanceLobby;
+    }
+
     public UILabel haveGold;
     public UILabel haveGem;
     public UILabel havePotion;
@@ -19,16 +25,37 @@ public class LobbySceneBtnScript : MonoBehaviour {
     public float gem;
     public float potion;
 
-    public GameObject exitPopUp;
+    public GameObject gameExitPopUp;
+
     public GameObject buyGoldPopUp;
+
     public GameObject buyGemPopUp;
     public GameObject buyGemCheckPopUp;
+
     public GameObject buyShopPopUp;
+
+    public GameObject potionGoldCheck;
+    public GameObject potionGemCheck;
+    public GameObject weaponGoldCheck;
+    public GameObject weaponGemCheck;
+    public GameObject hpGoldCheck;
+    public GameObject hpGemCheck;
+    public GameObject warringLabel;
+
+    public GameObject settingPopUp;
+
+    public GameObject rankPopUp;
+
+    public GameObject playerInformationPopUp;
+
+    public GameObject gameStartPopUp;
+
 
 	void Start ()
     {
-		
-	}
+        if (_instanceLobby == null)
+            _instanceLobby = this;
+    }
 	
 	
 	void Update ()
@@ -36,6 +63,8 @@ public class LobbySceneBtnScript : MonoBehaviour {
         haveGem.text = gem.ToString();
         haveGold.text = gold.ToString();
         havePotion.text = potion.ToString();
+
+ 
     
         if(buyGemCheckPopUp.activeSelf == true)
         {
@@ -52,16 +81,22 @@ public class LobbySceneBtnScript : MonoBehaviour {
 
     public void ExitPopUpClick()
     {
-        if(exitPopUp.activeSelf == false)
+        if(gameExitPopUp.activeSelf == false)
         {
-            exitPopUp.SetActive(true);
+            gameExitPopUp.SetActive(true);
             buyGoldPopUp.SetActive(false);
             buyGemPopUp.SetActive(false);
+            buyGemCheckPopUp.SetActive(false);
+            buyShopPopUp.SetActive(false);
+            settingPopUp.SetActive(false);
+            rankPopUp.SetActive(false);
+            playerInformationPopUp.SetActive(false);
+            gameStartPopUp.SetActive(false);
         }
         else
-        if(exitPopUp.activeSelf == true)
+        if(gameExitPopUp.activeSelf == true)
         {
-            exitPopUp.SetActive(false);
+            gameExitPopUp.SetActive(false);
         }
     }
 
@@ -72,7 +107,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
 
     public void ExitPopUpCancel()
     {
-        exitPopUp.SetActive(false);
+        gameExitPopUp.SetActive(false);
     }
 
     public void BuyGoldPopUpClick()
@@ -80,8 +115,14 @@ public class LobbySceneBtnScript : MonoBehaviour {
         if(buyGoldPopUp.activeSelf == false)
         {
             buyGoldPopUp.SetActive(true);
-            exitPopUp.SetActive(false);
+            gameExitPopUp.SetActive(false);
             buyGemPopUp.SetActive(false);
+            buyGemCheckPopUp.SetActive(false);
+            buyShopPopUp.SetActive(false);
+            settingPopUp.SetActive(false);
+            rankPopUp.SetActive(false);
+            playerInformationPopUp.SetActive(false);
+            gameStartPopUp.SetActive(false);
         }
         else
         if(buyGoldPopUp.activeSelf == true)
@@ -106,8 +147,14 @@ public class LobbySceneBtnScript : MonoBehaviour {
         if(buyGemPopUp.activeSelf == false  )
         {
             buyGemPopUp.SetActive(true);
-            exitPopUp.SetActive(false);
+            gameExitPopUp.SetActive(false);
             buyGoldPopUp.SetActive(false);
+            buyGemCheckPopUp.SetActive(false);
+            buyShopPopUp.SetActive(false);
+            settingPopUp.SetActive(false);
+            rankPopUp.SetActive(false);
+            playerInformationPopUp.SetActive(false);
+            gameStartPopUp.SetActive(false);
         }
         else
         if (buyGemPopUp.activeSelf == true)
@@ -135,5 +182,396 @@ public class LobbySceneBtnScript : MonoBehaviour {
         buyGemCheckPopUp.SetActive(true);
         chkGemResult = chkGemEa.Find(x => x.name == "x15");
         chkMoneyResult = chkMoney.Find(x => x.name == "3,000");
+    }
+
+    public void BuyGem25()
+    {
+        buyGemPopUp.SetActive(false);
+        buyGemCheckPopUp.SetActive(true);
+        chkGemResult = chkGemEa.Find(x => x.name == "x25");
+        chkMoneyResult = chkMoney.Find(x => x.name == "5,000");
+    }
+
+    public void BuyGem50()
+    {
+        buyGemPopUp.SetActive(false);
+        buyGemCheckPopUp.SetActive(true);
+        chkGemResult = chkGemEa.Find(x => x.name == "x50");
+        chkMoneyResult = chkMoney.Find(x => x.name == "10,000");
+    }
+
+    public void BuyGem75()
+    {
+        buyGemPopUp.SetActive(false);
+        buyGemCheckPopUp.SetActive(true);
+        chkGemResult = chkGemEa.Find(x => x.name == "x75");
+        chkMoneyResult = chkMoney.Find(x => x.name == "15,000");
+    }
+    public void BuyGem100()
+    {
+        buyGemPopUp.SetActive(false);
+        buyGemCheckPopUp.SetActive(true);
+        chkGemResult = chkGemEa.Find(x => x.name == "x100");
+        chkMoneyResult = chkMoney.Find(x => x.name == "20,000");
+    }
+
+    public void BuyGemYes()
+    {
+        buyGemCheckPopUp.SetActive(false);
+
+        int gemResult = int.Parse(chkGemResult.GetComponent<UILabel>().text);
+        Debug.Log(gemResult);
+
+        gem += gemResult; // haveGem에 할 경우 text라서 더 해지지 않음 
+    }
+
+    public void BuyGemNo()
+    {
+        buyGemCheckPopUp.SetActive(false);
+        buyGemPopUp.SetActive(true);
+    }    
+
+    public void ShopPopUpClick()
+    {
+        if(buyShopPopUp.activeSelf == false)
+        {
+            buyShopPopUp.SetActive(true);
+            buyGemPopUp.SetActive(false);
+            gameExitPopUp.SetActive(false);
+            buyGoldPopUp.SetActive(false);
+            buyGemCheckPopUp.SetActive(false);
+            settingPopUp.SetActive(false);
+            rankPopUp.SetActive(false);
+            playerInformationPopUp.SetActive(false);
+            gameStartPopUp.SetActive(false);
+        }
+        else
+        if(buyShopPopUp.activeSelf == true)
+        {
+            buyShopPopUp.SetActive(false);
+        }
+    }
+
+    public void ShopPopUpCancel()
+    {
+        buyShopPopUp.SetActive(false);
+    }
+
+    IEnumerator WarringMessagePotion()
+    {
+        warringLabel.SetActive(true);
+        if (warringLabel.activeSelf == true)
+        {
+            if (potionGoldCheck.GetComponent<TweenAlpha>().to == 0 && potionGemCheck.GetComponent<TweenAlpha>().to == 0 )
+            {
+                warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
+                Debug.Log("1");
+            }
+
+            if (potionGoldCheck.GetComponent<TweenAlpha>().to == 1 && potionGemCheck.GetComponent<TweenAlpha>().to == 0)
+            {
+                if (gold < 1000)
+                {
+                    warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
+                    Debug.Log("2");
+                }
+            }
+           
+            if (potionGoldCheck.GetComponent<TweenAlpha>().to == 0 && potionGemCheck.GetComponent<TweenAlpha>().to == 1 )
+            {
+                if (gem < 100)
+                {
+                    warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
+                    Debug.Log("3");
+                }
+            }
+        }
+        yield return new WaitForSeconds(2f);
+        warringLabel.SetActive(false);
+    }
+
+    IEnumerator WarringMessageWeapon()
+    {
+        warringLabel.SetActive(true);
+        if (warringLabel.activeSelf == true)
+        {
+            if (weaponGoldCheck.GetComponent<TweenAlpha>().to == 0 && weaponGemCheck.GetComponent<TweenAlpha>().to == 0)
+            {
+                warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
+                Debug.Log("1");
+            }
+
+            if (weaponGoldCheck.GetComponent<TweenAlpha>().to == 1 && weaponGemCheck.GetComponent<TweenAlpha>().to == 0)
+            {
+                if (gold < 1000)
+                {
+                    warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
+                    Debug.Log("2");
+                }
+            }
+
+            if (weaponGoldCheck.GetComponent<TweenAlpha>().to == 0 && weaponGemCheck.GetComponent<TweenAlpha>().to == 1)
+            {
+                if (gem < 100)
+                {
+                    warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
+                    Debug.Log("3");
+                }
+            }
+        }
+        yield return new WaitForSeconds(2f);
+        warringLabel.SetActive(false);
+    }
+
+    IEnumerator WarringMessageHp()
+    {
+        warringLabel.SetActive(true);
+        if (warringLabel.activeSelf == true)
+        {
+            if (hpGoldCheck.GetComponent<TweenAlpha>().to == 0 && hpGemCheck.GetComponent<TweenAlpha>().to == 0)
+            {
+                warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
+                Debug.Log("1");
+            }
+
+            if (hpGoldCheck.GetComponent<TweenAlpha>().to == 1 && hpGemCheck.GetComponent<TweenAlpha>().to == 0)
+            {
+                if (gold < 1000)
+                {
+                    warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
+                    Debug.Log("2");
+                }
+            }
+
+            if (hpGoldCheck.GetComponent<TweenAlpha>().to == 0 && hpGemCheck.GetComponent<TweenAlpha>().to == 1)
+            {
+                if (gem < 100)
+                {
+                    warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
+                    Debug.Log("3");
+                }
+            }
+        }
+        yield return new WaitForSeconds(2f);
+        warringLabel.SetActive(false);
+    }
+
+    public void BuyPotion()
+    {
+        if (potionGoldCheck.GetComponent<TweenAlpha>().to == 1 && potionGemCheck.GetComponent<TweenAlpha>().to == 0)
+        {
+            if (gold >= 1000)
+            {
+                gold -= 1000;
+                potion += 1;
+                Debug.Log("골드로 포션");
+            }
+            else
+            if (gold < 1000)
+            {
+                StartCoroutine("WarringMessagePotion");
+            }
+        }
+        else
+        if(potionGoldCheck.GetComponent<TweenAlpha>().to == 0 && potionGemCheck.GetComponent<TweenAlpha>().to == 1)
+        {
+            if(gem >=100)
+            {
+                gem -= 100;
+                potion += 1;
+                Debug.Log("잼으로 포션");
+            }
+            if (gem < 100)
+            {
+                StartCoroutine("WarringMessagePotion");
+            }
+        }
+        else
+        if (potionGoldCheck.GetComponent<TweenAlpha>().to == 0 && potionGemCheck.GetComponent<TweenAlpha>().to == 0)
+        {
+            Debug.Log("체크 하세요");
+            StartCoroutine("WarringMessagePotion");
+        }
+    }
+
+    public void BuyWeapon()
+    {
+        if (weaponGoldCheck.GetComponent<TweenAlpha>().to == 1 && weaponGemCheck.GetComponent<TweenAlpha>().to == 0)
+        {
+            if (gold >= 1000)
+            {
+                gold -= 1000;
+                Debug.Log("골드로 무기");
+            }
+            else
+            if (gold < 1000)
+            {
+                StartCoroutine("WarringMessageWeapon");
+            }
+        }
+        else
+        if (weaponGoldCheck.GetComponent<TweenAlpha>().to == 0 && weaponGemCheck.GetComponent<TweenAlpha>().to == 1)
+        {
+            if (gem >= 100)
+            {
+                gem -= 100;                
+                Debug.Log("잼으로 무기");
+            }
+            if (gem < 100)
+            {
+                StartCoroutine("WarringMessageWeapon");
+            }
+        }
+        else
+        if (weaponGoldCheck.GetComponent<TweenAlpha>().to == 0 && weaponGemCheck.GetComponent<TweenAlpha>().to == 0)
+        {
+            Debug.Log("체크 하세요");
+            StartCoroutine("WarringMessageWeapon");
+        }
+    }
+
+    public void BuyHp()
+    {
+        if (hpGoldCheck.GetComponent<TweenAlpha>().to == 1 && hpGemCheck.GetComponent<TweenAlpha>().to == 0)
+        {
+            if (gold >= 1000)
+            {
+                gold -= 1000;
+                Debug.Log("골드로 hp");
+            }
+            else
+            if (gold < 1000)
+            {
+                StartCoroutine("WarringMessageHp");
+            }
+        }
+        else
+        if (hpGoldCheck.GetComponent<TweenAlpha>().to == 0 && hpGemCheck.GetComponent<TweenAlpha>().to == 1)
+        {
+            if (gem >= 100)
+            {
+                gem -= 100;           
+                Debug.Log("잼으로 hp");
+            }
+            if (gem < 100)
+            {
+                StartCoroutine("WarringMessageHp");
+            }
+        }
+        else
+        if (hpGoldCheck.GetComponent<TweenAlpha>().to == 0 && hpGemCheck.GetComponent<TweenAlpha>().to == 0)
+        {
+            Debug.Log("체크 하세요");
+            StartCoroutine("WarringMessageHp");
+        }
+    }
+
+    public void SettingPopUpClick()
+    {
+        if(settingPopUp.activeSelf == false )
+        {
+            settingPopUp.SetActive(true);
+            gameExitPopUp.SetActive(false);
+            buyGoldPopUp.SetActive(false);
+            buyGemPopUp.SetActive(false);
+            buyGemCheckPopUp.SetActive(false);
+            buyShopPopUp.SetActive(false);
+            rankPopUp.SetActive(false);
+            playerInformationPopUp.SetActive(false);
+            gameStartPopUp.SetActive(false);
+        }
+        else
+        if(settingPopUp.activeSelf == true)
+        {
+            settingPopUp.SetActive(false);
+        }
+    }
+
+    public void SettingPopUpCancel()
+    {
+        settingPopUp.SetActive(false);
+    }
+
+    public void RankPopUpClick()
+    {
+        if(rankPopUp.activeSelf == false)
+        {
+            rankPopUp.SetActive(true);
+            gameExitPopUp.SetActive(false);
+            buyGoldPopUp.SetActive(false);
+            buyGemPopUp.SetActive(false);
+            buyGemCheckPopUp.SetActive(false);
+            buyShopPopUp.SetActive(false);
+            settingPopUp.SetActive(false);
+            playerInformationPopUp.SetActive(false);
+            gameStartPopUp.SetActive(false);
+        }
+        else
+        if(rankPopUp.activeSelf == true)
+        {
+            rankPopUp.SetActive(false);
+        }
+    }
+
+    public void RankPopUpCancel()
+    {
+        rankPopUp.SetActive(false);
+    }
+
+    public void PlayerInformationPopUpClick()
+    {
+        if(playerInformationPopUp.activeSelf == false)
+        {
+            playerInformationPopUp.SetActive(true);
+            rankPopUp.SetActive(false);
+            gameExitPopUp.SetActive(false);
+            buyGoldPopUp.SetActive(false);
+            buyGemPopUp.SetActive(false);
+            buyGemCheckPopUp.SetActive(false);
+            buyShopPopUp.SetActive(false);
+            settingPopUp.SetActive(false);
+            gameStartPopUp.SetActive(false);
+        }
+        else
+        if(playerInformationPopUp.activeSelf == true)
+        {
+            playerInformationPopUp.SetActive(false);
+        }
+    }
+
+    public void PlayerInformationPopUpCancel()
+    {
+        playerInformationPopUp.SetActive(false);
+    }
+
+    public void GameStartPopUpClick()
+    {
+        if(gameStartPopUp.activeSelf == false)
+        {
+            gameStartPopUp.SetActive(true);
+            playerInformationPopUp.SetActive(false);
+            rankPopUp.SetActive(false);
+            gameExitPopUp.SetActive(false);
+            buyGoldPopUp.SetActive(false);
+            buyGemPopUp.SetActive(false);
+            buyGemCheckPopUp.SetActive(false);
+            buyShopPopUp.SetActive(false);
+            settingPopUp.SetActive(false);
+        }
+        else
+        if(gameStartPopUp.activeSelf == true)
+        {
+            gameStartPopUp.SetActive(false);
+        }
+    }
+
+    public void GameStartPopUpCancel()
+    {
+        gameStartPopUp.SetActive(false);
+    }
+
+    public void EasyGame()
+    {
+        Application.LoadLevel("Stage_01");
     }
 }
