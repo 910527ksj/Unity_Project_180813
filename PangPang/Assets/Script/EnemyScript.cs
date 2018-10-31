@@ -13,7 +13,7 @@ public class EnemyScript : MonoBehaviour {
 
 	void Start ()
     {
-        if (gameObject.name == "Enemy_Blue_01")
+        if (gameObject.name == "Enemy_Blue_01(Clone)")
         {
             enemyMove = Random.Range(0, 2).Equals(0) ? -2 : 2; // 삼항연산자 - 0,1 을 랜덤으로 하고(확률50%) 0은 -1 , 1은 2
             enemyRigidbody2D.velocity = new Vector2(enemyMove, 0);
@@ -28,7 +28,7 @@ public class EnemyScript : MonoBehaviour {
         }
     }
 
-    
+
 
     private void OnTriggerEnter2D(Collider2D coll)
     {

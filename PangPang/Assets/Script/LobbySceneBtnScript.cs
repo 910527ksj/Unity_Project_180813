@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class LobbySceneBtnScript : MonoBehaviour {
 
-    static LobbySceneBtnScript _instanceLobby;
-    public static LobbySceneBtnScript InstanceLobby()
+    static LobbySceneBtnScript _instance;
+    public static LobbySceneBtnScript Instance()
     {
-        return _instanceLobby;
+        return _instance;
     }
 
     public UILabel haveGold;
@@ -21,9 +21,45 @@ public class LobbySceneBtnScript : MonoBehaviour {
     public List<GameObject> chkMoney;
     public GameObject chkMoneyResult = null;
 
-    public float gold;
-    public float gem;
-    public float potion;
+    public float _gold;
+    public float _myGem;
+    public float _potion;
+
+    public float _gemChange;
+
+    public float myGem
+    {
+        get
+        {
+            return _myGem;
+        }
+        set
+        {
+            if (_myGem > 0)
+            {
+                _myGem = _myGem;
+                SaveGem();
+            }
+        }
+    }
+
+    //public float gemChange
+    //{
+    //    get
+    //    {
+    //        return _gemChange;
+    //    }
+    //    set
+    //    {
+    //        _gemChange = value;
+    //        if (_gemChange > 0)
+    //        {
+    //            _myGem = _gemChange;
+    //            SaveGem();
+    //        }
+    //    }
+    //}
+
 
     public GameObject gameExitPopUp;
 
@@ -51,18 +87,25 @@ public class LobbySceneBtnScript : MonoBehaviour {
     public GameObject gameStartPopUp;
 
 
-	void Start ()
+    void Awake()
     {
-        if (_instanceLobby == null)
-            _instanceLobby = this;
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+        LoadGem();
+    }
+
+    void Start ()
+    {
     }
 	
 	
 	void Update ()
     {
-        haveGem.text = gem.ToString();
-        haveGold.text = gold.ToString();
-        havePotion.text = potion.ToString();
+        haveGem.text = myGem.ToString();
+        haveGold.text = _gold.ToString();
+        havePotion.text = _potion.ToString();
 
  
     
@@ -77,6 +120,17 @@ public class LobbySceneBtnScript : MonoBehaviour {
     {
         checkGem.text = chkGemResult.GetComponent<UILabel>().text;
         checkMoney.text = chkMoneyResult.GetComponent<UILabel>().text;
+    }
+
+    void SaveGem()
+    {
+        PlayerPrefs.SetFloat("MyGem", _myGem);
+        Debug.Log("잼 저장");
+    }
+    void LoadGem()
+    {
+        _myGem = PlayerPrefs.GetFloat("MyGem",_myGem);
+        Debug.Log("잼 로드");
     }
 
     public void ExitPopUpClick()
@@ -134,8 +188,8 @@ public class LobbySceneBtnScript : MonoBehaviour {
     public void BuyGoldPopUpYes()
     {
         buyGoldPopUp.SetActive(false);
-        gem -= 35;
-        gold += 100;
+        _myGem -= 35;
+        _gold += 100;
     }
     public void BuyGoldPopUpCancel()
     {
@@ -222,7 +276,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
         int gemResult = int.Parse(chkGemResult.GetComponent<UILabel>().text);
         Debug.Log(gemResult);
 
-        gem += gemResult; // haveGem에 할 경우 text라서 더 해지지 않음 
+        _myGem += gemResult; // haveGem에 할 경우 text라서 더 해지지 않음 
     }
 
     public void BuyGemNo()
@@ -265,28 +319,26 @@ public class LobbySceneBtnScript : MonoBehaviour {
             if (potionGoldCheck.GetComponent<TweenAlpha>().to == 0 && potionGemCheck.GetComponent<TweenAlpha>().to == 0 )
             {
                 warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
-                Debug.Log("1");
             }
 
             if (potionGoldCheck.GetComponent<TweenAlpha>().to == 1 && potionGemCheck.GetComponent<TweenAlpha>().to == 0)
             {
-                if (gold < 1000)
+                if (_gold < 1000)
                 {
                     warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
-                    Debug.Log("2");
                 }
             }
            
             if (potionGoldCheck.GetComponent<TweenAlpha>().to == 0 && potionGemCheck.GetComponent<TweenAlpha>().to == 1 )
             {
-                if (gem < 100)
+                if (_myGem < 100)
                 {
                     warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
-                    Debug.Log("3");
                 }
             }
         }
         yield return new WaitForSeconds(2f);
+        Debug.Log("메시지 숨김");
         warringLabel.SetActive(false);
     }
 
@@ -298,28 +350,26 @@ public class LobbySceneBtnScript : MonoBehaviour {
             if (weaponGoldCheck.GetComponent<TweenAlpha>().to == 0 && weaponGemCheck.GetComponent<TweenAlpha>().to == 0)
             {
                 warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
-                Debug.Log("1");
             }
 
             if (weaponGoldCheck.GetComponent<TweenAlpha>().to == 1 && weaponGemCheck.GetComponent<TweenAlpha>().to == 0)
             {
-                if (gold < 1000)
+                if (_gold < 1000)
                 {
                     warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
-                    Debug.Log("2");
                 }
             }
 
             if (weaponGoldCheck.GetComponent<TweenAlpha>().to == 0 && weaponGemCheck.GetComponent<TweenAlpha>().to == 1)
             {
-                if (gem < 100)
+                if (_myGem < 100)
                 {
                     warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
-                    Debug.Log("3");
                 }
             }
         }
         yield return new WaitForSeconds(2f);
+        Debug.Log("메시지 숨김");
         warringLabel.SetActive(false);
     }
 
@@ -331,28 +381,26 @@ public class LobbySceneBtnScript : MonoBehaviour {
             if (hpGoldCheck.GetComponent<TweenAlpha>().to == 0 && hpGemCheck.GetComponent<TweenAlpha>().to == 0)
             {
                 warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
-                Debug.Log("1");
             }
 
             if (hpGoldCheck.GetComponent<TweenAlpha>().to == 1 && hpGemCheck.GetComponent<TweenAlpha>().to == 0)
             {
-                if (gold < 1000)
+                if (_gold < 1000)
                 {
                     warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
-                    Debug.Log("2");
                 }
             }
 
             if (hpGoldCheck.GetComponent<TweenAlpha>().to == 0 && hpGemCheck.GetComponent<TweenAlpha>().to == 1)
             {
-                if (gem < 100)
+                if (_myGem < 100)
                 {
                     warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
-                    Debug.Log("3");
                 }
             }
         }
         yield return new WaitForSeconds(2f);
+        Debug.Log("메시지 숨김");
         warringLabel.SetActive(false);
     }
 
@@ -360,14 +408,14 @@ public class LobbySceneBtnScript : MonoBehaviour {
     {
         if (potionGoldCheck.GetComponent<TweenAlpha>().to == 1 && potionGemCheck.GetComponent<TweenAlpha>().to == 0)
         {
-            if (gold >= 1000)
+            if (_gold >= 1000)
             {
-                gold -= 1000;
-                potion += 1;
+                _gold -= 1000;
+                _potion += 1;
                 Debug.Log("골드로 포션");
             }
             else
-            if (gold < 1000)
+            if (_gold < 1000)
             {
                 StartCoroutine("WarringMessagePotion");
             }
@@ -375,13 +423,13 @@ public class LobbySceneBtnScript : MonoBehaviour {
         else
         if(potionGoldCheck.GetComponent<TweenAlpha>().to == 0 && potionGemCheck.GetComponent<TweenAlpha>().to == 1)
         {
-            if(gem >=100)
+            if(_myGem >=100)
             {
-                gem -= 100;
-                potion += 1;
+                _myGem -= 100;
+                _potion += 1;
                 Debug.Log("잼으로 포션");
             }
-            if (gem < 100)
+            if (_myGem < 100)
             {
                 StartCoroutine("WarringMessagePotion");
             }
@@ -398,13 +446,13 @@ public class LobbySceneBtnScript : MonoBehaviour {
     {
         if (weaponGoldCheck.GetComponent<TweenAlpha>().to == 1 && weaponGemCheck.GetComponent<TweenAlpha>().to == 0)
         {
-            if (gold >= 1000)
+            if (_gold >= 1000)
             {
-                gold -= 1000;
+                _gold -= 1000;
                 Debug.Log("골드로 무기");
             }
             else
-            if (gold < 1000)
+            if (_gold < 1000)
             {
                 StartCoroutine("WarringMessageWeapon");
             }
@@ -412,12 +460,12 @@ public class LobbySceneBtnScript : MonoBehaviour {
         else
         if (weaponGoldCheck.GetComponent<TweenAlpha>().to == 0 && weaponGemCheck.GetComponent<TweenAlpha>().to == 1)
         {
-            if (gem >= 100)
+            if (_myGem >= 100)
             {
-                gem -= 100;                
+                _myGem -= 100;                
                 Debug.Log("잼으로 무기");
             }
-            if (gem < 100)
+            if (_myGem < 100)
             {
                 StartCoroutine("WarringMessageWeapon");
             }
@@ -434,13 +482,13 @@ public class LobbySceneBtnScript : MonoBehaviour {
     {
         if (hpGoldCheck.GetComponent<TweenAlpha>().to == 1 && hpGemCheck.GetComponent<TweenAlpha>().to == 0)
         {
-            if (gold >= 1000)
+            if (_gold >= 1000)
             {
-                gold -= 1000;
+                _gold -= 1000;
                 Debug.Log("골드로 hp");
             }
             else
-            if (gold < 1000)
+            if (_gold < 1000)
             {
                 StartCoroutine("WarringMessageHp");
             }
@@ -448,12 +496,12 @@ public class LobbySceneBtnScript : MonoBehaviour {
         else
         if (hpGoldCheck.GetComponent<TweenAlpha>().to == 0 && hpGemCheck.GetComponent<TweenAlpha>().to == 1)
         {
-            if (gem >= 100)
+            if (_myGem >= 100)
             {
-                gem -= 100;           
+                _myGem -= 100;           
                 Debug.Log("잼으로 hp");
             }
-            if (gem < 100)
+            if (_myGem < 100)
             {
                 StartCoroutine("WarringMessageHp");
             }
@@ -573,5 +621,6 @@ public class LobbySceneBtnScript : MonoBehaviour {
     public void EasyGame()
     {
         Application.LoadLevel("Stage_01");
+        Time.timeScale = 1.0f;
     }
 }

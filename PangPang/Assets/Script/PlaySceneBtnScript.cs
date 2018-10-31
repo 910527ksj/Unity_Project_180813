@@ -17,10 +17,27 @@ public class PlaySceneBtnScript : MonoBehaviour {
 
     public GameObject lobbyPopUp;
 
+    public GameObject readyLabel;
+
+    public GameObject enemySpawn;
+    public GameObject enemyBlue;
+
+    IEnumerator ReadyMessage()
+    {
+        readyLabel.SetActive(true);
+        Debug.Log("준비");
+        readyLabel.GetComponent<UILabel>().text = "STAGE 1";
+        yield return new WaitForSeconds(2f);
+        Debug.Log("시작");
+        readyLabel.GetComponent<UILabel>().text = "시작 !";
+        yield return new WaitForSeconds(0.5f);
+        readyLabel.SetActive(false);
+        Instantiate(enemyBlue, enemySpawn.transform.position, enemySpawn.transform.rotation);
+    }
 
     void Start()
     {
-
+        StartCoroutine("ReadyMessage");
     }
 
 
@@ -112,11 +129,24 @@ public class PlaySceneBtnScript : MonoBehaviour {
     public void LobbyExitClick()
     {
         Application.LoadLevel("Lobby");
+        Time.timeScale = 1.0f;
     }
 
     public void LobbyExitCancel()
     {
         lobbyPopUp.SetActive(false);
+        Time.timeScale = 1.0f;
+    }
+
+    public void ExitLobby()
+    {
+        Application.LoadLevel("Lobby");
+        Time.timeScale = 1.0f;
+    }
+
+    public void ReStart()
+    {
+        Application.LoadLevel("Stage_01");
         Time.timeScale = 1.0f;
     }
 }

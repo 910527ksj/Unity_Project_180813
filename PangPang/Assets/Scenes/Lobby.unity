@@ -7418,9 +7418,10 @@ MonoBehaviour:
   - {fileID: 687193509}
   - {fileID: 535611907}
   chkMoneyResult: {fileID: 0}
-  gold: 0
-  gem: 9999
-  potion: 0
+  _gold: 0
+  _myGem: 9999
+  _potion: 0
+  _gemChange: 0
   gameExitPopUp: {fileID: 854764925}
   buyGoldPopUp: {fileID: 1893143079}
   buyGemPopUp: {fileID: 844650030}
