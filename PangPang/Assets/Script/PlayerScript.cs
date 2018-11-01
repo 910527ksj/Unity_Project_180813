@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour {
 
-    //static PlayerScript _instancePlayer;
-    //public static PlayerScript InstancePlayer()
-    //{
-    //    return _instancePlayer;
-    //}
+    static PlayerScript _instance;
+    public static PlayerScript Instance()
+    {
+        return _instance;
+    }
 
     public float playerSpeed;
     public float limtX;
@@ -22,7 +22,7 @@ public class PlayerScript : MonoBehaviour {
     public UIProgressBar shotBar;
     public UILabel shotCoolLabel;
 
-    public float playerHp;
+    public float playerHp;  // 맥스와함께 float으로 해줘야 hp바의 프로그레스바 value가 소수점 단위로 움직임
     public float playerMaxHp;
     public float curPlayerHp;
     public UIProgressBar hpBar;
@@ -51,17 +51,26 @@ public class PlayerScript : MonoBehaviour {
     public GameObject chargeEffect;
     public UIProgressBar chargeBar;
 
-    public GameObject haveGold;
+    public UILabel haveGold;
     public UILabel haveGem;
-    public GameObject havePotion;
+    public UILabel havePotion;
+
+    int score = 10;
+    int scoreBest;
+    public UILabel bestScore;
+    public UILabel nowSocer;
+
+
 
     void Start()
     {
-        //if (_instancePlayer == null)
-        //{
-        //    _instancePlayer = this;
-        //}
+        if (_instance == null)
+        {
+            _instance = this;
+        }
         //shotDelay = 1;
+        playerHp = LobbySceneBtnScript.Instance().playerMaxHp; // 인스턴스와 같다고 해줘야 업그레이드시 정보 넘어옴
+        playerMaxHp = LobbySceneBtnScript.Instance().playerMaxHp;
     }
 
 
@@ -80,8 +89,23 @@ public class PlayerScript : MonoBehaviour {
         hpLabel.text = "HP  :  " + playerHp.ToString();
 
         haveGem.text = LobbySceneBtnScript.Instance().myGem.ToString();
+        haveGold.text = LobbySceneBtnScript.Instance().myGold.ToString();
+        havePotion.text = LobbySceneBtnScript.Instance().myPotion.ToString();
 
-        if(chargeEffect.activeSelf == true)
+        nowSocer.text = "Score  :  "  + LobbySceneBtnScript.Instance().myScore.ToString();
+        bestScore.text = "3rd Score  :  " +  LobbySceneBtnScript.Instance().thirdScore.ToString();
+        bestScore.text = scoreBest.ToString();
+        if(scoreBest >  LobbySceneBtnScript.Instance().thirdScore)
+        {
+            bestScore.text = "2nd Score  :  " + LobbySceneBtnScript.Instance().secondScore.ToString();
+        }
+
+        if (scoreBest > LobbySceneBtnScript.Instance().secondScore)
+        {
+            bestScore.text = "1st Score  :  " + LobbySceneBtnScript.Instance().bestScore.ToString();
+        }
+
+        if (chargeEffect.activeSelf == true)
         { 
             chargeGage += Time.deltaTime;
             if (chargeGage > chargeMax)
@@ -325,15 +349,19 @@ public class PlayerScript : MonoBehaviour {
     {
         if (pausePopUpCheck.activeSelf == true && exitLobbyCheck.activeSelf == false)
         {
-            if (playerHp > 0)
+            if(LobbySceneBtnScript.Instance().myPotion >= 1 )
             {
-                playerHp += 1;
-            }
+                if (playerHp > 0 && playerHp != LobbySceneBtnScript.Instance().playerMaxHp)
+                {
+                    playerHp += 1;
+                    LobbySceneBtnScript.Instance().myPotion -= 1;
+                }
 
-            if (playerHp >= 5)
-            {
-                playerHp = 5;
-            }
+                if (playerHp >= LobbySceneBtnScript.Instance().playerMaxHp)
+                {
+                    playerHp = LobbySceneBtnScript.Instance().playerMaxHp;
+                }
+            }           
         }
     }
 
@@ -555,6 +583,7 @@ public class PlayerScript : MonoBehaviour {
             playerHp -= 1;
             if (playerHp >= 1)
             {
+                LobbySceneBtnScript.Instance().myScore -= score;
                 isUnBeatTime = true;
                 StartCoroutine("UnBeatTime");
             }

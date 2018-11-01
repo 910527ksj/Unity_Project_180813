@@ -10,6 +10,7 @@ public class EnemyScript : MonoBehaviour {
     public float limitY;
     public int enemyMove;
     public GameObject dieEffect;
+    int score = 5 ;
 
 	void Start ()
     {
@@ -34,9 +35,10 @@ public class EnemyScript : MonoBehaviour {
     {
         if(coll.tag == "Arrow")
         {
-            enemyHp -= 1;
+            enemyHp -= LobbySceneBtnScript.Instance().basicDamage;
             if (enemyHp <= 0)
             {
+                LobbySceneBtnScript.Instance().myScore += score;
                 Instantiate(dieEffect, transform.position,transform.rotation);
                 Destroy(gameObject);
                 GameObject obj1 = Instantiate(enemyChange) as GameObject;
@@ -49,9 +51,10 @@ public class EnemyScript : MonoBehaviour {
         }
         if (coll.tag == "Charge50Attack")
         {
-            enemyHp -= 2;
+            enemyHp -= LobbySceneBtnScript.Instance().basicDamage +2;
             if (enemyHp <= 0)
             {
+                LobbySceneBtnScript.Instance().myScore += score;
                 Instantiate(dieEffect, transform.position, transform.rotation);
                 Destroy(gameObject);
                 GameObject obj1 = Instantiate(enemyChange) as GameObject;
@@ -64,9 +67,10 @@ public class EnemyScript : MonoBehaviour {
         }
         if (coll.tag == "Charge100Attack")
         {
-            enemyHp -= 3;
+            enemyHp -= LobbySceneBtnScript.Instance().basicDamage +4;
             if (enemyHp <= 0)
             {
+                LobbySceneBtnScript.Instance().myScore += score;
                 Instantiate(dieEffect, transform.position, transform.rotation);
                 Destroy(gameObject);
                 GameObject obj1 = Instantiate(enemyChange) as GameObject;
