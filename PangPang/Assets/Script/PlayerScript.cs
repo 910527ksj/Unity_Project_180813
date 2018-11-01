@@ -95,7 +95,7 @@ public class PlayerScript : MonoBehaviour {
         nowSocer.text = "Score  :  "  + LobbySceneBtnScript.Instance().myScore.ToString();
         bestScore.text = "3rd Score  :  " +  LobbySceneBtnScript.Instance().thirdScore.ToString();
         bestScore.text = scoreBest.ToString();
-        if(scoreBest >  LobbySceneBtnScript.Instance().thirdScore)
+        if (scoreBest > LobbySceneBtnScript.Instance().thirdScore)
         {
             bestScore.text = "2nd Score  :  " + LobbySceneBtnScript.Instance().secondScore.ToString();
         }
@@ -123,6 +123,22 @@ public class PlayerScript : MonoBehaviour {
         //{
         //    transform.position = new Vector2(transform.position.x, -2.5f);
         //}
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
+        {
+            if (pausePopUpCheck.activeSelf == true && exitLobbyCheck.activeSelf == false)
+            {
+                Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+                transform.Translate(touchDeltaPosition.x * Time.deltaTime, 0, 0);
+                if (gameObject.transform.position.x < 0)
+                {
+                    GetComponent<Animator>().Play("left");
+                }
+                if (gameObject.transform.position.x >= 0)
+                {
+                    GetComponent<Animator>().Play("right");
+                }
+            }
+        }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
@@ -136,7 +152,6 @@ public class PlayerScript : MonoBehaviour {
         {
             playerAnim.SetBool("Left Bool", false);
         }
-        
         if (Input.GetKey(KeyCode.RightArrow))
         {
             if (pausePopUpCheck.activeSelf == true && exitLobbyCheck.activeSelf == false)

@@ -10,6 +10,23 @@ public class LobbySceneBtnScript : MonoBehaviour {
         return _instance;
     }
 
+    public UISlider _bgmSlider;
+    public UISlider bgmSlider
+    {
+        get
+        {
+            return _bgmSlider;
+        }
+        set
+        {
+            _bgmSlider = value;
+            if(_bgmSlider.value >= 0)
+            {
+                SaveBgm();
+            }
+        }
+    }
+
     public UILabel haveGold;
     public UILabel haveGem;
     public UILabel havePotion;
@@ -181,15 +198,20 @@ public class LobbySceneBtnScript : MonoBehaviour {
             _myScore = value;
             if (_myScore >= _bestScore)
             {
+                _thirdScore = _secondScore;
+                _secondScore = _bestScore;
                 _bestScore = _myScore;
                 SaveBestScore();
             }
-            if (_myScore > _secondScore && _myScore < _bestScore)
+            else
+            if (_myScore > _secondScore)
             {
+                _thirdScore = _secondScore;
                 _secondScore = _myScore;
                 SaveSecondScore();
             }
-            if (_myScore > _thirdScore && _myScore < _secondScore)
+            else
+            if (_myScore > _thirdScore )
             {
                 Debug.Log("3등 저장하기");
                 _thirdScore = _myScore;
@@ -206,6 +228,8 @@ public class LobbySceneBtnScript : MonoBehaviour {
         {
             _instance = this;
         }
+
+        LoadBgm();
 
         LoadGem();
         LoadGold();
@@ -253,6 +277,21 @@ public class LobbySceneBtnScript : MonoBehaviour {
             BuyGemResult();
         }
 
+    }
+
+
+    public void BgmVolume()
+    {
+        AudioManagerScript.Instance().bgm.volume = bgmSlider.value;
+    }
+
+    void SaveBgm()
+    {
+        PlayerPrefs.SetFloat("BGM", _bgmSlider.value);
+    }
+    void LoadBgm()
+    {
+        _bgmSlider.value = PlayerPrefs.GetFloat("BGM", _bgmSlider.value);
     }
 
     void BuyGemResult()

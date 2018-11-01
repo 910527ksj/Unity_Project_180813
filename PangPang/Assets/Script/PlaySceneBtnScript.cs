@@ -48,6 +48,16 @@ public class PlaySceneBtnScript : MonoBehaviour {
             StartCoroutine("PlayerDiePause");
             //Invoke("TimeScaleStop", 1.5f);
         }
+        //if (bgmStopSprite.activeSelf == true) // AudioManagerScript.Instance().bgm.volume = 0; 으로 해야는 이유는 오디오 매니저가 파괴 안되고 따라오기 때문
+        //{
+        //    Debug.Log("bgm음소거");
+        //    AudioManagerScript.Instance().bgm.volume = 0;
+        //}
+        //if (bgmStopSprite.activeSelf == false)
+        //{
+        //    Debug.Log("bgm오픈");
+        //    AudioManagerScript.Instance().bgm.volume = 0.5f;
+        //}
     }
 
 
@@ -88,12 +98,22 @@ public class PlaySceneBtnScript : MonoBehaviour {
 
     public void BgmStop()
     {        
-            bgmStopSprite.SetActive(true);
+       bgmStopSprite.SetActive(true);
+        if (bgmStopSprite.activeSelf == true) // AudioManagerScript.Instance().bgm.volume = 0; 으로 해야는 이유는 오디오 매니저가 파괴 안되고 따라오기 때문
+        {
+            Debug.Log("bgm음소거");
+            AudioManagerScript.Instance().bgm.volume = 0;
+        }
     }
 
     public void BgmReStart()
     {
         bgmStopSprite.SetActive(false);
+        if (bgmStopSprite.activeSelf == false)
+        {
+            Debug.Log("bgm오픈");
+            AudioManagerScript.Instance().bgm.volume = 0.5f;
+        }
     }
 
 
@@ -149,4 +169,5 @@ public class PlaySceneBtnScript : MonoBehaviour {
         Application.LoadLevel("Stage_01");
         Time.timeScale = 1.0f;
     }
+
 }
