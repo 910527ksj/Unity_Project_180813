@@ -40,6 +40,7 @@ public class PlayerScript : MonoBehaviour {
 
     //public bool attackTouch;
 
+    public GameObject winPopUp;
     public GameObject losePopUp;
     public GameObject pausePopUpCheck;
     public GameObject exitLobbyCheck;
@@ -60,7 +61,7 @@ public class PlayerScript : MonoBehaviour {
     public UILabel bestScore;
     public UILabel nowSocer;
 
-
+    public int winItemEA;
 
     void Start()
     {
@@ -71,6 +72,10 @@ public class PlayerScript : MonoBehaviour {
         //shotDelay = 1;
         playerHp = LobbySceneBtnScript.Instance().playerMaxHp; // 인스턴스와 같다고 해줘야 업그레이드시 정보 넘어옴
         playerMaxHp = LobbySceneBtnScript.Instance().playerMaxHp;
+        if(Application.loadedLevelName == "Stage_01")
+        {
+            winItemEA = 8;
+        }
     }
 
 
@@ -93,17 +98,18 @@ public class PlayerScript : MonoBehaviour {
         havePotion.text = LobbySceneBtnScript.Instance().myPotion.ToString();
 
         nowSocer.text = "Score  :  "  + LobbySceneBtnScript.Instance().myScore.ToString();
-        bestScore.text = "3rd Score  :  " +  LobbySceneBtnScript.Instance().thirdScore.ToString();
-        bestScore.text = scoreBest.ToString();
-        if (scoreBest > LobbySceneBtnScript.Instance().thirdScore)
-        {
-            bestScore.text = "2nd Score  :  " + LobbySceneBtnScript.Instance().secondScore.ToString();
-        }
+        //bestScore.text = "3rd Score  :  " +  LobbySceneBtnScript.Instance().thirdScore.ToString();
+        //bestScore.text = scoreBest.ToString();
 
-        if (scoreBest > LobbySceneBtnScript.Instance().secondScore)
-        {
-            bestScore.text = "1st Score  :  " + LobbySceneBtnScript.Instance().bestScore.ToString();
-        }
+        //if (scoreBest > LobbySceneBtnScript.Instance().thirdScore)
+        //{
+        //    bestScore.text = "2nd Score  :  " + LobbySceneBtnScript.Instance().secondScore.ToString();
+        //}
+
+        //if (scoreBest > LobbySceneBtnScript.Instance().secondScore)
+        //{
+        //    bestScore.text = "1st Score  :  " + LobbySceneBtnScript.Instance().bestScore.ToString();
+        //}
 
         if (chargeEffect.activeSelf == true)
         { 
@@ -362,7 +368,7 @@ public class PlayerScript : MonoBehaviour {
 
     public void UsePotionBtnClick()
     {
-        if (pausePopUpCheck.activeSelf == true && exitLobbyCheck.activeSelf == false)
+        if (pausePopUpCheck.activeSelf == true && exitLobbyCheck.activeSelf == false && winPopUp.activeSelf == false)
         {
             if(LobbySceneBtnScript.Instance().myPotion >= 1 )
             {
@@ -411,9 +417,10 @@ public class PlayerScript : MonoBehaviour {
     public void ChargeAttackBtnPress() 
     // 챠지 어택 , time.deltatime 혹은 연산자를 이용 제한값 두는것은 매프레임 실행되야므로 업데이트에 해야함.이벤트 트리거의 프레스는 한번만 실행함
     // 버튼 스크립트의 on clikc까지 사용해서 한버튼에 3개 사용시 기본 공격이 스킬과 함께 나가므로 버튼 방식은 2개만
+    // 챠지와 기본 공격 함께 넣음
     {
         PlayerMoveLimit();
-        if (pausePopUpCheck.activeSelf == true && exitLobbyCheck.activeSelf == false)
+        if (pausePopUpCheck.activeSelf == true && exitLobbyCheck.activeSelf == false && winPopUp.activeSelf == false)
         {
             chargeEffect.SetActive(true);
             if (gameObject.transform.position.x < 0)
@@ -442,7 +449,7 @@ public class PlayerScript : MonoBehaviour {
     public void ChargeAttackRelease() // 챠지 어택 해제
     {
         PlayerMoveLimit();
-        if (pausePopUpCheck.activeSelf == true && exitLobbyCheck.activeSelf == false)
+        if (pausePopUpCheck.activeSelf == true && exitLobbyCheck.activeSelf == false && winPopUp.activeSelf == false)
         {
             if (gameObject.transform.position.x < 0)
             {
@@ -623,14 +630,30 @@ public class PlayerScript : MonoBehaviour {
                 //    attackVel = new Vector2(10f, 5f);
                 //}
                 //rb2D.AddForce(attackVel, ForceMode2D.Impulse);
-            }
-            if(playerHp ==0)
+            }            
+        }
+        if (playerHp == 0)
+        {
+            Instantiate(dieEffect, transform.position, transform.rotation);
+            losePopUp.SetActive(true); // 팝업은 켜지지만 플레이어 파괴라서 보상이 실시간으로 보이지 않음. 되도록이면 다른곳에 달아줄거나 밑에처럼 한번더 써줄것
+            LobbySceneBtnScript.Instance().myGold += 100;
+            LobbySceneBtnScript.Instance().myPotion += 35;
+            haveGold.text = LobbySceneBtnScript.Instance().myGold.ToString();
+            havePotion.text = LobbySceneBtnScript.Instance().myPotion.ToString();
+            hpLabel.text = "HP  :  0";
+            hpBar.value = 0;
+            Destroy(gameObject);
+        }
+        if (other.tag == "Win")
+        {
+            winItemEA -= 1;
+            LobbySceneBtnScript.Instance().myScore += 100;
+            if (Application.loadedLevelName == "Stage_01" && winItemEA == 0)
             {
-                hpBar.value = 0;
-                Instantiate(dieEffect, transform.position, transform.rotation);                
-                losePopUp.SetActive(true);
-                hpLabel.text = "HP  :  0";
-                Destroy(gameObject);
+                winPopUp.SetActive(true); // 밑에 보상은 플레이어 오브젝트가 파괴 되지 않아서 실시간으로 오름
+                LobbySceneBtnScript.Instance().myScore += 3500;
+                LobbySceneBtnScript.Instance().myGold += 100;
+                LobbySceneBtnScript.Instance().myGem += 35;
             }
         }
     }

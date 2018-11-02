@@ -22,6 +22,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
             _bgmSlider = value;
             if(_bgmSlider.value >= 0)
             {
+                Debug.Log("bgm저장");
                 SaveBgm();
             }
         }
@@ -155,7 +156,9 @@ public class LobbySceneBtnScript : MonoBehaviour {
 
     public GameObject gameStartPopUp;
 
-    public UILabel bestScoreLabel;
+
+    /* ---------------미완성 스코어 보드 --------------------*/
+    public UILabel bestScoreLabel; 
     public UILabel secondScoreLabel;
     public UILabel thirdScoreLabel;
     public int _bestScore;
@@ -220,6 +223,9 @@ public class LobbySceneBtnScript : MonoBehaviour {
 
         }
     }
+    /* ---------------미완성 스코어 보드 --------------------*/
+
+    public GameObject wattingUpdateLabel;
 
 
     void Awake()
@@ -251,6 +257,27 @@ public class LobbySceneBtnScript : MonoBehaviour {
 	
 	void Update ()
     {
+        if (_myGold >= 0)
+        {
+            SaveGold();
+        }
+        if (_myGem >= 0)
+        {
+            SaveGem();
+        }
+        if (_myPotion >= 0)
+        {
+            SavePotion();
+        }
+        if (_basicDamage > 0)
+        {
+            SaveDamage();
+        }
+        if (_playerMaxHp > 0)
+        {
+            SaveHp();
+        }
+
         haveGem.text = myGem.ToString();
         haveGold.text = myGold.ToString();
         havePotion.text = myPotion.ToString();
@@ -287,6 +314,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
 
     void SaveBgm()
     {
+        Debug.Log("bgm저장 함수");
         PlayerPrefs.SetFloat("BGM", _bgmSlider.value);
     }
     void LoadBgm()
@@ -788,27 +816,29 @@ public class LobbySceneBtnScript : MonoBehaviour {
     public void SettingPopUpCancel()
     {
         settingPopUp.SetActive(false);
+        SaveBgm();
     }
 
     public void RankPopUpClick()
     {
-        if(rankPopUp.activeSelf == false)
-        {
-            rankPopUp.SetActive(true);
-            gameExitPopUp.SetActive(false);
-            buyGoldPopUp.SetActive(false);
-            buyGemPopUp.SetActive(false);
-            buyGemCheckPopUp.SetActive(false);
-            buyShopPopUp.SetActive(false);
-            settingPopUp.SetActive(false);
-            playerInformationPopUp.SetActive(false);
-            gameStartPopUp.SetActive(false);
-        }
-        else
-        if(rankPopUp.activeSelf == true)
-        {
-            rankPopUp.SetActive(false);
-        }
+        //if(rankPopUp.activeSelf == false)
+        //{
+        //    rankPopUp.SetActive(true);
+        //    gameExitPopUp.SetActive(false);
+        //    buyGoldPopUp.SetActive(false);
+        //    buyGemPopUp.SetActive(false);
+        //    buyGemCheckPopUp.SetActive(false);
+        //    buyShopPopUp.SetActive(false);
+        //    settingPopUp.SetActive(false);
+        //    playerInformationPopUp.SetActive(false);
+        //    gameStartPopUp.SetActive(false);
+        //}
+        //else
+        //if(rankPopUp.activeSelf == true)
+        //{
+        //    rankPopUp.SetActive(false);
+        //}
+        StartCoroutine("WattingUpdate");
     }
 
     public void RankPopUpCancel()
@@ -872,5 +902,18 @@ public class LobbySceneBtnScript : MonoBehaviour {
     {
         Application.LoadLevel("Stage_01");
         Time.timeScale = 1.0f;
+    }
+
+    IEnumerator WattingUpdate()
+    {
+        wattingUpdateLabel.SetActive(true);
+        if (wattingUpdateLabel.activeSelf == true)
+        {
+               wattingUpdateLabel.GetComponent<UILabel>().text = "서비스 준비중 입니다.";
+
+        }
+        yield return new WaitForSeconds(2f);
+        Debug.Log("메시지 숨김");
+        wattingUpdateLabel.SetActive(false);
     }
 }

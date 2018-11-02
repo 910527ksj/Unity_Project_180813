@@ -14,6 +14,7 @@ public class PlaySceneBtnScript : MonoBehaviour {
     public GameObject playSoundStopSprite;
 
     public GameObject losePopUpCheck;
+    public GameObject winPopUpCheck;
 
     public GameObject lobbyPopUp;
 
@@ -43,9 +44,9 @@ public class PlaySceneBtnScript : MonoBehaviour {
 
     void Update()
     {
-        if(losePopUpCheck.activeSelf == true)
+        if (losePopUpCheck.activeSelf == true || winPopUpCheck.activeSelf == true)
         {
-            StartCoroutine("PlayerDiePause");
+            StartCoroutine("PlayerPause");
             //Invoke("TimeScaleStop", 1.5f);
         }
         //if (bgmStopSprite.activeSelf == true) // AudioManagerScript.Instance().bgm.volume = 0; 으로 해야는 이유는 오디오 매니저가 파괴 안되고 따라오기 때문
@@ -62,7 +63,7 @@ public class PlaySceneBtnScript : MonoBehaviour {
 
 
     //-------------------------------------------------- 인보크 , 코루틴 이용 시간 정지 -------------------------------------------------- //
-    IEnumerator PlayerDiePause() // 코루틴을 이용한 시간 정지
+    IEnumerator PlayerPause() // 코루틴을 이용한 시간 정지
     {
         yield return new WaitForSeconds(1.5f);
         Time.timeScale = 0.0f;
@@ -78,7 +79,7 @@ public class PlaySceneBtnScript : MonoBehaviour {
 
     public void Pause()
     {
-        if (losePopUpCheck.activeSelf == false && lobbyPopUp.activeSelf == false)
+        if (winPopUpCheck.activeSelf == false && losePopUpCheck.activeSelf == false && lobbyPopUp.activeSelf == false)
         {
             Time.timeScale = 0.0f;
             pauseLabel.SetActive(true);
@@ -102,7 +103,7 @@ public class PlaySceneBtnScript : MonoBehaviour {
         if (bgmStopSprite.activeSelf == true) // AudioManagerScript.Instance().bgm.volume = 0; 으로 해야는 이유는 오디오 매니저가 파괴 안되고 따라오기 때문
         {
             Debug.Log("bgm음소거");
-            AudioManagerScript.Instance().bgm.volume = 0;
+            AudioManagerScript.Instance().bgm.enabled = false;
         }
     }
 
@@ -112,7 +113,7 @@ public class PlaySceneBtnScript : MonoBehaviour {
         if (bgmStopSprite.activeSelf == false)
         {
             Debug.Log("bgm오픈");
-            AudioManagerScript.Instance().bgm.volume = 0.5f;
+            AudioManagerScript.Instance().bgm.enabled = true;
         }
     }
 
@@ -131,7 +132,7 @@ public class PlaySceneBtnScript : MonoBehaviour {
 
     public void LobbyPopUp()
     {
-        if (pauseSprite.activeSelf == true && losePopUpCheck.activeSelf == false)
+        if (pauseSprite.activeSelf == true && winPopUpCheck.activeSelf == false && losePopUpCheck.activeSelf == false)
         {
             if (lobbyPopUp.activeSelf == false)
             {
@@ -150,6 +151,7 @@ public class PlaySceneBtnScript : MonoBehaviour {
     {
         Application.LoadLevel("Lobby");
         Time.timeScale = 1.0f;
+        AudioManagerScript.Instance().bgm.enabled = true;
     }
 
     public void LobbyExitCancel()
@@ -162,12 +164,14 @@ public class PlaySceneBtnScript : MonoBehaviour {
     {
         Application.LoadLevel("Lobby");
         Time.timeScale = 1.0f;
+        AudioManagerScript.Instance().bgm.enabled = true;
     }
 
     public void ReStart()
     {
         Application.LoadLevel("Stage_01");
         Time.timeScale = 1.0f;
+        AudioManagerScript.Instance().bgm.enabled = true;
     }
 
 }

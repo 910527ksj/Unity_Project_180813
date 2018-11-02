@@ -89,7 +89,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ebdd49a2341839429fc9de913e434d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyChange: {fileID: 0}
+  enemyChange: {fileID: 1821579763768298, guid: 3e558ebfd9bd320499002701a9c7c61e,
+    type: 2}
   enemyHp: 1
   enemyRigidbody2D: {fileID: 50914449021660154}
   limitY: 1

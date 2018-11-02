@@ -10,6 +10,7 @@ TagManager:
   - FxTemporaire
   - Charge50Attack
   - Charge100Attack
+  - Win
   layers:
   - Default
   - TransparentFX

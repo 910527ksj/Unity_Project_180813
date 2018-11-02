@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -468,7 +468,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 141484882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -369, z: 0}
+  m_LocalPosition: {x: 0, y: -320, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 379006372}
@@ -660,6 +660,7 @@ MonoBehaviour:
   bgmStopSprite: {fileID: 1258342782}
   playSoundStopSprite: {fileID: 286474138}
   losePopUpCheck: {fileID: 914256230}
+  winPopUpCheck: {fileID: 1173288115}
   lobbyPopUp: {fileID: 1555518366}
   readyLabel: {fileID: 1324513824}
   enemySpawn: {fileID: 889575492}
@@ -771,7 +772,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 273574408}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 540, y: -325, z: 0}
+  m_LocalPosition: {x: 515, y: -275, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1993969793}
@@ -809,14 +810,14 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 138
-  mHeight: 140
+  mWidth: 160
+  mHeight: 160
   mDepth: 3
   mMat: {fileID: 0}
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 0.98571426
+  aspectRatio: 1
   mType: 3
   mFillDirection: 4
   mFillAmount: 1
@@ -1323,7 +1324,7 @@ Transform:
   m_GameObject: {fileID: 448101086}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -1605,7 +1606,7 @@ GameObject:
   - component: {fileID: 620163393}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1721,6 +1722,7 @@ MonoBehaviour:
   AttackedVelocityTime: 0
   timeA: 0
   timeB: 0.1
+  winPopUp: {fileID: 1173288115}
   losePopUp: {fileID: 914256230}
   pausePopUpCheck: {fileID: 792193031}
   exitLobbyCheck: {fileID: 1555518366}
@@ -1735,6 +1737,7 @@ MonoBehaviour:
   havePotion: {fileID: 2097917504}
   bestScore: {fileID: 2065904652}
   nowSocer: {fileID: 77731011}
+  winItemEA: 0
 --- !u!70 &620163393
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2673,7 +2676,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 944226198}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20, y: -320, z: 0}
+  m_LocalPosition: {x: -20, y: -270, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224124599}
@@ -2798,7 +2801,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1051913839}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 350, y: -340, z: 0}
+  m_LocalPosition: {x: 315, y: -290, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1522296941}
@@ -2834,14 +2837,14 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 98
-  mHeight: 100
+  mWidth: 120
+  mHeight: 120
   mDepth: 3
   mMat: {fileID: 0}
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 0.98
+  aspectRatio: 1
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -2910,7 +2913,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 98, y: 100}
+  m_Size: {x: 120, y: 120}
   m_EdgeRadius: 0
 --- !u!1 &1173288115
 GameObject:
@@ -3786,7 +3789,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scalingStyle: 2
   manualWidth: 1280
-  manualHeight: 800
+  manualHeight: 720
   minimumHeight: 320
   maximumHeight: 1536
   fitWidth: 0
@@ -3801,7 +3804,7 @@ Transform:
   m_GameObject: {fileID: 1407150251}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0025, y: 0.0025, z: 0.0025}
+  m_LocalScale: {x: 0.0027777778, y: 0.0027777778, z: 0.0027777778}
   m_Children:
   - {fileID: 631435099}
   - {fileID: 1522296941}
@@ -3831,7 +3834,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1431032906}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 350, z: 0}
+  m_LocalPosition: {x: 0, y: 310, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 822024693}
@@ -4604,7 +4607,11 @@ MonoBehaviour:
   pressedSprite2D: {fileID: 0}
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
-  onClick: []
+  onClick:
+  - mTarget: {fileID: 211876553}
+    mMethodName: LobbyExitClick
+    mParameters: []
+    oneShot: 0
 --- !u!61 &1697620687
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5333,7 +5340,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 138, y: 140}
+  m_Size: {x: 160, y: 160}
   m_EdgeRadius: 0
 --- !u!114 &1993969796
 MonoBehaviour:
@@ -5365,14 +5372,14 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 1}
   mPivot: 4
-  mWidth: 138
-  mHeight: 140
+  mWidth: 160
+  mHeight: 160
   mDepth: 4
   mMat: {fileID: 0}
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 0.98571426
+  aspectRatio: 1
   mType: 3
   mFillDirection: 4
   mFillAmount: 1
@@ -5641,7 +5648,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2065904651
 Transform:
   m_ObjectHideFlags: 0
