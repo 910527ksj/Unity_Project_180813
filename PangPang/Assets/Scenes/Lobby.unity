@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 5967408}
   - component: {fileID: 5967407}
   m_Layer: 8
-  m_Name: Hp_Gold_Check
+  m_Name: Black_Skill_Gold_Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -861,7 +861,7 @@ MonoBehaviour:
   pixelSnap: 0
   onClick:
   - mTarget: {fileID: 888956548}
-    mMethodName: BuyHp
+    mMethodName: BuyBlackArrow
     mParameters: []
     oneShot: 0
 --- !u!65 &53811279
@@ -1024,7 +1024,7 @@ GameObject:
   - component: {fileID: 81634544}
   - component: {fileID: 81634543}
   m_Layer: 8
-  m_Name: Hp_Gem_Check
+  m_Name: Blue_Armor_Gem_Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1383,7 +1383,7 @@ GameObject:
   - component: {fileID: 89165959}
   - component: {fileID: 89165958}
   m_Layer: 8
-  m_Name: Red_Arrow_Buy_Btn
+  m_Name: Red_Armor_Buy_Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1429,7 +1429,7 @@ MonoBehaviour:
   pixelSnap: 0
   onClick:
   - mTarget: {fileID: 888956548}
-    mMethodName: BuyHp
+    mMethodName: BuyRedArmor
     mParameters: []
     oneShot: 0
 --- !u!65 &89165959
@@ -1635,7 +1635,7 @@ GameObject:
   - component: {fileID: 118037157}
   - component: {fileID: 118037156}
   m_Layer: 8
-  m_Name: Hp_Gold_Check
+  m_Name: White_Armor_Gold_Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1897,7 +1897,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &137630190
 Transform:
   m_ObjectHideFlags: 0
@@ -2212,7 +2212,11 @@ MonoBehaviour:
   pressedSprite2D: {fileID: 0}
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
-  onClick: []
+  onClick:
+  - mTarget: {fileID: 888956548}
+    mMethodName: ShopPotionTap
+    mParameters: []
+    oneShot: 0
 --- !u!65 &141932369
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2518,7 +2522,7 @@ GameObject:
   - component: {fileID: 145767436}
   - component: {fileID: 145767435}
   m_Layer: 8
-  m_Name: White_Arrow_Check_Box
+  m_Name: White_Skill_Check_Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2815,7 +2819,7 @@ GameObject:
   - component: {fileID: 152500100}
   - component: {fileID: 152500101}
   m_Layer: 8
-  m_Name: Black_Arrow_Price
+  m_Name: Black_Skill_Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2900,7 +2904,7 @@ GameObject:
   - component: {fileID: 155990679}
   - component: {fileID: 155990678}
   m_Layer: 8
-  m_Name: Red_Arrow_Check_Box
+  m_Name: Red_Armor_Check_Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3542,7 +3546,7 @@ GameObject:
   - component: {fileID: 185811708}
   - component: {fileID: 185811707}
   m_Layer: 8
-  m_Name: Blue_Arrow_Check_Box
+  m_Name: Blue_Skill_Check_Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4322,7 +4326,7 @@ GameObject:
   - component: {fileID: 207186004}
   - component: {fileID: 207186003}
   m_Layer: 8
-  m_Name: White_Arrow_Check_Box
+  m_Name: White_Armor_Check_Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4648,7 +4652,7 @@ GameObject:
   - component: {fileID: 239396883}
   - component: {fileID: 239396884}
   m_Layer: 8
-  m_Name: Blue_Arrow_Price
+  m_Name: Blue_Skill_Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4875,7 +4879,7 @@ GameObject:
   - component: {fileID: 249951859}
   - component: {fileID: 249951858}
   m_Layer: 8
-  m_Name: Red_Arrow_Check_Box
+  m_Name: Red_Skill_Check_Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5872,7 +5876,7 @@ GameObject:
   - component: {fileID: 345417253}
   - component: {fileID: 345417252}
   m_Layer: 8
-  m_Name: White_Arrow_Check_Box
+  m_Name: White_Skill_Check_Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6750,7 +6754,7 @@ MonoBehaviour:
   pixelSnap: 0
   onClick:
   - mTarget: {fileID: 888956548}
-    mMethodName: BuyHp
+    mMethodName: BuyBlueArrow
     mParameters: []
     oneShot: 0
 --- !u!65 &410111973
@@ -6914,7 +6918,7 @@ GameObject:
   - component: {fileID: 422731159}
   - component: {fileID: 422731158}
   m_Layer: 8
-  m_Name: White_Arrow_Check_Box
+  m_Name: White_Armor_Check_Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8347,7 +8351,7 @@ MonoBehaviour:
   pixelSnap: 0
   onClick:
   - mTarget: {fileID: 888956548}
-    mMethodName: BuyHp
+    mMethodName: BuyWhiteArrow
     mParameters: []
     oneShot: 0
 --- !u!65 &527343519
@@ -8427,7 +8431,7 @@ GameObject:
   - component: {fileID: 529264454}
   - component: {fileID: 529264453}
   m_Layer: 8
-  m_Name: Hp_Gold_Check
+  m_Name: Blue_Skill_Gold_Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8656,7 +8660,7 @@ GameObject:
   - component: {fileID: 535218263}
   - component: {fileID: 535218262}
   m_Layer: 8
-  m_Name: Hp_Gem_Check
+  m_Name: Red_Armor_Gem_Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9799,7 +9803,7 @@ GameObject:
   - component: {fileID: 579679549}
   - component: {fileID: 579679548}
   m_Layer: 8
-  m_Name: Hp_Gold_Check
+  m_Name: White_Skill_Gold_Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11554,7 +11558,7 @@ GameObject:
   - component: {fileID: 690776196}
   - component: {fileID: 690776195}
   m_Layer: 8
-  m_Name: Hp_Gem_Check
+  m_Name: White_Arrow_Gem_Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11686,7 +11690,7 @@ GameObject:
   - component: {fileID: 693425281}
   - component: {fileID: 693425280}
   m_Layer: 8
-  m_Name: Hp_Gem_Check
+  m_Name: Red_Skill_Gem_Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11818,7 +11822,7 @@ GameObject:
   - component: {fileID: 694817783}
   - component: {fileID: 694817782}
   m_Layer: 8
-  m_Name: Hp_Gold_Check
+  m_Name: Black_Arrow_Gold_Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12851,7 +12855,11 @@ MonoBehaviour:
   pressedSprite2D: {fileID: 0}
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
-  onClick: []
+  onClick:
+  - mTarget: {fileID: 888956548}
+    mMethodName: ShopArrowTap
+    mParameters: []
+    oneShot: 0
 --- !u!65 &729428258
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13185,7 +13193,7 @@ GameObject:
   - component: {fileID: 759070835}
   - component: {fileID: 759070834}
   m_Layer: 8
-  m_Name: Hp_Gem_Check
+  m_Name: Black_Skill_Gem_Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14117,7 +14125,7 @@ GameObject:
   - component: {fileID: 828300771}
   - component: {fileID: 828300770}
   m_Layer: 8
-  m_Name: Blue_Arrow_Check_Box
+  m_Name: Blue_Skill_Check_Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15327,7 +15335,7 @@ GameObject:
   - component: {fileID: 887156238}
   - component: {fileID: 887156239}
   m_Layer: 8
-  m_Name: White_Arrow_Price
+  m_Name: White_Armor_Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15537,12 +15545,45 @@ MonoBehaviour:
   buyGemPopUp: {fileID: 844650030}
   buyGemCheckPopUp: {fileID: 1018928519}
   buyShopPopUp: {fileID: 137630189}
+  tapPotion: {fileID: 1947562382}
+  tapWeapon: {fileID: 143490020}
+  tapHp: {fileID: 571775613}
+  tapArrow: {fileID: 1455104504}
+  arrowScroll: {fileID: 2025313000}
+  tapArmor: {fileID: 1118814446}
+  armorScroll: {fileID: 39952175}
+  tapSkill: {fileID: 1032236890}
+  skillScroll: {fileID: 195966837}
   potionGoldCheck: {fileID: 612423433}
   potionGemCheck: {fileID: 1341536057}
   weaponGoldCheck: {fileID: 563070769}
   weaponGemCheck: {fileID: 445061965}
   hpGoldCheck: {fileID: 509682132}
   hpGemCheck: {fileID: 570009954}
+  redArrowGoldCheck: {fileID: 940489028}
+  redArrowGemCheck: {fileID: 964631133}
+  blueArrowGoldCheck: {fileID: 1183039219}
+  blueArrowGemCheck: {fileID: 2138369012}
+  whiteArrowGoldCheck: {fileID: 1863902485}
+  whiteArrowGemCheck: {fileID: 690776193}
+  blackArrowGoldCheck: {fileID: 694817780}
+  blackArrowGemCheck: {fileID: 1805829901}
+  redArmorGoldCheck: {fileID: 1183813543}
+  redArmorGemCheck: {fileID: 535218260}
+  blueArmorGoldCheck: {fileID: 1904611587}
+  blueArmorGemCheck: {fileID: 81634541}
+  whiteArmorGoldCheck: {fileID: 118037154}
+  whiteArmorGemCheck: {fileID: 1686310924}
+  blackArmorGoldCheck: {fileID: 1504999954}
+  blackArmorGemCheck: {fileID: 1796840022}
+  redSkillGoldCheck: {fileID: 1445734206}
+  redSkillGemCheck: {fileID: 693425278}
+  blueSkillGoldCheck: {fileID: 529264451}
+  blueSkillGemCheck: {fileID: 1569452837}
+  whiteSkillGoldCheck: {fileID: 579679546}
+  whiteSkillGemCheck: {fileID: 2060183582}
+  blackSkillGoldCheck: {fileID: 5967405}
+  blackSkillGemCheck: {fileID: 759070832}
   warringLabel: {fileID: 954601439}
   settingPopUp: {fileID: 745108143}
   rankPopUp: {fileID: 1264673768}
@@ -15669,7 +15710,7 @@ GameObject:
   - component: {fileID: 919569368}
   - component: {fileID: 919569369}
   m_Layer: 8
-  m_Name: Black_Arrow_Price
+  m_Name: Black_Armor_Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15851,7 +15892,11 @@ MonoBehaviour:
   pressedSprite2D: {fileID: 0}
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
-  onClick: []
+  onClick:
+  - mTarget: {fileID: 888956548}
+    mMethodName: ShopArmorTap
+    mParameters: []
+    oneShot: 0
 --- !u!65 &922706386
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16001,7 +16046,7 @@ GameObject:
   - component: {fileID: 940489031}
   - component: {fileID: 940489030}
   m_Layer: 8
-  m_Name: Hp_Gold_Check
+  m_Name: Red_Arrow_Gold_Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16134,7 +16179,7 @@ GameObject:
   - component: {fileID: 947182120}
   - component: {fileID: 947182119}
   m_Layer: 8
-  m_Name: Black_Arrow_Buy_Btn
+  m_Name: Black_Armor_Buy_Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16180,7 +16225,7 @@ MonoBehaviour:
   pixelSnap: 0
   onClick:
   - mTarget: {fileID: 888956548}
-    mMethodName: BuyHp
+    mMethodName: BuyBlackArmor
     mParameters: []
     oneShot: 0
 --- !u!65 &947182120
@@ -17083,7 +17128,7 @@ GameObject:
   - component: {fileID: 964631136}
   - component: {fileID: 964631135}
   m_Layer: 8
-  m_Name: Hp_Gem_Check
+  m_Name: Red_Arrow_Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17884,7 +17929,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1032236891
 Transform:
   m_ObjectHideFlags: 0
@@ -18782,7 +18827,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3018
+  startingRenderQueue: 3003
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -19473,7 +19518,7 @@ GameObject:
   - component: {fileID: 1136566902}
   - component: {fileID: 1136566901}
   m_Layer: 8
-  m_Name: Black_Arrow_Buy_Btn
+  m_Name: Black_Skill_Buy_Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19519,7 +19564,7 @@ MonoBehaviour:
   pixelSnap: 0
   onClick:
   - mTarget: {fileID: 888956548}
-    mMethodName: BuyHp
+    mMethodName: BuyBlackSkill
     mParameters: []
     oneShot: 0
 --- !u!65 &1136566902
@@ -19972,7 +20017,7 @@ GameObject:
   - component: {fileID: 1170518135}
   - component: {fileID: 1170518136}
   m_Layer: 8
-  m_Name: Blue_Arrow_Price
+  m_Name: Blue_Armor_Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20236,7 +20281,7 @@ GameObject:
   - component: {fileID: 1174651460}
   - component: {fileID: 1174651459}
   m_Layer: 8
-  m_Name: Blue_Arrow_Buy_Btn
+  m_Name: Blue_Skill_Buy_Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20282,7 +20327,7 @@ MonoBehaviour:
   pixelSnap: 0
   onClick:
   - mTarget: {fileID: 888956548}
-    mMethodName: BuyHp
+    mMethodName: BuyBlueSkill
     mParameters: []
     oneShot: 0
 --- !u!65 &1174651460
@@ -20488,7 +20533,7 @@ GameObject:
   - component: {fileID: 1183039222}
   - component: {fileID: 1183039221}
   m_Layer: 8
-  m_Name: Hp_Gold_Check
+  m_Name: Blue_Arrow_Gold_Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20620,7 +20665,7 @@ GameObject:
   - component: {fileID: 1183813546}
   - component: {fileID: 1183813545}
   m_Layer: 8
-  m_Name: Hp_Gold_Check
+  m_Name: Red_Armor_Gold_Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20848,7 +20893,7 @@ GameObject:
   - component: {fileID: 1199012451}
   - component: {fileID: 1199012452}
   m_Layer: 8
-  m_Name: White_Arrow_Price
+  m_Name: White_Skill_Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21214,7 +21259,7 @@ GameObject:
   - component: {fileID: 1272324866}
   - component: {fileID: 1272324865}
   m_Layer: 8
-  m_Name: Black_Arrow_Check_Box
+  m_Name: Black_Skill_Check_Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21364,7 +21409,7 @@ GameObject:
   - component: {fileID: 1275240013}
   - component: {fileID: 1275240012}
   m_Layer: 8
-  m_Name: Red_Arrow_Check_Box
+  m_Name: Red_Skill_Check_Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21514,7 +21559,7 @@ GameObject:
   - component: {fileID: 1278791661}
   - component: {fileID: 1278791660}
   m_Layer: 8
-  m_Name: Blue_Arrow_Check_Box
+  m_Name: Blue_Armor_Check_Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23343,7 +23388,7 @@ GameObject:
   - component: {fileID: 1399232833}
   - component: {fileID: 1399232832}
   m_Layer: 8
-  m_Name: Red_Arrow_Check_Box
+  m_Name: Red_Armor_Check_Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23684,7 +23729,7 @@ GameObject:
   - component: {fileID: 1437573698}
   - component: {fileID: 1437573699}
   m_Layer: 8
-  m_Name: Red_Arrow_Price
+  m_Name: Red_Skill_Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23981,7 +24026,7 @@ GameObject:
   - component: {fileID: 1445734209}
   - component: {fileID: 1445734208}
   m_Layer: 8
-  m_Name: Hp_Gold_Check
+  m_Name: Red_Skill_Gold_Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24812,7 +24857,7 @@ GameObject:
   - component: {fileID: 1504999957}
   - component: {fileID: 1504999956}
   m_Layer: 8
-  m_Name: Hp_Gold_Check
+  m_Name: Black_Armor_Gold_Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25043,7 +25088,11 @@ MonoBehaviour:
   pressedSprite2D: {fileID: 0}
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
-  onClick: []
+  onClick:
+  - mTarget: {fileID: 888956548}
+    mMethodName: ShopSkillTap
+    mParameters: []
+    oneShot: 0
 --- !u!65 &1514559993
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25442,7 +25491,7 @@ GameObject:
   - component: {fileID: 1555752665}
   - component: {fileID: 1555752664}
   m_Layer: 8
-  m_Name: Black_Arrow_Check_Box
+  m_Name: Black_Armor_Check_Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25869,7 +25918,7 @@ GameObject:
   - component: {fileID: 1569452840}
   - component: {fileID: 1569452839}
   m_Layer: 8
-  m_Name: Hp_Gem_Check
+  m_Name: Blue_Skill_Gem_Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27198,7 +27247,7 @@ GameObject:
   - component: {fileID: 1686310927}
   - component: {fileID: 1686310926}
   m_Layer: 8
-  m_Name: Hp_Gem_Check
+  m_Name: White_Armor_Gem_Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27637,7 +27686,7 @@ GameObject:
   - component: {fileID: 1704661789}
   - component: {fileID: 1704661788}
   m_Layer: 8
-  m_Name: White_Arrow_Buy_Btn
+  m_Name: White_Armor_Buy_Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27683,7 +27732,7 @@ MonoBehaviour:
   pixelSnap: 0
   onClick:
   - mTarget: {fileID: 888956548}
-    mMethodName: BuyHp
+    mMethodName: BuyWhiteArmor
     mParameters: []
     oneShot: 0
 --- !u!65 &1704661789
@@ -28030,7 +28079,7 @@ GameObject:
   - component: {fileID: 1733641374}
   - component: {fileID: 1733641373}
   m_Layer: 8
-  m_Name: Blue_Arrow_Check_Box
+  m_Name: Blue_Armor_Check_Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28277,7 +28326,7 @@ GameObject:
   - component: {fileID: 1741295448}
   - component: {fileID: 1741295447}
   m_Layer: 8
-  m_Name: Black_Arrow_Check_Box
+  m_Name: Black_Armor_Check_Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29315,7 +29364,7 @@ GameObject:
   - component: {fileID: 1796840025}
   - component: {fileID: 1796840024}
   m_Layer: 8
-  m_Name: Hp_Gem_Check
+  m_Name: Black_Armor_Gem_Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29643,7 +29692,11 @@ MonoBehaviour:
   pressedSprite2D: {fileID: 0}
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
-  onClick: []
+  onClick:
+  - mTarget: {fileID: 888956548}
+    mMethodName: ShopUpgradeTap
+    mParameters: []
+    oneShot: 0
 --- !u!65 &1802767959
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29750,7 +29803,7 @@ GameObject:
   - component: {fileID: 1805829904}
   - component: {fileID: 1805829903}
   m_Layer: 8
-  m_Name: Hp_Gem_Check
+  m_Name: Black_Arrow_Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30452,7 +30505,7 @@ GameObject:
   - component: {fileID: 1863902488}
   - component: {fileID: 1863902487}
   m_Layer: 8
-  m_Name: Hp_Gold_Check
+  m_Name: White_Arrow_Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31131,7 +31184,7 @@ GameObject:
   - component: {fileID: 1904611590}
   - component: {fileID: 1904611589}
   m_Layer: 8
-  m_Name: Hp_Gold_Check
+  m_Name: Blue_Armor_Gold_Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31264,7 +31317,7 @@ GameObject:
   - component: {fileID: 1915456027}
   - component: {fileID: 1915456026}
   m_Layer: 8
-  m_Name: White_Arrow_Buy_Btn
+  m_Name: White_Skill_Buy_Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31310,7 +31363,7 @@ MonoBehaviour:
   pixelSnap: 0
   onClick:
   - mTarget: {fileID: 888956548}
-    mMethodName: BuyHp
+    mMethodName: BuyWhiteSkill
     mParameters: []
     oneShot: 0
 --- !u!65 &1915456027
@@ -31392,7 +31445,7 @@ GameObject:
   - component: {fileID: 1916505248}
   - component: {fileID: 1916505247}
   m_Layer: 8
-  m_Name: Black_Arrow_Check_Box
+  m_Name: Black_Skill_Check_Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31772,7 +31825,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3018
+  startingRenderQueue: 3012
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -31992,7 +32045,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1947562383
 Transform:
   m_ObjectHideFlags: 0
@@ -32075,7 +32128,7 @@ GameObject:
   - component: {fileID: 1954010049}
   - component: {fileID: 1954010048}
   m_Layer: 8
-  m_Name: Red_Arrow_Buy_Btn
+  m_Name: Red_Skill_Buy_Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32121,7 +32174,7 @@ MonoBehaviour:
   pixelSnap: 0
   onClick:
   - mTarget: {fileID: 888956548}
-    mMethodName: BuyHp
+    mMethodName: BuyRedSkill
     mParameters: []
     oneShot: 0
 --- !u!65 &1954010049
@@ -33663,7 +33716,7 @@ GameObject:
   - component: {fileID: 2060183585}
   - component: {fileID: 2060183584}
   m_Layer: 8
-  m_Name: Hp_Gem_Check
+  m_Name: White_Skill_Gem_Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34293,7 +34346,7 @@ GameObject:
   - component: {fileID: 2095919661}
   - component: {fileID: 2095919660}
   m_Layer: 8
-  m_Name: Blue_Arrow_Buy_Btn
+  m_Name: Blue_Armor_Buy_Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34339,7 +34392,7 @@ MonoBehaviour:
   pixelSnap: 0
   onClick:
   - mTarget: {fileID: 888956548}
-    mMethodName: BuyHp
+    mMethodName: BuyBlueArmor
     mParameters: []
     oneShot: 0
 --- !u!65 &2095919661
@@ -34418,7 +34471,7 @@ GameObject:
   - component: {fileID: 2101442608}
   - component: {fileID: 2101442609}
   m_Layer: 8
-  m_Name: Red_Arrow_Price
+  m_Name: Red_Armor_Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34675,7 +34728,7 @@ MonoBehaviour:
   pixelSnap: 0
   onClick:
   - mTarget: {fileID: 888956548}
-    mMethodName: BuyHp
+    mMethodName: BuyRedArrow
     mParameters: []
     oneShot: 0
 --- !u!65 &2119275984
@@ -34852,7 +34905,7 @@ GameObject:
   - component: {fileID: 2138369015}
   - component: {fileID: 2138369014}
   m_Layer: 8
-  m_Name: Hp_Gem_Check
+  m_Name: Blue_Arrow_Gem_Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
