@@ -1,0 +1,116 @@
+﻿[
+ {
+   "ShopItem": "HpPotion",
+   "PriceGem": 100,
+   "PriceGold": 1000,
+   "SellGold": 300
+ },
+ {
+   "ShopItem": "",
+   "PriceGem": null,
+   "PriceGold": null,
+   "SellGold": null
+ },
+ {
+   "ShopItem": "Weapon",
+   "PriceGem": 100,
+   "PriceGold": 1000,
+   "SellGold": 0
+ },
+ {
+   "ShopItem": "Hp",
+   "PriceGem": 100,
+   "PriceGold": 1000,
+   "SellGold": 0
+ },
+ {
+   "ShopItem": "",
+   "PriceGem": null,
+   "PriceGold": null,
+   "SellGold": null
+ },
+ {
+   "ShopItem": "RedArrow",
+   "PriceGem": 1000,
+   "PriceGold": 5000,
+   "SellGold": 1500
+ },
+ {
+   "ShopItem": "BlueArrow",
+   "PriceGem": 1000,
+   "PriceGold": 5000,
+   "SellGold": 1500
+ },
+ {
+   "ShopItem": "WhiteArrow",
+   "PriceGem": 1000,
+   "PriceGold": 5000,
+   "SellGold": 1500
+ },
+ {
+   "ShopItem": "BlackArrow",
+   "PriceGem": 1000,
+   "PriceGold": 5000,
+   "SellGold": 1500
+ },
+ {
+   "ShopItem": "",
+   "PriceGem": null,
+   "PriceGold": null,
+   "SellGold": null
+ },
+ {
+   "ShopItem": "RedArmor",
+   "PriceGem": 1000,
+   "PriceGold": 5000,
+   "SellGold": 1500
+ },
+ {
+   "ShopItem": "BlueArmor",
+   "PriceGem": 1000,
+   "PriceGold": 5000,
+   "SellGold": 1500
+ },
+ {
+   "ShopItem": "WhiteArmor",
+   "PriceGem": 1000,
+   "PriceGold": 5000,
+   "SellGold": 1500
+ },
+ {
+   "ShopItem": "BlackArmor",
+   "PriceGem": 1000,
+   "PriceGold": 5000,
+   "SellGold": 1500
+ },
+ {
+   "ShopItem": "",
+   "PriceGem": null,
+   "PriceGold": null,
+   "SellGold": null
+ },
+ {
+   "ShopItem": "RedSkill",
+   "PriceGem": 1000,
+   "PriceGold": 5000,
+   "SellGold": 1500
+ },
+ {
+   "ShopItem": "BlueSkill",
+   "PriceGem": 1000,
+   "PriceGold": 5000,
+   "SellGold": 1500
+ },
+ {
+   "ShopItem": "WhiteSkill",
+   "PriceGem": 1000,
+   "PriceGold": 5000,
+   "SellGold": 1500
+ },
+ {
+   "ShopItem": "BlackSkill",
+   "PriceGem": 1000,
+   "PriceGold": 5000,
+   "SellGold": 1500
+ }
+]

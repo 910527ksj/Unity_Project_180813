@@ -15515,6 +15515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88d6c19c9f1a40449a0e47cca2653cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jsonItemData: {fileID: 4900000, guid: dc9749dabdd59cb45afa0f307293d95f, type: 3}
   _bgmSlider: {fileID: 1475628257}
   haveGold: {fileID: 1486983280}
   haveGem: {fileID: 474001002}
@@ -28277,7 +28278,7 @@ MonoBehaviour:
   mPivot: 4
   mWidth: 152
   mHeight: 50
-  mDepth: 10
+  mDepth: 11
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
