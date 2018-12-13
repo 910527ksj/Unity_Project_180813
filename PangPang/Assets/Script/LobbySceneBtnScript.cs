@@ -320,6 +320,36 @@ public class LobbySceneBtnScript : MonoBehaviour {
     int blackSkillGold;
     /* 상점 json */
 
+    bool redArmor;
+    bool blueArmor;
+    bool whiteArmor;
+    bool blackArmor;
+    bool redArrow;
+    bool blueArrow;
+    bool whiteArrow;
+    bool blackArrow;
+    bool redSkill;
+    bool blueSkill;
+    bool whiteSkill;
+    bool blackSkill;
+
+    bool cha01;
+
+    public UILabel haveRedArmor;
+    public UILabel haveBlueArmor;
+    public UILabel haveWhiteArmor;
+    public UILabel haveBlackArmor;
+    public UILabel haveRedArrow;
+    public UILabel haveBlueArrow;
+    public UILabel haveWhiteArrow;
+    public UILabel haveBlackArrow;
+    public UILabel haveRedSkill;
+    public UILabel haveBlueSkill;
+    public UILabel haveWhiteSkill;
+    public UILabel haveBlackSkill;
+
+
+
     void Awake()
     {
         if (_instance == null)
@@ -930,25 +960,32 @@ public class LobbySceneBtnScript : MonoBehaviour {
         warringLabel.SetActive(true);
         if (warringLabel.activeSelf == true)
         {
-            if (redArrowGoldCheck.GetComponent<TweenAlpha>().to == 0 && redArrowGemCheck.GetComponent<TweenAlpha>().to == 0)
+            if (redArrow == false)
             {
-                warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
-            }
-
-            if (redArrowGoldCheck.GetComponent<TweenAlpha>().to == 1 && redArrowGemCheck.GetComponent<TweenAlpha>().to == 0)
-            {
-                if (myGold < redArrowGold)
+                if (redArrowGoldCheck.GetComponent<TweenAlpha>().to == 0 && redArrowGemCheck.GetComponent<TweenAlpha>().to == 0)
                 {
-                    warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
+                    warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
+                }
+
+                if (redArrowGoldCheck.GetComponent<TweenAlpha>().to == 1 && redArrowGemCheck.GetComponent<TweenAlpha>().to == 0)
+                {
+                    if (myGold < redArrowGold)
+                    {
+                        warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
+                    }
+                }
+
+                if (redArrowGoldCheck.GetComponent<TweenAlpha>().to == 0 && redArrowGemCheck.GetComponent<TweenAlpha>().to == 1)
+                {
+                    if (myGem < redArrowGem)
+                    {
+                        warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
+                    }
                 }
             }
-
-            if (redArrowGoldCheck.GetComponent<TweenAlpha>().to == 0 && redArrowGemCheck.GetComponent<TweenAlpha>().to == 1)
+            if( redArrow == true)
             {
-                if (myGem < redArrowGem)
-                {
-                    warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
-                }
+                warringLabel.GetComponent<UILabel>().text = "이미 보유하고 있습니다.";
             }
         }
         yield return new WaitForSeconds(2f);
@@ -961,25 +998,32 @@ public class LobbySceneBtnScript : MonoBehaviour {
         warringLabel.SetActive(true);
         if (warringLabel.activeSelf == true)
         {
-            if (blueArrowGoldCheck.GetComponent<TweenAlpha>().to == 0 && blueArrowGemCheck.GetComponent<TweenAlpha>().to == 0)
+            if (blueArrow == false)
             {
-                warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
-            }
-
-            if (blueArrowGoldCheck.GetComponent<TweenAlpha>().to == 1 && blueArrowGemCheck.GetComponent<TweenAlpha>().to == 0)
-            {
-                if (myGold < blueArrowGold)
+                if (blueArrowGoldCheck.GetComponent<TweenAlpha>().to == 0 && blueArrowGemCheck.GetComponent<TweenAlpha>().to == 0)
                 {
-                    warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
+                    warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
+                }
+
+                if (blueArrowGoldCheck.GetComponent<TweenAlpha>().to == 1 && blueArrowGemCheck.GetComponent<TweenAlpha>().to == 0)
+                {
+                    if (myGold < blueArrowGold)
+                    {
+                        warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
+                    }
+                }
+
+                if (blueArrowGoldCheck.GetComponent<TweenAlpha>().to == 0 && blueArrowGemCheck.GetComponent<TweenAlpha>().to == 1)
+                {
+                    if (myGem < blueArrowGem)
+                    {
+                        warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
+                    }
                 }
             }
-
-            if (blueArrowGoldCheck.GetComponent<TweenAlpha>().to == 0 && blueArrowGemCheck.GetComponent<TweenAlpha>().to == 1)
+            if (blueArrow == true)
             {
-                if (myGem < blueArrowGem)
-                {
-                    warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
-                }
+                warringLabel.GetComponent<UILabel>().text = "이미 보유하고 있습니다.";
             }
         }
         yield return new WaitForSeconds(2f);
@@ -992,25 +1036,32 @@ public class LobbySceneBtnScript : MonoBehaviour {
         warringLabel.SetActive(true);
         if (warringLabel.activeSelf == true)
         {
-            if (whiteArrowGoldCheck.GetComponent<TweenAlpha>().to == 0 && whiteArrowGemCheck.GetComponent<TweenAlpha>().to == 0)
+            if (whiteArrow == false)
             {
-                warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
-            }
-
-            if (whiteArrowGoldCheck.GetComponent<TweenAlpha>().to == 1 && whiteArrowGemCheck.GetComponent<TweenAlpha>().to == 0)
-            {
-                if (myGold < whiteArrowGold)
+                if (whiteArrowGoldCheck.GetComponent<TweenAlpha>().to == 0 && whiteArrowGemCheck.GetComponent<TweenAlpha>().to == 0)
                 {
-                    warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
+                    warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
+                }
+
+                if (whiteArrowGoldCheck.GetComponent<TweenAlpha>().to == 1 && whiteArrowGemCheck.GetComponent<TweenAlpha>().to == 0)
+                {
+                    if (myGold < whiteArrowGold)
+                    {
+                        warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
+                    }
+                }
+
+                if (whiteArrowGoldCheck.GetComponent<TweenAlpha>().to == 0 && whiteArrowGemCheck.GetComponent<TweenAlpha>().to == 1)
+                {
+                    if (myGem < whiteArrowGem)
+                    {
+                        warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
+                    }
                 }
             }
-
-            if (whiteArrowGoldCheck.GetComponent<TweenAlpha>().to == 0 && whiteArrowGemCheck.GetComponent<TweenAlpha>().to == 1)
+            if (whiteArrow == true)
             {
-                if (myGem < whiteArrowGem)
-                {
-                    warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
-                }
+                warringLabel.GetComponent<UILabel>().text = "이미 보유하고 있습니다.";
             }
         }
         yield return new WaitForSeconds(2f);
@@ -1023,25 +1074,32 @@ public class LobbySceneBtnScript : MonoBehaviour {
         warringLabel.SetActive(true);
         if (warringLabel.activeSelf == true)
         {
-            if (blackArrowGoldCheck.GetComponent<TweenAlpha>().to == 0 && blackArrowGemCheck.GetComponent<TweenAlpha>().to == 0)
+            if (blackArrow == false)
             {
-                warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
-            }
-
-            if (blackArrowGoldCheck.GetComponent<TweenAlpha>().to == 1 && blackArrowGemCheck.GetComponent<TweenAlpha>().to == 0)
-            {
-                if (myGold < blackArrowGold)
+                if (blackArrowGoldCheck.GetComponent<TweenAlpha>().to == 0 && blackArrowGemCheck.GetComponent<TweenAlpha>().to == 0)
                 {
-                    warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
+                    warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
+                }
+
+                if (blackArrowGoldCheck.GetComponent<TweenAlpha>().to == 1 && blackArrowGemCheck.GetComponent<TweenAlpha>().to == 0)
+                {
+                    if (myGold < blackArrowGold)
+                    {
+                        warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
+                    }
+                }
+
+                if (blackArrowGoldCheck.GetComponent<TweenAlpha>().to == 0 && blackArrowGemCheck.GetComponent<TweenAlpha>().to == 1)
+                {
+                    if (myGem < blackArrowGem)
+                    {
+                        warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
+                    }
                 }
             }
-
-            if (blackArrowGoldCheck.GetComponent<TweenAlpha>().to == 0 && blackArrowGemCheck.GetComponent<TweenAlpha>().to == 1)
+            if (blackArrow == true)
             {
-                if (myGem < blackArrowGem)
-                {
-                    warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
-                }
+                warringLabel.GetComponent<UILabel>().text = "이미 보유하고 있습니다.";
             }
         }
         yield return new WaitForSeconds(2f);
@@ -1054,25 +1112,32 @@ public class LobbySceneBtnScript : MonoBehaviour {
         warringLabel.SetActive(true);
         if (warringLabel.activeSelf == true)
         {
-            if (redArmorGoldCheck.GetComponent<TweenAlpha>().to == 0 && redArmorGemCheck.GetComponent<TweenAlpha>().to == 0)
+            if (redArmor == false)
             {
-                warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
-            }
-
-            if (redArmorGoldCheck.GetComponent<TweenAlpha>().to == 1 && redArmorGemCheck.GetComponent<TweenAlpha>().to == 0)
-            {
-                if (myGold < redArmorGold)
+                if (redArmorGoldCheck.GetComponent<TweenAlpha>().to == 0 && redArmorGemCheck.GetComponent<TweenAlpha>().to == 0)
                 {
-                    warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
+                    warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
+                }
+
+                if (redArmorGoldCheck.GetComponent<TweenAlpha>().to == 1 && redArmorGemCheck.GetComponent<TweenAlpha>().to == 0)
+                {
+                    if (myGold < redArmorGold)
+                    {
+                        warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
+                    }
+                }
+
+                if (redArmorGoldCheck.GetComponent<TweenAlpha>().to == 0 && redArmorGemCheck.GetComponent<TweenAlpha>().to == 1)
+                {
+                    if (myGem < redArmorGem)
+                    {
+                        warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
+                    }
                 }
             }
-
-            if (redArmorGoldCheck.GetComponent<TweenAlpha>().to == 0 && redArmorGemCheck.GetComponent<TweenAlpha>().to == 1)
+            if (redArmor == true)
             {
-                if (myGem < redArmorGem)
-                {
-                    warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
-                }
+                warringLabel.GetComponent<UILabel>().text = "이미 보유하고 있습니다.";
             }
         }
         yield return new WaitForSeconds(2f);
@@ -1085,25 +1150,32 @@ public class LobbySceneBtnScript : MonoBehaviour {
         warringLabel.SetActive(true);
         if (warringLabel.activeSelf == true)
         {
-            if (blueArmorGoldCheck.GetComponent<TweenAlpha>().to == 0 && blueArmorGemCheck.GetComponent<TweenAlpha>().to == 0)
+            if (blueArmor == false)
             {
-                warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
-            }
-
-            if (blueArmorGoldCheck.GetComponent<TweenAlpha>().to == 1 && blueArmorGemCheck.GetComponent<TweenAlpha>().to == 0)
-            {
-                if (myGold < blueArmorGold)
+                if (blueArmorGoldCheck.GetComponent<TweenAlpha>().to == 0 && blueArmorGemCheck.GetComponent<TweenAlpha>().to == 0)
                 {
-                    warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
+                    warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
+                }
+
+                if (blueArmorGoldCheck.GetComponent<TweenAlpha>().to == 1 && blueArmorGemCheck.GetComponent<TweenAlpha>().to == 0)
+                {
+                    if (myGold < blueArmorGold)
+                    {
+                        warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
+                    }
+                }
+
+                if (blueArmorGoldCheck.GetComponent<TweenAlpha>().to == 0 && blueArmorGemCheck.GetComponent<TweenAlpha>().to == 1)
+                {
+                    if (myGem < blueArmorGem)
+                    {
+                        warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
+                    }
                 }
             }
-
-            if (blueArmorGoldCheck.GetComponent<TweenAlpha>().to == 0 && blueArmorGemCheck.GetComponent<TweenAlpha>().to == 1)
+            if (blueArmor == true)
             {
-                if (myGem < blueArmorGem)
-                {
-                    warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
-                }
+                warringLabel.GetComponent<UILabel>().text = "이미 보유하고 있습니다.";
             }
         }
         yield return new WaitForSeconds(2f);
@@ -1116,25 +1188,32 @@ public class LobbySceneBtnScript : MonoBehaviour {
         warringLabel.SetActive(true);
         if (warringLabel.activeSelf == true)
         {
-            if (whiteArmorGoldCheck.GetComponent<TweenAlpha>().to == 0 && whiteArmorGemCheck.GetComponent<TweenAlpha>().to == 0)
+            if (whiteArmor == false)
             {
-                warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
-            }
-
-            if (whiteArmorGoldCheck.GetComponent<TweenAlpha>().to == 1 && whiteArmorGemCheck.GetComponent<TweenAlpha>().to == 0)
-            {
-                if (myGold < whiteArmorGold)
+                if (whiteArmorGoldCheck.GetComponent<TweenAlpha>().to == 0 && whiteArmorGemCheck.GetComponent<TweenAlpha>().to == 0)
                 {
-                    warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
+                    warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
+                }
+
+                if (whiteArmorGoldCheck.GetComponent<TweenAlpha>().to == 1 && whiteArmorGemCheck.GetComponent<TweenAlpha>().to == 0)
+                {
+                    if (myGold < whiteArmorGold)
+                    {
+                        warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
+                    }
+                }
+
+                if (whiteArmorGoldCheck.GetComponent<TweenAlpha>().to == 0 && whiteArmorGemCheck.GetComponent<TweenAlpha>().to == 1)
+                {
+                    if (myGem < whiteArmorGem)
+                    {
+                        warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
+                    }
                 }
             }
-
-            if (whiteArmorGoldCheck.GetComponent<TweenAlpha>().to == 0 && whiteArmorGemCheck.GetComponent<TweenAlpha>().to == 1)
+            if (whiteArmor == true)
             {
-                if (myGem < whiteArmorGem)
-                {
-                    warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
-                }
+                warringLabel.GetComponent<UILabel>().text = "이미 보유하고 있습니다.";
             }
         }
         yield return new WaitForSeconds(2f);
@@ -1147,25 +1226,32 @@ public class LobbySceneBtnScript : MonoBehaviour {
         warringLabel.SetActive(true);
         if (warringLabel.activeSelf == true)
         {
-            if (blackArmorGoldCheck.GetComponent<TweenAlpha>().to == 0 && blackArmorGemCheck.GetComponent<TweenAlpha>().to == 0)
+            if (blackArmor == false)
             {
-                warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
-            }
-
-            if (blackArmorGoldCheck.GetComponent<TweenAlpha>().to == 1 && blackArmorGemCheck.GetComponent<TweenAlpha>().to == 0)
-            {
-                if (myGold < blackArmorGold)
+                if (blackArmorGoldCheck.GetComponent<TweenAlpha>().to == 0 && blackArmorGemCheck.GetComponent<TweenAlpha>().to == 0)
                 {
-                    warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
+                    warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
+                }
+
+                if (blackArmorGoldCheck.GetComponent<TweenAlpha>().to == 1 && blackArmorGemCheck.GetComponent<TweenAlpha>().to == 0)
+                {
+                    if (myGold < blackArmorGold)
+                    {
+                        warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
+                    }
+                }
+
+                if (blackArmorGoldCheck.GetComponent<TweenAlpha>().to == 0 && blackArmorGemCheck.GetComponent<TweenAlpha>().to == 1)
+                {
+                    if (myGem < blackArmorGem)
+                    {
+                        warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
+                    }
                 }
             }
-
-            if (blackArmorGoldCheck.GetComponent<TweenAlpha>().to == 0 && blackArmorGemCheck.GetComponent<TweenAlpha>().to == 1)
+            if (blackArmor == true)
             {
-                if (myGem < blackArmorGem)
-                {
-                    warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
-                }
+                warringLabel.GetComponent<UILabel>().text = "이미 보유하고 있습니다.";
             }
         }
         yield return new WaitForSeconds(2f);
@@ -1178,25 +1264,32 @@ public class LobbySceneBtnScript : MonoBehaviour {
         warringLabel.SetActive(true);
         if (warringLabel.activeSelf == true)
         {
-            if (redSkillGoldCheck.GetComponent<TweenAlpha>().to == 0 && redSkillGemCheck.GetComponent<TweenAlpha>().to == 0)
+            if (redSkill == false)
             {
-                warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
-            }
-
-            if (redSkillGoldCheck.GetComponent<TweenAlpha>().to == 1 && redSkillGemCheck.GetComponent<TweenAlpha>().to == 0)
-            {
-                if (myGold < redSkillGold)
+                if (redSkillGoldCheck.GetComponent<TweenAlpha>().to == 0 && redSkillGemCheck.GetComponent<TweenAlpha>().to == 0)
                 {
-                    warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
+                    warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
+                }
+
+                if (redSkillGoldCheck.GetComponent<TweenAlpha>().to == 1 && redSkillGemCheck.GetComponent<TweenAlpha>().to == 0)
+                {
+                    if (myGold < redSkillGold)
+                    {
+                        warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
+                    }
+                }
+
+                if (redSkillGoldCheck.GetComponent<TweenAlpha>().to == 0 && redSkillGemCheck.GetComponent<TweenAlpha>().to == 1)
+                {
+                    if (myGem < redSkillGem)
+                    {
+                        warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
+                    }
                 }
             }
-
-            if (redSkillGoldCheck.GetComponent<TweenAlpha>().to == 0 && redSkillGemCheck.GetComponent<TweenAlpha>().to == 1)
+            if (redSkill == true)
             {
-                if (myGem < redSkillGem)
-                {
-                    warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
-                }
+                warringLabel.GetComponent<UILabel>().text = "이미 보유하고 있습니다.";
             }
         }
         yield return new WaitForSeconds(2f);
@@ -1209,25 +1302,32 @@ public class LobbySceneBtnScript : MonoBehaviour {
         warringLabel.SetActive(true);
         if (warringLabel.activeSelf == true)
         {
-            if (blueSkillGoldCheck.GetComponent<TweenAlpha>().to == 0 && blueSkillGemCheck.GetComponent<TweenAlpha>().to == 0)
+            if (blueSkill == false)
             {
-                warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
-            }
-
-            if (blueSkillGoldCheck.GetComponent<TweenAlpha>().to == 1 && blueSkillGemCheck.GetComponent<TweenAlpha>().to == 0)
-            {
-                if (myGold < blueSkillGold)
+                if (blueSkillGoldCheck.GetComponent<TweenAlpha>().to == 0 && blueSkillGemCheck.GetComponent<TweenAlpha>().to == 0)
                 {
-                    warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
+                    warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
+                }
+
+                if (blueSkillGoldCheck.GetComponent<TweenAlpha>().to == 1 && blueSkillGemCheck.GetComponent<TweenAlpha>().to == 0)
+                {
+                    if (myGold < blueSkillGold)
+                    {
+                        warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
+                    }
+                }
+
+                if (blueSkillGoldCheck.GetComponent<TweenAlpha>().to == 0 && blueSkillGemCheck.GetComponent<TweenAlpha>().to == 1)
+                {
+                    if (myGem < blueSkillGem)
+                    {
+                        warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
+                    }
                 }
             }
-
-            if (blueSkillGoldCheck.GetComponent<TweenAlpha>().to == 0 && blueSkillGemCheck.GetComponent<TweenAlpha>().to == 1)
+            if (blueSkill == true)
             {
-                if (myGem < blueSkillGem)
-                {
-                    warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
-                }
+                warringLabel.GetComponent<UILabel>().text = "이미 보유하고 있습니다.";
             }
         }
         yield return new WaitForSeconds(2f);
@@ -1240,25 +1340,32 @@ public class LobbySceneBtnScript : MonoBehaviour {
         warringLabel.SetActive(true);
         if (warringLabel.activeSelf == true)
         {
-            if (whiteSkillGoldCheck.GetComponent<TweenAlpha>().to == 0 && whiteSkillGemCheck.GetComponent<TweenAlpha>().to == 0)
+            if (whiteSkill == false)
             {
-                warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
-            }
-
-            if (whiteSkillGoldCheck.GetComponent<TweenAlpha>().to == 1 && whiteSkillGemCheck.GetComponent<TweenAlpha>().to == 0)
-            {
-                if (myGold < whiteSkillGold)
+                if (whiteSkillGoldCheck.GetComponent<TweenAlpha>().to == 0 && whiteSkillGemCheck.GetComponent<TweenAlpha>().to == 0)
                 {
-                    warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
+                    warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
+                }
+
+                if (whiteSkillGoldCheck.GetComponent<TweenAlpha>().to == 1 && whiteSkillGemCheck.GetComponent<TweenAlpha>().to == 0)
+                {
+                    if (myGold < whiteSkillGold)
+                    {
+                        warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
+                    }
+                }
+
+                if (whiteSkillGoldCheck.GetComponent<TweenAlpha>().to == 0 && whiteSkillGemCheck.GetComponent<TweenAlpha>().to == 1)
+                {
+                    if (myGem < whiteSkillGem)
+                    {
+                        warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
+                    }
                 }
             }
-
-            if (whiteSkillGoldCheck.GetComponent<TweenAlpha>().to == 0 && whiteSkillGemCheck.GetComponent<TweenAlpha>().to == 1)
+            if (whiteSkill == true)
             {
-                if (myGem < whiteSkillGem)
-                {
-                    warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
-                }
+                warringLabel.GetComponent<UILabel>().text = "이미 보유하고 있습니다.";
             }
         }
         yield return new WaitForSeconds(2f);
@@ -1269,27 +1376,34 @@ public class LobbySceneBtnScript : MonoBehaviour {
     IEnumerator WarringMessageBlackSkill()
     {
         warringLabel.SetActive(true);
-        if (warringLabel.activeSelf == true)
+        if(blackSkill == false)
         {
-            if (blackSkillGoldCheck.GetComponent<TweenAlpha>().to == 0 && blackSkillGemCheck.GetComponent<TweenAlpha>().to == 0)
+            if (warringLabel.activeSelf == true)
             {
-                warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
-            }
-
-            if (blackSkillGoldCheck.GetComponent<TweenAlpha>().to == 1 && blackSkillGemCheck.GetComponent<TweenAlpha>().to == 0)
-            {
-                if (myGold < blackSkillGold)
+                if (blackSkillGoldCheck.GetComponent<TweenAlpha>().to == 0 && blackSkillGemCheck.GetComponent<TweenAlpha>().to == 0)
                 {
-                    warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
+                    warringLabel.GetComponent<UILabel>().text = "구매 방식을 선택해주세요.";
+                }
+
+                if (blackSkillGoldCheck.GetComponent<TweenAlpha>().to == 1 && blackSkillGemCheck.GetComponent<TweenAlpha>().to == 0)
+                {
+                    if (myGold < blackSkillGold)
+                    {
+                        warringLabel.GetComponent<UILabel>().text = "골드가 부족합니다.";
+                    }
+                }
+
+                if (blackSkillGoldCheck.GetComponent<TweenAlpha>().to == 0 && blackSkillGemCheck.GetComponent<TweenAlpha>().to == 1)
+                {
+                    if (myGem < blackSkillGem)
+                    {
+                        warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
+                    }
                 }
             }
-
-            if (blackSkillGoldCheck.GetComponent<TweenAlpha>().to == 0 && blackSkillGemCheck.GetComponent<TweenAlpha>().to == 1)
+            if (blackSkill == true)
             {
-                if (myGem < blackSkillGem)
-                {
-                    warringLabel.GetComponent<UILabel>().text = "잼이 부족합니다.";
-                }
+                warringLabel.GetComponent<UILabel>().text = "이미 보유하고 있습니다.";
             }
         }
         yield return new WaitForSeconds(2f);
@@ -1415,26 +1529,31 @@ public class LobbySceneBtnScript : MonoBehaviour {
     {
         if (redArrowGoldCheck.GetComponent<TweenAlpha>().to == 1 && redArrowGemCheck.GetComponent<TweenAlpha>().to == 0)
         {
-            if (myGold >= redArrowGold)
+            if (myGold >= redArrowGold && redArrow == false)
             {
                 myGold -= redArrowGold;
+                haveRedArrow.text = "1";
+                redArrow = true;
                 Debug.Log("골드로 RedArrow");
             }
             else
-            if (myGold < redArrowGold)
+            if (myGold < redArrowGold || redArrow == true)
             {
                 StartCoroutine("WarringMessageRedArrow");
             }
         }
-        else
+        
         if (redArrowGoldCheck.GetComponent<TweenAlpha>().to == 0 && redArrowGemCheck.GetComponent<TweenAlpha>().to == 1)
         {
-            if (myGem >= redArrowGem)
+            if (myGem >= redArrowGem && redArrow == false)
             {
-                myGem -= redArrowGem;                
+                myGem -= redArrowGem;
+                haveRedArrow.text = "1";
+                redArrow = true;
                 Debug.Log("잼으로 RedArrow");
             }
-            if (myGem < redArrowGem)
+            else
+            if (myGem < redArrowGem || redArrow == true)
             {
                 StartCoroutine("WarringMessageRedArrow");
             }
@@ -1451,13 +1570,15 @@ public class LobbySceneBtnScript : MonoBehaviour {
     {
         if (blueArrowGoldCheck.GetComponent<TweenAlpha>().to == 1 && blueArrowGemCheck.GetComponent<TweenAlpha>().to == 0)
         {
-            if (myGold >= blueArrowGold)
+            if (myGold >= blueArrowGold && blueArrow == false)
             {
                 myGold -= blueArrowGold;
+                haveBlueArrow.text = "1";
+                blueArrow = true;
                 Debug.Log("골드로 BlueArrow");
             }
             else
-            if (myGold < blueArrowGold)
+            if (myGold < blueArrowGold || blueArrow == true)
             {
                 StartCoroutine("WarringMessageBlueArrow");
             }
@@ -1465,12 +1586,14 @@ public class LobbySceneBtnScript : MonoBehaviour {
         else
         if (blueArrowGoldCheck.GetComponent<TweenAlpha>().to == 0 && blueArrowGemCheck.GetComponent<TweenAlpha>().to == 1)
         {
-            if (myGem >= blueArrowGem)
+            if (myGem >= blueArrowGem && blueArrow == false)
             {
                 myGem -= blueArrowGem;
+                haveBlueArrow.text = "1";
+                blueArrow = true;
                 Debug.Log("잼으로 BlueArrow");
             }
-            if (myGem < blueArrowGem)
+            if (myGem < blueArrowGem || blueArrow == true)
             {
                 StartCoroutine("WarringMessageBlueArrow");
             }
@@ -1487,13 +1610,15 @@ public class LobbySceneBtnScript : MonoBehaviour {
     {
         if (whiteArrowGoldCheck.GetComponent<TweenAlpha>().to == 1 && whiteArrowGemCheck.GetComponent<TweenAlpha>().to == 0)
         {
-            if (myGold >= whiteArrowGold)
+            if (myGold >= whiteArrowGold && whiteArrow == false)
             {
                 myGold -= whiteArrowGold;
+                haveWhiteArrow.text = "1";
+                whiteArrow = true;
                 Debug.Log("골드로 WhiteArrow");
             }
             else
-            if (myGold < whiteArrowGold)
+            if (myGold < whiteArrowGold || whiteArrow == true)
             {
                 StartCoroutine("WarringMessageWhiteArrow");
             }
@@ -1501,12 +1626,14 @@ public class LobbySceneBtnScript : MonoBehaviour {
         else
         if (whiteArrowGoldCheck.GetComponent<TweenAlpha>().to == 0 && whiteArrowGemCheck.GetComponent<TweenAlpha>().to == 1)
         {
-            if (myGem >= whiteArrowGem)
+            if (myGem >= whiteArrowGem && whiteArrow == false)
             {
                 myGem -= whiteArrowGem;
+                haveWhiteArrow.text = "1";
+                whiteArrow = true;
                 Debug.Log("잼으로 WhiteArrow");
             }
-            if (myGem < whiteArrowGem)
+            if (myGem < whiteArrowGem || whiteArrow == true)
             {
                 StartCoroutine("WarringMessageWhiteArrow");
             }
@@ -1523,26 +1650,30 @@ public class LobbySceneBtnScript : MonoBehaviour {
     {
         if (blackArrowGoldCheck.GetComponent<TweenAlpha>().to == 1 && blackArrowGemCheck.GetComponent<TweenAlpha>().to == 0)
         {
-            if (myGold >= blackArrowGold)
+            if (myGold >= blackArrowGold && blackArrow == false)
             {
                 myGold -= blackArrowGold;
+                haveBlackArrow.text = "1";
+                blackArrow = true;
                 Debug.Log("골드로 BlackArrow");
             }
             else
-            if (myGold < blackArrowGold)
-            {
+            if (myGold < blackArrowGold || blackArrow == true)
+            {                
                 StartCoroutine("WarringMessageBlackArrow");
             }
         }
         else
         if (blackArrowGoldCheck.GetComponent<TweenAlpha>().to == 0 && blackArrowGemCheck.GetComponent<TweenAlpha>().to == 1)
         {
-            if (myGem >= blackArrowGem)
+            if (myGem >= blackArrowGem && blackArrow == false)
             {
                 myGem -= blackArrowGem;
+                haveBlackArrow.text = "1";
+                blackArrow = true;
                 Debug.Log("잼으로 BlackArrow");
             }
-            if (myGem < blackArrowGem)
+            if (myGem < blackArrowGem || blackArrow == true)
             {
                 StartCoroutine("WarringMessageBlackArrow");
             }
@@ -1559,13 +1690,15 @@ public class LobbySceneBtnScript : MonoBehaviour {
     {
         if (redArmorGoldCheck.GetComponent<TweenAlpha>().to == 1 && redArmorGemCheck.GetComponent<TweenAlpha>().to == 0)
         {
-            if (myGold >= redArmorGold)
+            if (myGold >= redArmorGold && redArmor == false)
             {
                 myGold -= redArmorGold;
+                haveRedArmor.text = "1";
+                redArmor = true;
                 Debug.Log("골드로 RedArmor");
             }
             else
-            if (myGold < redArmorGold)
+            if (myGold < redArmorGold || redArmor == true)
             {
                 StartCoroutine("WarringMessageRedArmor");
             }
@@ -1573,12 +1706,14 @@ public class LobbySceneBtnScript : MonoBehaviour {
         else
         if (redArmorGoldCheck.GetComponent<TweenAlpha>().to == 0 && redArmorGemCheck.GetComponent<TweenAlpha>().to == 1)
         {
-            if (myGem >= redArmorGem)
+            if (myGem >= redArmorGem && redArmor == false)
             {
                 myGem -= redArmorGem;
+                haveRedArmor.text = "1";
+                redArmor = true;
                 Debug.Log("잼으로 RedArmor");
             }
-            if (myGem < redArmorGem)
+            if (myGem < redArmorGem || redArmor == true)
             {
                 StartCoroutine("WarringMessageRedArmor");
             }
@@ -1595,13 +1730,15 @@ public class LobbySceneBtnScript : MonoBehaviour {
     {
         if (blueArmorGoldCheck.GetComponent<TweenAlpha>().to == 1 && blueArmorGemCheck.GetComponent<TweenAlpha>().to == 0)
         {
-            if (myGold >= blueArmorGold)
+            if (myGold >= blueArmorGold && blueArmor == false)
             {
                 myGold -= blueArmorGold;
+                haveBlueArmor.text = "1";
+                blueArmor = true;
                 Debug.Log("골드로 BlueArmor");
             }
             else
-            if (myGold < blueArmorGold)
+            if (myGold < blueArmorGold || blueArmor == true)
             {
                 StartCoroutine("WarringMessageBlueArmor");
             }
@@ -1609,12 +1746,14 @@ public class LobbySceneBtnScript : MonoBehaviour {
         else
         if (blueArmorGoldCheck.GetComponent<TweenAlpha>().to == 0 && blueArmorGemCheck.GetComponent<TweenAlpha>().to == 1)
         {
-            if (myGem >= blueArmorGem)
+            if (myGem >= blueArmorGem && blueArmor == false)
             {
                 myGem -= blueArmorGem;
+                haveBlueArmor.text = "1";
+                blueArmor = true;
                 Debug.Log("잼으로 BlueArmor");
             }
-            if (myGem < blueArmorGem)
+            if (myGem < blueArmorGem || blueArmor == true)
             {
                 StartCoroutine("WarringMessageBlueArmor");
             }
@@ -1631,13 +1770,15 @@ public class LobbySceneBtnScript : MonoBehaviour {
     {
         if (whiteArmorGoldCheck.GetComponent<TweenAlpha>().to == 1 && whiteArmorGemCheck.GetComponent<TweenAlpha>().to == 0)
         {
-            if (myGold >= whiteArmorGold)
+            if (myGold >= whiteArmorGold && whiteArmor == false)
             {
                 myGold -= whiteArmorGold;
+                haveWhiteArmor.text = "1";
+                whiteArmor = true;
                 Debug.Log("골드로 WhiteArmor");
             }
             else
-            if (myGold < whiteArmorGold)
+            if (myGold < whiteArmorGold || whiteArmor == true)
             {
                 StartCoroutine("WarringMessageWhiteArmor");
             }
@@ -1645,12 +1786,14 @@ public class LobbySceneBtnScript : MonoBehaviour {
         else
         if (whiteArmorGoldCheck.GetComponent<TweenAlpha>().to == 0 && whiteArmorGemCheck.GetComponent<TweenAlpha>().to == 1)
         {
-            if (myGem >= whiteArmorGem)
+            if (myGem >= whiteArmorGem && whiteArmor == false)
             {
                 myGem -= whiteArmorGem;
+                haveWhiteArmor.text = "1";
+                whiteArmor = true;
                 Debug.Log("잼으로 WhiteArmor");
             }
-            if (myGem < whiteArmorGem)
+            if (myGem < whiteArmorGem || whiteArmor == true)
             {
                 StartCoroutine("WarringMessageWhiteArmor");
             }
@@ -1667,13 +1810,15 @@ public class LobbySceneBtnScript : MonoBehaviour {
     {
         if (blackArmorGoldCheck.GetComponent<TweenAlpha>().to == 1 && blackArmorGemCheck.GetComponent<TweenAlpha>().to == 0)
         {
-            if (myGold >= blackArmorGold)
+            if (myGold >= blackArmorGold && blackArmor == false)
             {
                 myGold -= blackArmorGold;
+                haveBlackArmor.text = "1";
+                blackArmor = true;
                 Debug.Log("골드로 BlackArmor");
             }
             else
-            if (myGold < blackArmorGold)
+            if (myGold < blackArmorGold || blackArmor == true)
             {
                 StartCoroutine("WarringMessageBlackArmor");
             }
@@ -1681,12 +1826,14 @@ public class LobbySceneBtnScript : MonoBehaviour {
         else
         if (blackArmorGoldCheck.GetComponent<TweenAlpha>().to == 0 && blackArmorGemCheck.GetComponent<TweenAlpha>().to == 1)
         {
-            if (myGem >= blackArmorGem)
+            if (myGem >= blackArmorGem && blackArmor == false)
             {
                 myGem -= blackArmorGem;
+                haveBlackArmor.text = "1";
+                blackArmor = true;
                 Debug.Log("잼으로 BlackArmor");
             }
-            if (myGem < blackArmorGem)
+            if (myGem < blackArmorGem || blackArmor == true)
             {
                 StartCoroutine("WarringMessageBlackArmor");
             }
@@ -1703,13 +1850,15 @@ public class LobbySceneBtnScript : MonoBehaviour {
     {
         if (redSkillGoldCheck.GetComponent<TweenAlpha>().to == 1 && redSkillGemCheck.GetComponent<TweenAlpha>().to == 0)
         {
-            if (myGold >= redSkillGold)
+            if (myGold >= redSkillGold && redSkill == false)
             {
                 myGold -= redSkillGold;
+                haveRedSkill.text = "1";
+                redSkill = true;
                 Debug.Log("골드로 RedSkill");
             }
             else
-            if (myGold < redSkillGold)
+            if (myGold < redSkillGold || redSkill == true)
             {
                 StartCoroutine("WarringMessageRedSkill");
             }
@@ -1717,12 +1866,14 @@ public class LobbySceneBtnScript : MonoBehaviour {
         else
         if (redSkillGoldCheck.GetComponent<TweenAlpha>().to == 0 && redSkillGemCheck.GetComponent<TweenAlpha>().to == 1)
         {
-            if (myGem >= redSkillGem)
+            if (myGem >= redSkillGem && redSkill == false)
             {
                 myGem -= redSkillGem;
+                haveRedSkill.text = "1";
+                redSkill = true;
                 Debug.Log("잼으로 RedSkill");
             }
-            if (myGem < redSkillGem)
+            if (myGem < redSkillGem || redSkill == true)
             {
                 StartCoroutine("WarringMessageRedSkill");
             }
@@ -1739,13 +1890,15 @@ public class LobbySceneBtnScript : MonoBehaviour {
     {
         if (blueSkillGoldCheck.GetComponent<TweenAlpha>().to == 1 && blueSkillGemCheck.GetComponent<TweenAlpha>().to == 0)
         {
-            if (myGold >= blueSkillGold)
+            if (myGold >= blueSkillGold && blueSkill == false)
             {
                 myGold -= blueSkillGold;
+                haveBlueSkill.text = "1";
+                blueSkill = true;
                 Debug.Log("골드로 BlueSkill");
             }
             else
-            if (myGold < blueSkillGold)
+            if (myGold < blueSkillGold || blueSkill == true)
             {
                 StartCoroutine("WarringMessageBlueSkill");
             }
@@ -1753,12 +1906,14 @@ public class LobbySceneBtnScript : MonoBehaviour {
         else
         if (blueSkillGoldCheck.GetComponent<TweenAlpha>().to == 0 && blueSkillGemCheck.GetComponent<TweenAlpha>().to == 1)
         {
-            if (myGem >= blueSkillGem)
+            if (myGem >= blueSkillGem && blueSkill == false)
             {
                 myGem -= blueSkillGem;
+                haveBlueSkill.text = "1";
+                blueSkill = true;
                 Debug.Log("잼으로 BlueSkill");
             }
-            if (myGem < blueSkillGem)
+            if (myGem < blueSkillGem || blueSkill == true)
             {
                 StartCoroutine("WarringMessageBlueSkill");
             }
@@ -1775,13 +1930,15 @@ public class LobbySceneBtnScript : MonoBehaviour {
     {
         if (whiteSkillGoldCheck.GetComponent<TweenAlpha>().to == 1 && whiteSkillGemCheck.GetComponent<TweenAlpha>().to == 0)
         {
-            if (myGold >= whiteSkillGold)
+            if (myGold >= whiteSkillGold && whiteSkill == false)
             {
                 myGold -= whiteSkillGold;
+                haveWhiteSkill.text = "1";
+                whiteSkill = true;
                 Debug.Log("골드로 WhiteSkill");
             }
             else
-            if (myGold < whiteSkillGold)
+            if (myGold < whiteSkillGold || whiteSkill == true)
             {
                 StartCoroutine("WarringMessageWhiteSkill");
             }
@@ -1789,12 +1946,14 @@ public class LobbySceneBtnScript : MonoBehaviour {
         else
         if (whiteSkillGoldCheck.GetComponent<TweenAlpha>().to == 0 && whiteSkillGemCheck.GetComponent<TweenAlpha>().to == 1)
         {
-            if (myGem >= whiteSkillGem)
+            if (myGem >= whiteSkillGem && whiteSkill == false)
             {
                 myGem -= whiteSkillGem;
+                haveWhiteSkill.text = "1";
+                whiteSkill = true;
                 Debug.Log("잼으로 WhiteSkill");
             }
-            if (myGem < whiteSkillGem)
+            if (myGem < whiteSkillGem || whiteSkill == true)
             {
                 StartCoroutine("WarringMessageWhiteSkill");
             }
@@ -1811,13 +1970,15 @@ public class LobbySceneBtnScript : MonoBehaviour {
     {
         if (blackSkillGoldCheck.GetComponent<TweenAlpha>().to == 1 && blackSkillGemCheck.GetComponent<TweenAlpha>().to == 0)
         {
-            if (myGold >= blackSkillGold)
+            if (myGold >= blackSkillGold && blackSkill == false)
             {
                 myGold -= blackSkillGold;
+                haveBlackSkill.text = "1";
+                blackSkill = true;
                 Debug.Log("골드로 BlackSkill");
             }
             else
-            if (myGold < blackSkillGold)
+            if (myGold < blackSkillGold || blackSkill == true)
             {
                 StartCoroutine("WarringMessageBlackSkill");
             }
@@ -1825,12 +1986,14 @@ public class LobbySceneBtnScript : MonoBehaviour {
         else
         if (blackSkillGoldCheck.GetComponent<TweenAlpha>().to == 0 && blackSkillGemCheck.GetComponent<TweenAlpha>().to == 1)
         {
-            if (myGem >= blackSkillGem)
+            if (myGem >= blackSkillGem && blackSkill == false)
             {
                 myGem -= blackSkillGem;
+                haveBlackSkill.text = "1";
+                blackSkill = true;
                 Debug.Log("잼으로 BlackSkill");
             }
-            if (myGem < blackSkillGem)
+            if (myGem < blackSkillGem || blackSkill == true)
             {
                 StartCoroutine("WarringMessageBlackSkill");
             }
