@@ -1,116 +1,135 @@
 ﻿[
  {
-   "ShopItem": "HpPotion",
-   "PriceGem": 100,
-   "PriceGold": 1000,
-   "SellGold": 300
+   "ItemPotion": "HpPotion",
+   "PriceGem": "100",
+   "PriceGold": "1000",
+   "SellGold": "300",
+   "Icon": "HpPotion_Icon"
  },
  {
-   "ShopItem": "",
-   "PriceGem": null,
-   "PriceGold": null,
-   "SellGold": null
+   "ItemPotion": "Upgrade",
+   "PriceGem": "PriceGem",
+   "PriceGold": "PriceGold",
+   "SellGold": "SellGold",
+   "Icon": "Icon"
  },
  {
-   "ShopItem": "Weapon",
-   "PriceGem": 100,
-   "PriceGold": 1000,
-   "SellGold": 0
+   "ItemPotion": "Weapon",
+   "PriceGem": "100",
+   "PriceGold": "1000",
+   "SellGold": "0",
+   "Icon": "Weapon_Icon"
  },
  {
-   "ShopItem": "Hp",
-   "PriceGem": 100,
-   "PriceGold": 1000,
-   "SellGold": 0
+   "ItemPotion": "Hp",
+   "PriceGem": "100",
+   "PriceGold": "1000",
+   "SellGold": "0",
+   "Icon": "Hp_Icon"
  },
  {
-   "ShopItem": "",
-   "PriceGem": null,
-   "PriceGold": null,
-   "SellGold": null
+   "ItemPotion": "ItemArrow",
+   "PriceGem": "PriceGem",
+   "PriceGold": "PriceGold",
+   "SellGold": "SellGold",
+   "Icon": "Icon"
  },
  {
-   "ShopItem": "RedArrow",
-   "PriceGem": 1000,
-   "PriceGold": 5000,
-   "SellGold": 1500
+   "ItemPotion": "RedArrow",
+   "PriceGem": "1000",
+   "PriceGold": "5000",
+   "SellGold": "1500",
+   "Icon": "RedArrow_Icon"
  },
  {
-   "ShopItem": "BlueArrow",
-   "PriceGem": 1000,
-   "PriceGold": 5000,
-   "SellGold": 1500
+   "ItemPotion": "BlueArrow",
+   "PriceGem": "1000",
+   "PriceGold": "5000",
+   "SellGold": "1500",
+   "Icon": "BlueArrow_Icon"
  },
  {
-   "ShopItem": "WhiteArrow",
-   "PriceGem": 1000,
-   "PriceGold": 5000,
-   "SellGold": 1500
+   "ItemPotion": "WhiteArrow",
+   "PriceGem": "1000",
+   "PriceGold": "5000",
+   "SellGold": "1500",
+   "Icon": "WhiteArrow_Icon"
  },
  {
-   "ShopItem": "BlackArrow",
-   "PriceGem": 1000,
-   "PriceGold": 5000,
-   "SellGold": 1500
+   "ItemPotion": "BlackArrow",
+   "PriceGem": "1000",
+   "PriceGold": "5000",
+   "SellGold": "1500",
+   "Icon": "BlackArrow_Icon"
  },
  {
-   "ShopItem": "",
-   "PriceGem": null,
-   "PriceGold": null,
-   "SellGold": null
+   "ItemPotion": "ItemArmor",
+   "PriceGem": "PriceGem",
+   "PriceGold": "PriceGold",
+   "SellGold": "SellGold",
+   "Icon": "Icon"
  },
  {
-   "ShopItem": "RedArmor",
-   "PriceGem": 1000,
-   "PriceGold": 5000,
-   "SellGold": 1500
+   "ItemPotion": "RedArmor",
+   "PriceGem": "1000",
+   "PriceGold": "5000",
+   "SellGold": "1500",
+   "Icon": "RedArmor_Icon"
  },
  {
-   "ShopItem": "BlueArmor",
-   "PriceGem": 1000,
-   "PriceGold": 5000,
-   "SellGold": 1500
+   "ItemPotion": "BlueArmor",
+   "PriceGem": "1000",
+   "PriceGold": "5000",
+   "SellGold": "1500",
+   "Icon": "BlueArmor_Icon"
  },
  {
-   "ShopItem": "WhiteArmor",
-   "PriceGem": 1000,
-   "PriceGold": 5000,
-   "SellGold": 1500
+   "ItemPotion": "WhiteArmor",
+   "PriceGem": "1000",
+   "PriceGold": "5000",
+   "SellGold": "1500",
+   "Icon": "WhiteArmor_Icon"
  },
  {
-   "ShopItem": "BlackArmor",
-   "PriceGem": 1000,
-   "PriceGold": 5000,
-   "SellGold": 1500
+   "ItemPotion": "BlackArmor",
+   "PriceGem": "1000",
+   "PriceGold": "5000",
+   "SellGold": "1500",
+   "Icon": "BlackArmor_Icon"
  },
  {
-   "ShopItem": "",
-   "PriceGem": null,
-   "PriceGold": null,
-   "SellGold": null
+   "ItemPotion": "ItemSkill",
+   "PriceGem": "PriceGem",
+   "PriceGold": "PriceGold",
+   "SellGold": "SellGold",
+   "Icon": "Icon"
  },
  {
-   "ShopItem": "RedSkill",
-   "PriceGem": 1000,
-   "PriceGold": 5000,
-   "SellGold": 1500
+   "ItemPotion": "RedSkill",
+   "PriceGem": "1000",
+   "PriceGold": "5000",
+   "SellGold": "1500",
+   "Icon": "RedSkill_Icon"
  },
  {
-   "ShopItem": "BlueSkill",
-   "PriceGem": 1000,
-   "PriceGold": 5000,
-   "SellGold": 1500
+   "ItemPotion": "BlueSkill",
+   "PriceGem": "1000",
+   "PriceGold": "5000",
+   "SellGold": "1500",
+   "Icon": "BlueSkill_Icon"
  },
  {
-   "ShopItem": "WhiteSkill",
-   "PriceGem": 1000,
-   "PriceGold": 5000,
-   "SellGold": 1500
+   "ItemPotion": "WhiteSkill",
+   "PriceGem": "1000",
+   "PriceGold": "5000",
+   "SellGold": "1500",
+   "Icon": "WhiteSkill_Icon"
  },
  {
-   "ShopItem": "BlackSkill",
-   "PriceGem": 1000,
-   "PriceGold": 5000,
-   "SellGold": 1500
+   "ItemPotion": "BlackSkill",
+   "PriceGem": "1000",
+   "PriceGold": "5000",
+   "SellGold": "1500",
+   "Icon": "BlackSkill_Icon"
  }
 ]

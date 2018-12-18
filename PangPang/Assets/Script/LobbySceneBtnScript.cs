@@ -320,20 +320,6 @@ public class LobbySceneBtnScript : MonoBehaviour {
     int blackSkillGold;
     /* 상점 json */
 
-    bool redArmor;
-    bool blueArmor;
-    bool whiteArmor;
-    bool blackArmor;
-    bool redArrow;
-    bool blueArrow;
-    bool whiteArrow;
-    bool blackArrow;
-    bool redSkill;
-    bool blueSkill;
-    bool whiteSkill;
-    bool blackSkill;
-
-    bool cha01;
 
     public UILabel haveRedArmor;
     public UILabel haveBlueArmor;
@@ -960,7 +946,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
         warringLabel.SetActive(true);
         if (warringLabel.activeSelf == true)
         {
-            if (redArrow == false)
+            if (InventoryManagerScript.Instance().redArrow == false)
             {
                 if (redArrowGoldCheck.GetComponent<TweenAlpha>().to == 0 && redArrowGemCheck.GetComponent<TweenAlpha>().to == 0)
                 {
@@ -983,7 +969,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
                     }
                 }
             }
-            if( redArrow == true)
+            if(InventoryManagerScript.Instance().redArrow == true)
             {
                 warringLabel.GetComponent<UILabel>().text = "이미 보유하고 있습니다.";
             }
@@ -998,7 +984,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
         warringLabel.SetActive(true);
         if (warringLabel.activeSelf == true)
         {
-            if (blueArrow == false)
+            if (InventoryManagerScript.Instance().blueArrow == false)
             {
                 if (blueArrowGoldCheck.GetComponent<TweenAlpha>().to == 0 && blueArrowGemCheck.GetComponent<TweenAlpha>().to == 0)
                 {
@@ -1021,7 +1007,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
                     }
                 }
             }
-            if (blueArrow == true)
+            if (InventoryManagerScript.Instance().blueArrow == true)
             {
                 warringLabel.GetComponent<UILabel>().text = "이미 보유하고 있습니다.";
             }
@@ -1036,7 +1022,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
         warringLabel.SetActive(true);
         if (warringLabel.activeSelf == true)
         {
-            if (whiteArrow == false)
+            if (InventoryManagerScript.Instance().whiteArrow == false)
             {
                 if (whiteArrowGoldCheck.GetComponent<TweenAlpha>().to == 0 && whiteArrowGemCheck.GetComponent<TweenAlpha>().to == 0)
                 {
@@ -1059,7 +1045,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
                     }
                 }
             }
-            if (whiteArrow == true)
+            if (InventoryManagerScript.Instance().whiteArrow == true)
             {
                 warringLabel.GetComponent<UILabel>().text = "이미 보유하고 있습니다.";
             }
@@ -1074,7 +1060,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
         warringLabel.SetActive(true);
         if (warringLabel.activeSelf == true)
         {
-            if (blackArrow == false)
+            if (InventoryManagerScript.Instance().blackArrow == false)
             {
                 if (blackArrowGoldCheck.GetComponent<TweenAlpha>().to == 0 && blackArrowGemCheck.GetComponent<TweenAlpha>().to == 0)
                 {
@@ -1097,7 +1083,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
                     }
                 }
             }
-            if (blackArrow == true)
+            if (InventoryManagerScript.Instance().blackArrow == true)
             {
                 warringLabel.GetComponent<UILabel>().text = "이미 보유하고 있습니다.";
             }
@@ -1112,7 +1098,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
         warringLabel.SetActive(true);
         if (warringLabel.activeSelf == true)
         {
-            if (redArmor == false)
+            if (InventoryManagerScript.Instance().redArmor == false)
             {
                 if (redArmorGoldCheck.GetComponent<TweenAlpha>().to == 0 && redArmorGemCheck.GetComponent<TweenAlpha>().to == 0)
                 {
@@ -1135,7 +1121,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
                     }
                 }
             }
-            if (redArmor == true)
+            if (InventoryManagerScript.Instance().redArmor == true)
             {
                 warringLabel.GetComponent<UILabel>().text = "이미 보유하고 있습니다.";
             }
@@ -1150,7 +1136,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
         warringLabel.SetActive(true);
         if (warringLabel.activeSelf == true)
         {
-            if (blueArmor == false)
+            if (InventoryManagerScript.Instance().blueArmor == false)
             {
                 if (blueArmorGoldCheck.GetComponent<TweenAlpha>().to == 0 && blueArmorGemCheck.GetComponent<TweenAlpha>().to == 0)
                 {
@@ -1173,7 +1159,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
                     }
                 }
             }
-            if (blueArmor == true)
+            if (InventoryManagerScript.Instance().blueArmor == true)
             {
                 warringLabel.GetComponent<UILabel>().text = "이미 보유하고 있습니다.";
             }
@@ -1188,7 +1174,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
         warringLabel.SetActive(true);
         if (warringLabel.activeSelf == true)
         {
-            if (whiteArmor == false)
+            if (InventoryManagerScript.Instance().whiteArmor == false)
             {
                 if (whiteArmorGoldCheck.GetComponent<TweenAlpha>().to == 0 && whiteArmorGemCheck.GetComponent<TweenAlpha>().to == 0)
                 {
@@ -1211,7 +1197,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
                     }
                 }
             }
-            if (whiteArmor == true)
+            if (InventoryManagerScript.Instance().whiteArmor == true)
             {
                 warringLabel.GetComponent<UILabel>().text = "이미 보유하고 있습니다.";
             }
@@ -1226,7 +1212,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
         warringLabel.SetActive(true);
         if (warringLabel.activeSelf == true)
         {
-            if (blackArmor == false)
+            if (InventoryManagerScript.Instance().blackArmor == false)
             {
                 if (blackArmorGoldCheck.GetComponent<TweenAlpha>().to == 0 && blackArmorGemCheck.GetComponent<TweenAlpha>().to == 0)
                 {
@@ -1249,7 +1235,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
                     }
                 }
             }
-            if (blackArmor == true)
+            if (InventoryManagerScript.Instance().blackArmor == true)
             {
                 warringLabel.GetComponent<UILabel>().text = "이미 보유하고 있습니다.";
             }
@@ -1264,7 +1250,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
         warringLabel.SetActive(true);
         if (warringLabel.activeSelf == true)
         {
-            if (redSkill == false)
+            if (InventoryManagerScript.Instance().redSkill == false)
             {
                 if (redSkillGoldCheck.GetComponent<TweenAlpha>().to == 0 && redSkillGemCheck.GetComponent<TweenAlpha>().to == 0)
                 {
@@ -1287,7 +1273,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
                     }
                 }
             }
-            if (redSkill == true)
+            if (InventoryManagerScript.Instance().redSkill == true)
             {
                 warringLabel.GetComponent<UILabel>().text = "이미 보유하고 있습니다.";
             }
@@ -1302,7 +1288,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
         warringLabel.SetActive(true);
         if (warringLabel.activeSelf == true)
         {
-            if (blueSkill == false)
+            if (InventoryManagerScript.Instance().blueSkill == false)
             {
                 if (blueSkillGoldCheck.GetComponent<TweenAlpha>().to == 0 && blueSkillGemCheck.GetComponent<TweenAlpha>().to == 0)
                 {
@@ -1325,7 +1311,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
                     }
                 }
             }
-            if (blueSkill == true)
+            if (InventoryManagerScript.Instance().blueSkill == true)
             {
                 warringLabel.GetComponent<UILabel>().text = "이미 보유하고 있습니다.";
             }
@@ -1340,7 +1326,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
         warringLabel.SetActive(true);
         if (warringLabel.activeSelf == true)
         {
-            if (whiteSkill == false)
+            if (InventoryManagerScript.Instance().whiteSkill == false)
             {
                 if (whiteSkillGoldCheck.GetComponent<TweenAlpha>().to == 0 && whiteSkillGemCheck.GetComponent<TweenAlpha>().to == 0)
                 {
@@ -1363,7 +1349,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
                     }
                 }
             }
-            if (whiteSkill == true)
+            if (InventoryManagerScript.Instance().whiteSkill == true)
             {
                 warringLabel.GetComponent<UILabel>().text = "이미 보유하고 있습니다.";
             }
@@ -1376,7 +1362,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
     IEnumerator WarringMessageBlackSkill()
     {
         warringLabel.SetActive(true);
-        if(blackSkill == false)
+        if(InventoryManagerScript.Instance().blackSkill == false)
         {
             if (warringLabel.activeSelf == true)
             {
@@ -1401,7 +1387,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
                     }
                 }
             }
-            if (blackSkill == true)
+            if (InventoryManagerScript.Instance().blackSkill == true)
             {
                 warringLabel.GetComponent<UILabel>().text = "이미 보유하고 있습니다.";
             }
@@ -1529,15 +1515,15 @@ public class LobbySceneBtnScript : MonoBehaviour {
     {
         if (redArrowGoldCheck.GetComponent<TweenAlpha>().to == 1 && redArrowGemCheck.GetComponent<TweenAlpha>().to == 0)
         {
-            if (myGold >= redArrowGold && redArrow == false)
+            if (myGold >= redArrowGold && InventoryManagerScript.Instance().redArrow == false)
             {
                 myGold -= redArrowGold;
                 haveRedArrow.text = "1";
-                redArrow = true;
+                InventoryManagerScript.Instance().redArrow = true;
                 Debug.Log("골드로 RedArrow");
             }
             else
-            if (myGold < redArrowGold || redArrow == true)
+            if (myGold < redArrowGold || InventoryManagerScript.Instance().redArrow == true)
             {
                 StartCoroutine("WarringMessageRedArrow");
             }
@@ -1545,15 +1531,15 @@ public class LobbySceneBtnScript : MonoBehaviour {
         
         if (redArrowGoldCheck.GetComponent<TweenAlpha>().to == 0 && redArrowGemCheck.GetComponent<TweenAlpha>().to == 1)
         {
-            if (myGem >= redArrowGem && redArrow == false)
+            if (myGem >= redArrowGem && InventoryManagerScript.Instance().redArrow == false)
             {
                 myGem -= redArrowGem;
                 haveRedArrow.text = "1";
-                redArrow = true;
+                InventoryManagerScript.Instance().redArrow = true;
                 Debug.Log("잼으로 RedArrow");
             }
             else
-            if (myGem < redArrowGem || redArrow == true)
+            if (myGem < redArrowGem || InventoryManagerScript.Instance().redArrow == true)
             {
                 StartCoroutine("WarringMessageRedArrow");
             }
@@ -1570,15 +1556,15 @@ public class LobbySceneBtnScript : MonoBehaviour {
     {
         if (blueArrowGoldCheck.GetComponent<TweenAlpha>().to == 1 && blueArrowGemCheck.GetComponent<TweenAlpha>().to == 0)
         {
-            if (myGold >= blueArrowGold && blueArrow == false)
+            if (myGold >= blueArrowGold && InventoryManagerScript.Instance().blueArrow == false)
             {
                 myGold -= blueArrowGold;
                 haveBlueArrow.text = "1";
-                blueArrow = true;
+                InventoryManagerScript.Instance().blueArrow = true;
                 Debug.Log("골드로 BlueArrow");
             }
             else
-            if (myGold < blueArrowGold || blueArrow == true)
+            if (myGold < blueArrowGold || InventoryManagerScript.Instance().blueArrow == true)
             {
                 StartCoroutine("WarringMessageBlueArrow");
             }
@@ -1586,14 +1572,14 @@ public class LobbySceneBtnScript : MonoBehaviour {
         else
         if (blueArrowGoldCheck.GetComponent<TweenAlpha>().to == 0 && blueArrowGemCheck.GetComponent<TweenAlpha>().to == 1)
         {
-            if (myGem >= blueArrowGem && blueArrow == false)
+            if (myGem >= blueArrowGem && InventoryManagerScript.Instance().blueArrow == false)
             {
                 myGem -= blueArrowGem;
                 haveBlueArrow.text = "1";
-                blueArrow = true;
+                InventoryManagerScript.Instance().blueArrow = true;
                 Debug.Log("잼으로 BlueArrow");
             }
-            if (myGem < blueArrowGem || blueArrow == true)
+            if (myGem < blueArrowGem || InventoryManagerScript.Instance().blueArrow == true)
             {
                 StartCoroutine("WarringMessageBlueArrow");
             }
@@ -1610,15 +1596,15 @@ public class LobbySceneBtnScript : MonoBehaviour {
     {
         if (whiteArrowGoldCheck.GetComponent<TweenAlpha>().to == 1 && whiteArrowGemCheck.GetComponent<TweenAlpha>().to == 0)
         {
-            if (myGold >= whiteArrowGold && whiteArrow == false)
+            if (myGold >= whiteArrowGold && InventoryManagerScript.Instance().whiteArrow == false)
             {
                 myGold -= whiteArrowGold;
                 haveWhiteArrow.text = "1";
-                whiteArrow = true;
+                InventoryManagerScript.Instance().whiteArrow = true;
                 Debug.Log("골드로 WhiteArrow");
             }
             else
-            if (myGold < whiteArrowGold || whiteArrow == true)
+            if (myGold < whiteArrowGold || InventoryManagerScript.Instance().whiteArrow == true)
             {
                 StartCoroutine("WarringMessageWhiteArrow");
             }
@@ -1626,14 +1612,14 @@ public class LobbySceneBtnScript : MonoBehaviour {
         else
         if (whiteArrowGoldCheck.GetComponent<TweenAlpha>().to == 0 && whiteArrowGemCheck.GetComponent<TweenAlpha>().to == 1)
         {
-            if (myGem >= whiteArrowGem && whiteArrow == false)
+            if (myGem >= whiteArrowGem && InventoryManagerScript.Instance().whiteArrow == false)
             {
                 myGem -= whiteArrowGem;
                 haveWhiteArrow.text = "1";
-                whiteArrow = true;
+                InventoryManagerScript.Instance().whiteArrow = true;
                 Debug.Log("잼으로 WhiteArrow");
             }
-            if (myGem < whiteArrowGem || whiteArrow == true)
+            if (myGem < whiteArrowGem || InventoryManagerScript.Instance().whiteArrow == true)
             {
                 StartCoroutine("WarringMessageWhiteArrow");
             }
@@ -1650,15 +1636,15 @@ public class LobbySceneBtnScript : MonoBehaviour {
     {
         if (blackArrowGoldCheck.GetComponent<TweenAlpha>().to == 1 && blackArrowGemCheck.GetComponent<TweenAlpha>().to == 0)
         {
-            if (myGold >= blackArrowGold && blackArrow == false)
+            if (myGold >= blackArrowGold && InventoryManagerScript.Instance().blackArrow == false)
             {
                 myGold -= blackArrowGold;
                 haveBlackArrow.text = "1";
-                blackArrow = true;
+                InventoryManagerScript.Instance().blackArrow = true;
                 Debug.Log("골드로 BlackArrow");
             }
             else
-            if (myGold < blackArrowGold || blackArrow == true)
+            if (myGold < blackArrowGold || InventoryManagerScript.Instance().blackArrow == true)
             {                
                 StartCoroutine("WarringMessageBlackArrow");
             }
@@ -1666,14 +1652,14 @@ public class LobbySceneBtnScript : MonoBehaviour {
         else
         if (blackArrowGoldCheck.GetComponent<TweenAlpha>().to == 0 && blackArrowGemCheck.GetComponent<TweenAlpha>().to == 1)
         {
-            if (myGem >= blackArrowGem && blackArrow == false)
+            if (myGem >= blackArrowGem && InventoryManagerScript.Instance().blackArrow == false)
             {
                 myGem -= blackArrowGem;
                 haveBlackArrow.text = "1";
-                blackArrow = true;
+                InventoryManagerScript.Instance().blackArrow = true;
                 Debug.Log("잼으로 BlackArrow");
             }
-            if (myGem < blackArrowGem || blackArrow == true)
+            if (myGem < blackArrowGem || InventoryManagerScript.Instance().blackArrow == true)
             {
                 StartCoroutine("WarringMessageBlackArrow");
             }
@@ -1690,15 +1676,15 @@ public class LobbySceneBtnScript : MonoBehaviour {
     {
         if (redArmorGoldCheck.GetComponent<TweenAlpha>().to == 1 && redArmorGemCheck.GetComponent<TweenAlpha>().to == 0)
         {
-            if (myGold >= redArmorGold && redArmor == false)
+            if (myGold >= redArmorGold && InventoryManagerScript.Instance().redArmor == false)
             {
                 myGold -= redArmorGold;
                 haveRedArmor.text = "1";
-                redArmor = true;
+                InventoryManagerScript.Instance().redArmor = true;
                 Debug.Log("골드로 RedArmor");
             }
             else
-            if (myGold < redArmorGold || redArmor == true)
+            if (myGold < redArmorGold || InventoryManagerScript.Instance().redArmor == true)
             {
                 StartCoroutine("WarringMessageRedArmor");
             }
@@ -1706,14 +1692,14 @@ public class LobbySceneBtnScript : MonoBehaviour {
         else
         if (redArmorGoldCheck.GetComponent<TweenAlpha>().to == 0 && redArmorGemCheck.GetComponent<TweenAlpha>().to == 1)
         {
-            if (myGem >= redArmorGem && redArmor == false)
+            if (myGem >= redArmorGem && InventoryManagerScript.Instance().redArmor == false)
             {
                 myGem -= redArmorGem;
                 haveRedArmor.text = "1";
-                redArmor = true;
+                InventoryManagerScript.Instance().redArmor = true;
                 Debug.Log("잼으로 RedArmor");
             }
-            if (myGem < redArmorGem || redArmor == true)
+            if (myGem < redArmorGem || InventoryManagerScript.Instance().redArmor == true)
             {
                 StartCoroutine("WarringMessageRedArmor");
             }
@@ -1730,15 +1716,15 @@ public class LobbySceneBtnScript : MonoBehaviour {
     {
         if (blueArmorGoldCheck.GetComponent<TweenAlpha>().to == 1 && blueArmorGemCheck.GetComponent<TweenAlpha>().to == 0)
         {
-            if (myGold >= blueArmorGold && blueArmor == false)
+            if (myGold >= blueArmorGold && InventoryManagerScript.Instance().blueArmor == false)
             {
                 myGold -= blueArmorGold;
                 haveBlueArmor.text = "1";
-                blueArmor = true;
+                InventoryManagerScript.Instance().blueArmor = true;
                 Debug.Log("골드로 BlueArmor");
             }
             else
-            if (myGold < blueArmorGold || blueArmor == true)
+            if (myGold < blueArmorGold || InventoryManagerScript.Instance().blueArmor == true)
             {
                 StartCoroutine("WarringMessageBlueArmor");
             }
@@ -1746,14 +1732,14 @@ public class LobbySceneBtnScript : MonoBehaviour {
         else
         if (blueArmorGoldCheck.GetComponent<TweenAlpha>().to == 0 && blueArmorGemCheck.GetComponent<TweenAlpha>().to == 1)
         {
-            if (myGem >= blueArmorGem && blueArmor == false)
+            if (myGem >= blueArmorGem && InventoryManagerScript.Instance().blueArmor == false)
             {
                 myGem -= blueArmorGem;
                 haveBlueArmor.text = "1";
-                blueArmor = true;
+                InventoryManagerScript.Instance().blueArmor = true;
                 Debug.Log("잼으로 BlueArmor");
             }
-            if (myGem < blueArmorGem || blueArmor == true)
+            if (myGem < blueArmorGem || InventoryManagerScript.Instance().blueArmor == true)
             {
                 StartCoroutine("WarringMessageBlueArmor");
             }
@@ -1770,15 +1756,15 @@ public class LobbySceneBtnScript : MonoBehaviour {
     {
         if (whiteArmorGoldCheck.GetComponent<TweenAlpha>().to == 1 && whiteArmorGemCheck.GetComponent<TweenAlpha>().to == 0)
         {
-            if (myGold >= whiteArmorGold && whiteArmor == false)
+            if (myGold >= whiteArmorGold && InventoryManagerScript.Instance().whiteArmor == false)
             {
                 myGold -= whiteArmorGold;
                 haveWhiteArmor.text = "1";
-                whiteArmor = true;
+                InventoryManagerScript.Instance().whiteArmor = true;
                 Debug.Log("골드로 WhiteArmor");
             }
             else
-            if (myGold < whiteArmorGold || whiteArmor == true)
+            if (myGold < whiteArmorGold || InventoryManagerScript.Instance().whiteArmor == true)
             {
                 StartCoroutine("WarringMessageWhiteArmor");
             }
@@ -1786,14 +1772,14 @@ public class LobbySceneBtnScript : MonoBehaviour {
         else
         if (whiteArmorGoldCheck.GetComponent<TweenAlpha>().to == 0 && whiteArmorGemCheck.GetComponent<TweenAlpha>().to == 1)
         {
-            if (myGem >= whiteArmorGem && whiteArmor == false)
+            if (myGem >= whiteArmorGem && InventoryManagerScript.Instance().whiteArmor == false)
             {
                 myGem -= whiteArmorGem;
                 haveWhiteArmor.text = "1";
-                whiteArmor = true;
+                InventoryManagerScript.Instance().whiteArmor = true;
                 Debug.Log("잼으로 WhiteArmor");
             }
-            if (myGem < whiteArmorGem || whiteArmor == true)
+            if (myGem < whiteArmorGem || InventoryManagerScript.Instance().whiteArmor == true)
             {
                 StartCoroutine("WarringMessageWhiteArmor");
             }
@@ -1810,15 +1796,15 @@ public class LobbySceneBtnScript : MonoBehaviour {
     {
         if (blackArmorGoldCheck.GetComponent<TweenAlpha>().to == 1 && blackArmorGemCheck.GetComponent<TweenAlpha>().to == 0)
         {
-            if (myGold >= blackArmorGold && blackArmor == false)
+            if (myGold >= blackArmorGold && InventoryManagerScript.Instance().blackArmor == false)
             {
                 myGold -= blackArmorGold;
                 haveBlackArmor.text = "1";
-                blackArmor = true;
+                InventoryManagerScript.Instance().blackArmor = true;
                 Debug.Log("골드로 BlackArmor");
             }
             else
-            if (myGold < blackArmorGold || blackArmor == true)
+            if (myGold < blackArmorGold || InventoryManagerScript.Instance().blackArmor == true)
             {
                 StartCoroutine("WarringMessageBlackArmor");
             }
@@ -1826,14 +1812,14 @@ public class LobbySceneBtnScript : MonoBehaviour {
         else
         if (blackArmorGoldCheck.GetComponent<TweenAlpha>().to == 0 && blackArmorGemCheck.GetComponent<TweenAlpha>().to == 1)
         {
-            if (myGem >= blackArmorGem && blackArmor == false)
+            if (myGem >= blackArmorGem && InventoryManagerScript.Instance().blackArmor == false)
             {
                 myGem -= blackArmorGem;
                 haveBlackArmor.text = "1";
-                blackArmor = true;
+                InventoryManagerScript.Instance().blackArmor = true;
                 Debug.Log("잼으로 BlackArmor");
             }
-            if (myGem < blackArmorGem || blackArmor == true)
+            if (myGem < blackArmorGem || InventoryManagerScript.Instance().blackArmor == true)
             {
                 StartCoroutine("WarringMessageBlackArmor");
             }
@@ -1850,15 +1836,15 @@ public class LobbySceneBtnScript : MonoBehaviour {
     {
         if (redSkillGoldCheck.GetComponent<TweenAlpha>().to == 1 && redSkillGemCheck.GetComponent<TweenAlpha>().to == 0)
         {
-            if (myGold >= redSkillGold && redSkill == false)
+            if (myGold >= redSkillGold && InventoryManagerScript.Instance().redSkill == false)
             {
                 myGold -= redSkillGold;
                 haveRedSkill.text = "1";
-                redSkill = true;
+                InventoryManagerScript.Instance().redSkill = true;
                 Debug.Log("골드로 RedSkill");
             }
             else
-            if (myGold < redSkillGold || redSkill == true)
+            if (myGold < redSkillGold || InventoryManagerScript.Instance().redSkill == true)
             {
                 StartCoroutine("WarringMessageRedSkill");
             }
@@ -1866,14 +1852,14 @@ public class LobbySceneBtnScript : MonoBehaviour {
         else
         if (redSkillGoldCheck.GetComponent<TweenAlpha>().to == 0 && redSkillGemCheck.GetComponent<TweenAlpha>().to == 1)
         {
-            if (myGem >= redSkillGem && redSkill == false)
+            if (myGem >= redSkillGem && InventoryManagerScript.Instance().redSkill == false)
             {
                 myGem -= redSkillGem;
                 haveRedSkill.text = "1";
-                redSkill = true;
+                InventoryManagerScript.Instance().redSkill = true;
                 Debug.Log("잼으로 RedSkill");
             }
-            if (myGem < redSkillGem || redSkill == true)
+            if (myGem < redSkillGem || InventoryManagerScript.Instance().redSkill == true)
             {
                 StartCoroutine("WarringMessageRedSkill");
             }
@@ -1890,15 +1876,15 @@ public class LobbySceneBtnScript : MonoBehaviour {
     {
         if (blueSkillGoldCheck.GetComponent<TweenAlpha>().to == 1 && blueSkillGemCheck.GetComponent<TweenAlpha>().to == 0)
         {
-            if (myGold >= blueSkillGold && blueSkill == false)
+            if (myGold >= blueSkillGold && InventoryManagerScript.Instance().blueSkill == false)
             {
                 myGold -= blueSkillGold;
                 haveBlueSkill.text = "1";
-                blueSkill = true;
+                InventoryManagerScript.Instance().blueSkill = true;
                 Debug.Log("골드로 BlueSkill");
             }
             else
-            if (myGold < blueSkillGold || blueSkill == true)
+            if (myGold < blueSkillGold || InventoryManagerScript.Instance().blueSkill == true)
             {
                 StartCoroutine("WarringMessageBlueSkill");
             }
@@ -1906,14 +1892,14 @@ public class LobbySceneBtnScript : MonoBehaviour {
         else
         if (blueSkillGoldCheck.GetComponent<TweenAlpha>().to == 0 && blueSkillGemCheck.GetComponent<TweenAlpha>().to == 1)
         {
-            if (myGem >= blueSkillGem && blueSkill == false)
+            if (myGem >= blueSkillGem && InventoryManagerScript.Instance().blueSkill == false)
             {
                 myGem -= blueSkillGem;
                 haveBlueSkill.text = "1";
-                blueSkill = true;
+                InventoryManagerScript.Instance().blueSkill = true;
                 Debug.Log("잼으로 BlueSkill");
             }
-            if (myGem < blueSkillGem || blueSkill == true)
+            if (myGem < blueSkillGem || InventoryManagerScript.Instance().blueSkill == true)
             {
                 StartCoroutine("WarringMessageBlueSkill");
             }
@@ -1930,15 +1916,15 @@ public class LobbySceneBtnScript : MonoBehaviour {
     {
         if (whiteSkillGoldCheck.GetComponent<TweenAlpha>().to == 1 && whiteSkillGemCheck.GetComponent<TweenAlpha>().to == 0)
         {
-            if (myGold >= whiteSkillGold && whiteSkill == false)
+            if (myGold >= whiteSkillGold && InventoryManagerScript.Instance().whiteSkill == false)
             {
                 myGold -= whiteSkillGold;
                 haveWhiteSkill.text = "1";
-                whiteSkill = true;
+                InventoryManagerScript.Instance().whiteSkill = true;
                 Debug.Log("골드로 WhiteSkill");
             }
             else
-            if (myGold < whiteSkillGold || whiteSkill == true)
+            if (myGold < whiteSkillGold || InventoryManagerScript.Instance().whiteSkill == true)
             {
                 StartCoroutine("WarringMessageWhiteSkill");
             }
@@ -1946,14 +1932,14 @@ public class LobbySceneBtnScript : MonoBehaviour {
         else
         if (whiteSkillGoldCheck.GetComponent<TweenAlpha>().to == 0 && whiteSkillGemCheck.GetComponent<TweenAlpha>().to == 1)
         {
-            if (myGem >= whiteSkillGem && whiteSkill == false)
+            if (myGem >= whiteSkillGem && InventoryManagerScript.Instance().whiteSkill == false)
             {
                 myGem -= whiteSkillGem;
                 haveWhiteSkill.text = "1";
-                whiteSkill = true;
+                InventoryManagerScript.Instance().whiteSkill = true;
                 Debug.Log("잼으로 WhiteSkill");
             }
-            if (myGem < whiteSkillGem || whiteSkill == true)
+            if (myGem < whiteSkillGem || InventoryManagerScript.Instance().whiteSkill == true)
             {
                 StartCoroutine("WarringMessageWhiteSkill");
             }
@@ -1970,15 +1956,15 @@ public class LobbySceneBtnScript : MonoBehaviour {
     {
         if (blackSkillGoldCheck.GetComponent<TweenAlpha>().to == 1 && blackSkillGemCheck.GetComponent<TweenAlpha>().to == 0)
         {
-            if (myGold >= blackSkillGold && blackSkill == false)
+            if (myGold >= blackSkillGold && InventoryManagerScript.Instance().blackSkill == false)
             {
                 myGold -= blackSkillGold;
                 haveBlackSkill.text = "1";
-                blackSkill = true;
+                InventoryManagerScript.Instance().blackSkill = true;
                 Debug.Log("골드로 BlackSkill");
             }
             else
-            if (myGold < blackSkillGold || blackSkill == true)
+            if (myGold < blackSkillGold || InventoryManagerScript.Instance().blackSkill == true)
             {
                 StartCoroutine("WarringMessageBlackSkill");
             }
@@ -1986,14 +1972,14 @@ public class LobbySceneBtnScript : MonoBehaviour {
         else
         if (blackSkillGoldCheck.GetComponent<TweenAlpha>().to == 0 && blackSkillGemCheck.GetComponent<TweenAlpha>().to == 1)
         {
-            if (myGem >= blackSkillGem && blackSkill == false)
+            if (myGem >= blackSkillGem && InventoryManagerScript.Instance().blackSkill == false)
             {
                 myGem -= blackSkillGem;
                 haveBlackSkill.text = "1";
-                blackSkill = true;
+                InventoryManagerScript.Instance().blackSkill = true;
                 Debug.Log("잼으로 BlackSkill");
             }
-            if (myGem < blackSkillGem || blackSkill == true)
+            if (myGem < blackSkillGem || InventoryManagerScript.Instance().blackSkill == true)
             {
                 StartCoroutine("WarringMessageBlackSkill");
             }
