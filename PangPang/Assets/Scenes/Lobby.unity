@@ -15134,13 +15134,14 @@ GameObject:
   m_Component:
   - component: {fileID: 744045493}
   - component: {fileID: 744045494}
+  - component: {fileID: 744045495}
   m_Layer: 8
   m_Name: Skill_Sample
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &744045493
 Transform:
   m_ObjectHideFlags: 0
@@ -15149,7 +15150,7 @@ Transform:
   m_GameObject: {fileID: 744045492}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0008, y: 1.0008, z: 1.0008}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 355779234}
   m_RootOrder: 7
@@ -15205,9 +15206,21 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 114065975338809726, guid: e0ab38282f9967446bfcc4f30ba67a8a, type: 2}
-  mSpriteName: water
+  mAtlas: {fileID: 114979239284852334, guid: 0928386dba09b904e930a2f76b4bd31e, type: 2}
+  mSpriteName: BlueSkill_Icon
   mFillCenter: 1
+--- !u!114 &744045495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 744045492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff887ad2e38ecb24bb3bbdd391b8a6e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_sprIcon: {fileID: 744045494}
 --- !u!1 &745108143
 GameObject:
   m_ObjectHideFlags: 0
@@ -27013,6 +27026,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1378402918}
   - component: {fileID: 1378402919}
+  - component: {fileID: 1378402920}
   m_Layer: 8
   m_Name: Armor_Sample
   m_TagString: Untagged
@@ -27027,7 +27041,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1378402917}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 66, y: 164, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 355779234}
@@ -27063,14 +27077,14 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 180
-  mHeight: 130
+  mWidth: 90
+  mHeight: 90
   mDepth: 6
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.3846154
+  aspectRatio: 1
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -27084,9 +27098,21 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 114065975338809726, guid: e0ab38282f9967446bfcc4f30ba67a8a, type: 2}
-  mSpriteName: blue_armour
+  mAtlas: {fileID: 114979239284852334, guid: 0928386dba09b904e930a2f76b4bd31e, type: 2}
+  mSpriteName: BlueArmor_Icon
   mFillCenter: 1
+--- !u!114 &1378402920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1378402917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff887ad2e38ecb24bb3bbdd391b8a6e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_sprIcon: {fileID: 1378402919}
 --- !u!1 &1378479062
 GameObject:
   m_ObjectHideFlags: 0
@@ -33792,8 +33818,9 @@ MonoBehaviour:
   whiteSkill: 0
   blackSkill: 0
   cha01: 0
-  m_gObjSampleItem: {fileID: 0}
-  m_scrollView: {fileID: 0}
+  m_gObjArrowSampleItem: {fileID: 1919913838}
+  m_gObjArmorSampleItem: {fileID: 1378402917}
+  m_gObjSkillSampleItem: {fileID: 744045492}
   m_grid: {fileID: 1761453003}
 --- !u!1 &1762553540
 GameObject:
@@ -37172,13 +37199,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1919913839}
   - component: {fileID: 1919913840}
+  - component: {fileID: 1919913841}
   m_Layer: 8
   m_Name: Arrow_Sample
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1919913839
 Transform:
   m_ObjectHideFlags: 0
@@ -37186,7 +37214,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1919913838}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -145, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 355779234}
@@ -37243,9 +37271,21 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 114065975338809726, guid: e0ab38282f9967446bfcc4f30ba67a8a, type: 2}
-  mSpriteName: "blue\uD654\uC0B4"
+  mAtlas: {fileID: 114979239284852334, guid: 0928386dba09b904e930a2f76b4bd31e, type: 2}
+  mSpriteName: BlueArrow_Icon
   mFillCenter: 1
+--- !u!114 &1919913841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1919913838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff887ad2e38ecb24bb3bbdd391b8a6e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_sprIcon: {fileID: 1919913840}
 --- !u!1 &1921696123
 GameObject:
   m_ObjectHideFlags: 0

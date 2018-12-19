@@ -65,7 +65,12 @@ public class InventoryManagerScript : MonoBehaviour {
 
     void Update()
     {
+        AddItem();
+    }
 
+    private void InitItems()
+    {
+        m_lItemNames.Add("RedArrow_Icon");
     }
 
     // 키를 누르면 아이템을 화면에 보여주는 역할을 합니다.
@@ -122,41 +127,37 @@ public class InventoryManagerScript : MonoBehaviour {
 
 
 
-        // 랜덤으로 만들도록 할께요.
+        if(redArmor == true)
+        {
+            // 새로 만들어서 그리드 자식으로 넣겠습니다.         
 
-        // 난수는 0부터 아이템이름 리스트의 갯수 - 1 만큼입니다.
+            GameObject armorSampleItem = NGUITools.AddChild(m_grid.gameObject, m_gObjArmorSampleItem);
+            //GameObject arrowSampleItem = NGUITools.AddChild(m_grid.gameObject, m_gObjArrowSampleItem);            
+            //GameObject skillSampleItem = NGUITools.AddChild(m_grid.gameObject, m_gObjSkillSampleItem);
 
-        int nRandomIndex = Random.Range(0, m_lItemNames.Count);
+            // SampleItem의 Active가 꺼져있으니(아까 꼈죠?) 먼저 켜도록 할께요.
 
-        // 새로 만들어서 그리드 자식으로 넣겠습니다.         
+            armorSampleItem.SetActive(true);
 
-        GameObject arrowSampleItem = NGUITools.AddChild(m_grid.gameObject, m_gObjArrowSampleItem);
-        GameObject armorSampleItem = NGUITools.AddChild(m_grid.gameObject, m_gObjArmorSampleItem);
-        GameObject skillSampleItem = NGUITools.AddChild(m_grid.gameObject, m_gObjSkillSampleItem);
+            // 이제 이름과 아이콘을 세팅할께요.
 
-        // SampleItem의 Active가 꺼져있으니(아까 꼈죠?) 먼저 켜도록 할께요.
+            // 그럴려면 먼저 아까 만든 ItemScript를 가져와야겠죠.
 
-        arrowSampleItem.SetActive(true);
+            // GetComponent는 해당 게임 오브젝트가 가지고 있는 컴포넌트를 가져오는 역할을 해요.
 
-        // 이제 이름과 아이콘을 세팅할께요.
+            ItemScript itemScript = armorSampleItem.GetComponent<ItemScript>();
+            itemScript.SettingInfo(m_lItemNames[0]);
 
-        // 그럴려면 먼저 아까 만든 ItemScript를 가져와야겠죠.
+            // 이제 그리드와 스크롤뷰를 재정렬 시킵시다.
 
-        // GetComponent는 해당 게임 오브젝트가 가지고 있는 컴포넌트를 가져오는 역할을 해요.
+            m_grid.Reposition();
 
-        ItemScript itemScript = arrowSampleItem.GetComponent<ItemScript>();
+            //m_scrollView.ResetPosition();
 
-        itemScript.SetInfo(m_lItemNames[nRandomIndex]);
+            // 그리고 관리를 위해 만든걸 리스트에 넣어둡시다.
 
-        // 이제 그리드와 스크롤뷰를 재정렬 시킵시다.
-
-        m_grid.Reposition();
-
-        //m_scrollView.ResetPosition();
-
-        // 그리고 관리를 위해 만든걸 리스트에 넣어둡시다.
-
-        m_lItems.Add(itemScript);
+            m_lItems.Add(itemScript);
+        }        
     }
 
 

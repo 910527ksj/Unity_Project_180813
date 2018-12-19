@@ -33,7 +33,7 @@ public class ItemScript : MonoBehaviour
 
     }
     // 정보를 설정하는 함수 입니다.
-    public void SetInfo(string spriteName)
+    public void SettingInfo(string spriteName)
     {
         // 같은 아틀라스에 있으니 스프라이트 이름 찾아 넣어주면 이미지가 바껴요.
         m_sprIcon.spriteName = spriteName;
