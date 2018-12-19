@@ -79,8 +79,21 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: BlackArmor_Icon
+    x: 0
+    y: 599
+    width: 89
+    height: 90
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 1
+    paddingTop: 0
+    paddingBottom: 0
   - name: BlackArrow_Icon
-    x: 104
+    x: 532
     y: 609
     width: 20
     height: 80
@@ -93,7 +106,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: BlackSkill_Icon
-    x: 0
+    x: 428
     y: 609
     width: 80
     height: 80
@@ -105,8 +118,21 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: BlueArmor_Icon
+    x: 2050
+    y: 774
+    width: 89
+    height: 90
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 1
+    paddingTop: 0
+    paddingBottom: 0
   - name: BlueArrow_Icon
-    x: 126
+    x: 554
     y: 609
     width: 20
     height: 80
@@ -119,8 +145,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: BlueSkill_Icon
-    x: 2050
-    y: 784
+    x: 182
+    y: 609
     width: 80
     height: 80
     borderLeft: 0
@@ -131,8 +157,21 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: RedArmor_Icon
+    x: 2050
+    y: 682
+    width: 89
+    height: 90
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 1
+    paddingTop: 0
+    paddingBottom: 0
   - name: RedArrow_Icon
-    x: 148
+    x: 576
     y: 609
     width: 20
     height: 80
@@ -145,8 +184,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: RedSkill_Icon
-    x: 2050
-    y: 702
+    x: 264
+    y: 609
     width: 80
     height: 80
     borderLeft: 0
@@ -157,8 +196,21 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: WhiteArmor_Icon
+    x: 91
+    y: 599
+    width: 89
+    height: 90
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 1
+    paddingTop: 0
+    paddingBottom: 0
   - name: WhiteArrow_Icon
-    x: 82
+    x: 510
     y: 609
     width: 20
     height: 80
@@ -171,8 +223,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: WhiteSkill_Icon
-    x: 2050
-    y: 620
+    x: 346
+    y: 609
     width: 80
     height: 80
     borderLeft: 0

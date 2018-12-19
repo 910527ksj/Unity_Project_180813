@@ -37,6 +37,7 @@ public class ItemScript : MonoBehaviour
     {
         // 같은 아틀라스에 있으니 스프라이트 이름 찾아 넣어주면 이미지가 바껴요.
         m_sprIcon.spriteName = spriteName;
+        gameObject.name = spriteName;
         // 이름도 설정 합시다.(확인 위해 이름설정하는거)
         m_strName = spriteName;
     }

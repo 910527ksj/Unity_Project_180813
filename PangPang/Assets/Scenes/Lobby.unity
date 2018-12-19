@@ -15135,6 +15135,7 @@ GameObject:
   - component: {fileID: 744045493}
   - component: {fileID: 744045494}
   - component: {fileID: 744045495}
+  - component: {fileID: 744045496}
   m_Layer: 8
   m_Name: Skill_Sample
   m_TagString: Untagged
@@ -15189,7 +15190,7 @@ MonoBehaviour:
   mHeight: 80
   mDepth: 6
   mMat: {fileID: 0}
-  autoResizeBoxCollider: 0
+  autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
@@ -15221,6 +15222,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_sprIcon: {fileID: 744045494}
+--- !u!65 &744045496
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 744045492}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 80, y: 80, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &745108143
 GameObject:
   m_ObjectHideFlags: 0
@@ -21803,7 +21816,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3010
+  startingRenderQueue: 3009
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -27027,13 +27040,14 @@ GameObject:
   - component: {fileID: 1378402918}
   - component: {fileID: 1378402919}
   - component: {fileID: 1378402920}
+  - component: {fileID: 1378402921}
   m_Layer: 8
   m_Name: Armor_Sample
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1378402918
 Transform:
   m_ObjectHideFlags: 0
@@ -27041,7 +27055,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1378402917}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 66, y: 164, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 355779234}
@@ -27081,7 +27095,7 @@ MonoBehaviour:
   mHeight: 90
   mDepth: 6
   mMat: {fileID: 0}
-  autoResizeBoxCollider: 0
+  autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
@@ -27113,6 +27127,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_sprIcon: {fileID: 1378402919}
+--- !u!65 &1378402921
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1378402917}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 90, y: 90, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1378479062
 GameObject:
   m_ObjectHideFlags: 0
@@ -37200,6 +37226,7 @@ GameObject:
   - component: {fileID: 1919913839}
   - component: {fileID: 1919913840}
   - component: {fileID: 1919913841}
+  - component: {fileID: 1919913842}
   m_Layer: 8
   m_Name: Arrow_Sample
   m_TagString: Untagged
@@ -37254,7 +37281,7 @@ MonoBehaviour:
   mHeight: 80
   mDepth: 6
   mMat: {fileID: 0}
-  autoResizeBoxCollider: 0
+  autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 0.25
@@ -37286,6 +37313,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_sprIcon: {fileID: 1919913840}
+--- !u!65 &1919913842
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1919913838}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 80, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1921696123
 GameObject:
   m_ObjectHideFlags: 0
