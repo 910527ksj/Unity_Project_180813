@@ -969,7 +969,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
                     }
                 }
             }
-            if(InventoryManagerScript.Instance().redArrow == true)
+            if (InventoryManagerScript.Instance().redArrow == true)
             {
                 warringLabel.GetComponent<UILabel>().text = "이미 보유하고 있습니다.";
             }
@@ -1528,7 +1528,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
                 StartCoroutine("WarringMessageRedArrow");
             }
         }
-        
+        else
         if (redArrowGoldCheck.GetComponent<TweenAlpha>().to == 0 && redArrowGemCheck.GetComponent<TweenAlpha>().to == 1)
         {
             if (myGem >= redArrowGem && InventoryManagerScript.Instance().redArrow == false)
@@ -1579,6 +1579,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
                 InventoryManagerScript.Instance().blueArrow = true;
                 Debug.Log("잼으로 BlueArrow");
             }
+            else
             if (myGem < blueArrowGem || InventoryManagerScript.Instance().blueArrow == true)
             {
                 StartCoroutine("WarringMessageBlueArrow");
@@ -1619,6 +1620,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
                 InventoryManagerScript.Instance().whiteArrow = true;
                 Debug.Log("잼으로 WhiteArrow");
             }
+            else
             if (myGem < whiteArrowGem || InventoryManagerScript.Instance().whiteArrow == true)
             {
                 StartCoroutine("WarringMessageWhiteArrow");
@@ -1659,6 +1661,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
                 InventoryManagerScript.Instance().blackArrow = true;
                 Debug.Log("잼으로 BlackArrow");
             }
+            else
             if (myGem < blackArrowGem || InventoryManagerScript.Instance().blackArrow == true)
             {
                 StartCoroutine("WarringMessageBlackArrow");
@@ -1699,6 +1702,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
                 InventoryManagerScript.Instance().redArmor = true;
                 Debug.Log("잼으로 RedArmor");
             }
+            else        
             if (myGem < redArmorGem || InventoryManagerScript.Instance().redArmor == true)
             {
                 StartCoroutine("WarringMessageRedArmor");
@@ -1739,6 +1743,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
                 InventoryManagerScript.Instance().blueArmor = true;
                 Debug.Log("잼으로 BlueArmor");
             }
+            else
             if (myGem < blueArmorGem || InventoryManagerScript.Instance().blueArmor == true)
             {
                 StartCoroutine("WarringMessageBlueArmor");
@@ -1779,6 +1784,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
                 InventoryManagerScript.Instance().whiteArmor = true;
                 Debug.Log("잼으로 WhiteArmor");
             }
+            else
             if (myGem < whiteArmorGem || InventoryManagerScript.Instance().whiteArmor == true)
             {
                 StartCoroutine("WarringMessageWhiteArmor");
@@ -1819,6 +1825,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
                 InventoryManagerScript.Instance().blackArmor = true;
                 Debug.Log("잼으로 BlackArmor");
             }
+            else
             if (myGem < blackArmorGem || InventoryManagerScript.Instance().blackArmor == true)
             {
                 StartCoroutine("WarringMessageBlackArmor");
@@ -1859,6 +1866,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
                 InventoryManagerScript.Instance().redSkill = true;
                 Debug.Log("잼으로 RedSkill");
             }
+            else
             if (myGem < redSkillGem || InventoryManagerScript.Instance().redSkill == true)
             {
                 StartCoroutine("WarringMessageRedSkill");
@@ -1899,6 +1907,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
                 InventoryManagerScript.Instance().blueSkill = true;
                 Debug.Log("잼으로 BlueSkill");
             }
+            else
             if (myGem < blueSkillGem || InventoryManagerScript.Instance().blueSkill == true)
             {
                 StartCoroutine("WarringMessageBlueSkill");
@@ -1939,6 +1948,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
                 InventoryManagerScript.Instance().whiteSkill = true;
                 Debug.Log("잼으로 WhiteSkill");
             }
+            else
             if (myGem < whiteSkillGem || InventoryManagerScript.Instance().whiteSkill == true)
             {
                 StartCoroutine("WarringMessageWhiteSkill");
@@ -1979,6 +1989,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
                 InventoryManagerScript.Instance().blackSkill = true;
                 Debug.Log("잼으로 BlackSkill");
             }
+            else
             if (myGem < blackSkillGem || InventoryManagerScript.Instance().blackSkill == true)
             {
                 StartCoroutine("WarringMessageBlackSkill");

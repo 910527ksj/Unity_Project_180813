@@ -46,7 +46,7 @@ public class InventoryManagerScript : MonoBehaviour {
 
     // 지금은 DB가 없으니... 노다가로 아이템 이름을 넣어요.
 
-    private List<string> m_lItemNames = new List<string>();
+    public List<string> m_lItemNames = new List<string>();
 
     // 새로 만들어진 아이템들을 모아둡니다.(삭제 및 수정 등을 하기위해서)
 
@@ -67,15 +67,16 @@ public class InventoryManagerScript : MonoBehaviour {
     public UIGrid m_grid;
 
 
-
-    // Use this for initialization
-
-    void Start()
+    void Awake()
     {
         if (_instance == null)
         {
             _instance = this;
         }
+    }
+
+    void Start()
+    {
         InitItems();
     }
 
@@ -83,6 +84,7 @@ public class InventoryManagerScript : MonoBehaviour {
     {
         AddItem();
         DeleteItem();
+        //m_grid.Reposition();
     }
 
     private void InitItems()
@@ -108,7 +110,7 @@ public class InventoryManagerScript : MonoBehaviour {
 
     // 여기에서 가장 중요한 역할을 하는 함수죠.
 
-    private void AddItem()
+    public void AddItem()
     {
         /*-------------------화살------------------*/
         if (redArrow == true && redArrowItemEa == 0)
@@ -131,15 +133,15 @@ public class InventoryManagerScript : MonoBehaviour {
           ItemScript itemScript = arrowSampleItem.GetComponent<ItemScript>();
           itemScript.SettingInfo(m_lItemNames[0]);
 
-          // 이제 그리드와 스크롤뷰를 재정렬 시킵시다.
+            // 이제 그리드와 스크롤뷰를 재정렬 시킵시다.
 
-          m_grid.Reposition();
+            m_grid.Reposition();
 
-          //m_scrollView.ResetPosition();
+            //m_scrollView.ResetPosition();
 
-          // 그리고 관리를 위해 만든걸 리스트에 넣어둡시다.
+            // 그리고 관리를 위해 만든걸 리스트에 넣어둡시다.
 
-          m_lItems.Add(itemScript);
+            m_lItems.Add(itemScript);
 
           //하나만 생기게 하기위해 변수 선언 후 +1 증가
           redArrowItemEa += 1;
@@ -550,11 +552,75 @@ public class InventoryManagerScript : MonoBehaviour {
 
 
 
-    // 하나 랜덤으로 삭제합니다.
+    // 삭제합니다.
 
-    private void DeleteItem()
+
+
+
+    public void DeleteItem()
     {
+        /*-------화살-------*/
         if (redArrow == false && redArrowItemEa == 1 )
+        {         
+            //// 만든 아이템이 없으면 안되겠죠?
+
+            //if (m_lItems.Count == 0) return;
+
+            //// 지울꺼 랜덤으로 찾고.
+
+            //int nRandomIndex = Random.Range(0, m_lItems.Count);
+
+            // 게임오브젝트 없애줍니다.
+
+            // 여기에서는 DestroyImmediate를 사용합니다. 지우고 바로 갱신을 해야하니까요.
+
+            // 나중에 천천히 설명하겠습니다.
+
+            Destroy(m_lItems.Find(x => x.name == "RedArrow_Icon").gameObject);
+
+            // 리스트에서도 지워줍시다.
+
+            m_lItems.Remove(m_lItems.Find(x => x.name == "RedArrow_Icon"));
+
+            // 그리고 그리드와 스크롤뷰 재정렬 시켜줍니다.
+
+            //m_grid.Reposition();
+
+            //m_scrollView.ResetPosition();
+
+            redArrowItemEa -= 1;
+        }
+        if (blueArrow == false && blueArrowItemEa == 1)
+        { 
+            //// 만든 아이템이 없으면 안되겠죠?
+
+            //if (m_lItems.Count == 0) return;
+
+            //// 지울꺼 랜덤으로 찾고.
+
+            //int nRandomIndex = Random.Range(0, m_lItems.Count);
+
+            // 게임오브젝트 없애줍니다.
+
+            // 여기에서는 DestroyImmediate를 사용합니다. 지우고 바로 갱신을 해야하니까요.
+
+            // 나중에 천천히 설명하겠습니다.
+
+            Destroy(m_lItems.Find(x => x.name == "BlueArrow_Icon").gameObject);
+
+            // 리스트에서도 지워줍시다.
+
+            m_lItems.Remove(m_lItems.Find(x => x.name == "BlueArrow_Icon"));
+
+            // 그리고 그리드와 스크롤뷰 재정렬 시켜줍니다.
+
+            //m_grid.Reposition();
+
+            //m_scrollView.ResetPosition();
+
+            blueArrowItemEa -= 1;
+        }
+        if (whiteArrow == false && whiteArrowItemEa == 1)
         {
             //// 만든 아이템이 없으면 안되겠죠?
 
@@ -570,20 +636,299 @@ public class InventoryManagerScript : MonoBehaviour {
 
             // 나중에 천천히 설명하겠습니다.
 
-            DestroyImmediate(m_lItems[0].gameObject);
+            Destroy(m_lItems.Find(x => x.name == "WhiteArrow_Icon").gameObject);
 
             // 리스트에서도 지워줍시다.
 
-            m_lItems.RemoveAt(0);
+            m_lItems.Remove(m_lItems.Find(x => x.name == "WhiteArrow_Icon"));
 
             // 그리고 그리드와 스크롤뷰 재정렬 시켜줍니다.
 
-            m_grid.Reposition();
+            //m_grid.Reposition();
 
             //m_scrollView.ResetPosition();
 
-            redArrowItemEa -= 1;
+            whiteArrowItemEa -= 1;
         }
+        if (blackArrow == false && blackArrowItemEa == 1)
+        {
+            //// 만든 아이템이 없으면 안되겠죠?
+
+            //if (m_lItems.Count == 0) return;
+
+            //// 지울꺼 랜덤으로 찾고.
+
+            //int nRandomIndex = Random.Range(0, m_lItems.Count);
+
+            // 게임오브젝트 없애줍니다.
+
+            // 여기에서는 DestroyImmediate를 사용합니다. 지우고 바로 갱신을 해야하니까요.
+
+            // 나중에 천천히 설명하겠습니다.
+
+            Destroy(m_lItems.Find(x => x.name == "BlackArrow_Icon").gameObject);
+
+            // 리스트에서도 지워줍시다.
+
+            m_lItems.Remove(m_lItems.Find(x => x.name == "BlackArrow_Icon"));
+
+            // 그리고 그리드와 스크롤뷰 재정렬 시켜줍니다.
+
+            //m_grid.Reposition();
+
+            //m_scrollView.ResetPosition();
+
+            blackArrowItemEa -= 1;
+        }
+        /*-------화살-------*/
+
+
+        /*-------방어구-------*/
+        if (redArmor == false && redArmorItemEa == 1)
+        {
+            //// 만든 아이템이 없으면 안되겠죠?
+
+            //if (m_lItems.Count == 0) return;
+
+            //// 지울꺼 랜덤으로 찾고.
+
+            //int nRandomIndex = Random.Range(0, m_lItems.Count);
+
+            // 게임오브젝트 없애줍니다.
+
+            // 여기에서는 DestroyImmediate를 사용합니다. 지우고 바로 갱신을 해야하니까요.
+
+            // 나중에 천천히 설명하겠습니다.
+
+            Destroy(m_lItems.Find(x => x.name == "RedArmor_Icon").gameObject);
+
+            // 리스트에서도 지워줍시다.
+
+            m_lItems.Remove(m_lItems.Find(x => x.name == "RedArmor_Icon"));
+
+            // 그리고 그리드와 스크롤뷰 재정렬 시켜줍니다.
+
+            //m_grid.Reposition();
+
+            //m_scrollView.ResetPosition();
+
+            redArmorItemEa -= 1;
+        }
+        if (blueArmor == false && blueArmorItemEa == 1)
+        {
+            //// 만든 아이템이 없으면 안되겠죠?
+
+            //if (m_lItems.Count == 0) return;
+
+            //// 지울꺼 랜덤으로 찾고.
+
+            //int nRandomIndex = Random.Range(0, m_lItems.Count);
+
+            // 게임오브젝트 없애줍니다.
+
+            // 여기에서는 DestroyImmediate를 사용합니다. 지우고 바로 갱신을 해야하니까요.
+
+            // 나중에 천천히 설명하겠습니다.
+
+            Destroy(m_lItems.Find(x => x.name == "BlueArmor_Icon").gameObject);
+
+            // 리스트에서도 지워줍시다.
+
+            m_lItems.Remove(m_lItems.Find(x => x.name == "BlueArmor_Icon"));
+
+            // 그리고 그리드와 스크롤뷰 재정렬 시켜줍니다.
+
+            //m_grid.Reposition();
+
+            //m_scrollView.ResetPosition();
+
+            blueArmorItemEa -= 1;
+        }
+        if (whiteArmor == false && whiteArmorItemEa == 1)
+        {
+            //// 만든 아이템이 없으면 안되겠죠?
+
+            //if (m_lItems.Count == 0) return;
+
+            //// 지울꺼 랜덤으로 찾고.
+
+            //int nRandomIndex = Random.Range(0, m_lItems.Count);
+
+            // 게임오브젝트 없애줍니다.
+
+            // 여기에서는 DestroyImmediate를 사용합니다. 지우고 바로 갱신을 해야하니까요.
+
+            // 나중에 천천히 설명하겠습니다.
+
+            Destroy(m_lItems.Find(x => x.name == "WhiteArmor_Icon").gameObject);
+
+            // 리스트에서도 지워줍시다.
+
+            m_lItems.Remove(m_lItems.Find(x => x.name == "WhiteArmor_Icon"));
+
+            // 그리고 그리드와 스크롤뷰 재정렬 시켜줍니다.
+
+            //m_grid.Reposition();
+
+            //m_scrollView.ResetPosition();
+
+            whiteArmorItemEa -= 1;
+        }
+        if (blackArmor == false && blackArmorItemEa == 1)
+        {
+            //// 만든 아이템이 없으면 안되겠죠?
+
+            //if (m_lItems.Count == 0) return;
+
+            //// 지울꺼 랜덤으로 찾고.
+
+            //int nRandomIndex = Random.Range(0, m_lItems.Count);
+
+            // 게임오브젝트 없애줍니다.
+
+            // 여기에서는 DestroyImmediate를 사용합니다. 지우고 바로 갱신을 해야하니까요.
+
+            // 나중에 천천히 설명하겠습니다.
+
+            Destroy(m_lItems.Find(x => x.name == "BlackArmor_Icon").gameObject);
+
+            // 리스트에서도 지워줍시다.
+
+            m_lItems.Remove(m_lItems.Find(x => x.name == "BlackArmor_Icon"));
+
+            // 그리고 그리드와 스크롤뷰 재정렬 시켜줍니다.
+
+            //m_grid.Reposition();
+
+            //m_scrollView.ResetPosition();
+
+            blackArmorItemEa -= 1;
+        }
+        /*-------방어구-------*/
+
+
+        /*-------스킬-------*/
+        if (redSkill == false && redSkillEa == 1)
+        {
+            //// 만든 아이템이 없으면 안되겠죠?
+
+            //if (m_lItems.Count == 0) return;
+
+            //// 지울꺼 랜덤으로 찾고.
+
+            //int nRandomIndex = Random.Range(0, m_lItems.Count);
+
+            // 게임오브젝트 없애줍니다.
+
+            // 여기에서는 DestroyImmediate를 사용합니다. 지우고 바로 갱신을 해야하니까요.
+
+            // 나중에 천천히 설명하겠습니다.
+
+            Destroy(m_lItems.Find(x => x.name == "RedSkill_Icon").gameObject);
+
+            // 리스트에서도 지워줍시다.
+
+            m_lItems.Remove(m_lItems.Find(x => x.name == "RedSkill_Icon"));
+
+            // 그리고 그리드와 스크롤뷰 재정렬 시켜줍니다.
+
+            //m_grid.Reposition();
+
+            //m_scrollView.ResetPosition();
+
+            redSkillEa -= 1;
+        }
+        if (blueSkill == false && blueSkillEa == 1)
+        {
+            //// 만든 아이템이 없으면 안되겠죠?
+
+            //if (m_lItems.Count == 0) return;
+
+            //// 지울꺼 랜덤으로 찾고.
+
+            //int nRandomIndex = Random.Range(0, m_lItems.Count);
+
+            // 게임오브젝트 없애줍니다.
+
+            // 여기에서는 DestroyImmediate를 사용합니다. 지우고 바로 갱신을 해야하니까요.
+
+            // 나중에 천천히 설명하겠습니다.
+
+            Destroy(m_lItems.Find(x => x.name == "BlueSkill_Icon").gameObject);
+
+            // 리스트에서도 지워줍시다.
+
+            m_lItems.Remove(m_lItems.Find(x => x.name == "BlueSkill_Icon"));
+
+            // 그리고 그리드와 스크롤뷰 재정렬 시켜줍니다.
+
+            //m_grid.Reposition();
+
+            //m_scrollView.ResetPosition();
+
+            blueSkillEa -= 1;
+        }
+        if (whiteSkill == false && whiteSkillEa == 1)
+        {
+            //// 만든 아이템이 없으면 안되겠죠?
+
+            //if (m_lItems.Count == 0) return;
+
+            //// 지울꺼 랜덤으로 찾고.
+
+            //int nRandomIndex = Random.Range(0, m_lItems.Count);
+
+            // 게임오브젝트 없애줍니다.
+
+            // 여기에서는 DestroyImmediate를 사용합니다. 지우고 바로 갱신을 해야하니까요.
+
+            // 나중에 천천히 설명하겠습니다.
+
+            Destroy(m_lItems.Find(x => x.name == "WhiteSkill_Icon").gameObject);
+
+            // 리스트에서도 지워줍시다.
+
+            m_lItems.Remove(m_lItems.Find(x => x.name == "WhiteSkill_Icon"));
+
+            // 그리고 그리드와 스크롤뷰 재정렬 시켜줍니다.
+
+            //m_grid.Reposition();
+
+            //m_scrollView.ResetPosition();
+
+            whiteSkillEa -= 1;
+        }
+        if (blackSkill == false && blackSkillEa == 1)
+        {
+            //// 만든 아이템이 없으면 안되겠죠?
+
+            //if (m_lItems.Count == 0) return;
+
+            //// 지울꺼 랜덤으로 찾고.
+
+            //int nRandomIndex = Random.Range(0, m_lItems.Count);
+
+            // 게임오브젝트 없애줍니다.
+
+            // 여기에서는 DestroyImmediate를 사용합니다. 지우고 바로 갱신을 해야하니까요.
+
+            // 나중에 천천히 설명하겠습니다.
+
+            Destroy(m_lItems.Find(x => x.name == "BlackSkill_Icon").gameObject);
+
+            // 리스트에서도 지워줍시다.
+
+            m_lItems.Remove(m_lItems.Find(x => x.name == "BlackSkill_Icon"));
+
+            // 그리고 그리드와 스크롤뷰 재정렬 시켜줍니다.
+
+            //m_grid.Reposition();
+
+            //m_scrollView.ResetPosition();
+
+            blackSkillEa -= 1;
+        }
+        /*-------스킬-------*/
     }
 
 
