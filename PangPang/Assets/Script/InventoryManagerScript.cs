@@ -67,6 +67,25 @@ public class InventoryManagerScript : MonoBehaviour {
     public UIGrid m_grid;
 
 
+
+    // 속도 향상을 위해 현재 선택된 아이템을 저장해 놓겠습니다.
+
+    private ItemScript m_cCurScript;
+
+    // 테스트를 위해 현재 소지금을 저장해볼께요.
+
+    private int m_nMoney;
+
+    // 선택하면 정보를 표시할 레이블
+
+    public UILabel m_lblInfo;
+
+    // 버튼 오브젝트. 선택 안되면 안보여야 겠죠?
+
+    public GameObject m_gObjSellButton;
+
+
+
     void Awake()
     {
         if (_instance == null)
@@ -78,6 +97,18 @@ public class InventoryManagerScript : MonoBehaviour {
     void Start()
     {
         InitItems();
+
+        // 최초 null로 설정합니다. 
+
+        m_cCurScript = null;
+
+        // 레이블정보도 초기화합니다.
+
+        m_lblInfo.text = string.Empty;
+
+        // 버튼은 화면에서 안보이게.
+
+        m_gObjSellButton.SetActive(false);
     }
 
     void Update()
@@ -90,18 +121,18 @@ public class InventoryManagerScript : MonoBehaviour {
     private void InitItems()
     {
         var itemDATA = JSON.Parse(jsonItemData.text); //json 선언       
+        m_lItemNames.Add(itemDATA[3]["Icon"]);
+        m_lItemNames.Add(itemDATA[4]["Icon"]);
         m_lItemNames.Add(itemDATA[5]["Icon"]);
         m_lItemNames.Add(itemDATA[6]["Icon"]);
         m_lItemNames.Add(itemDATA[7]["Icon"]);
         m_lItemNames.Add(itemDATA[8]["Icon"]);
+        m_lItemNames.Add(itemDATA[9]["Icon"]);
         m_lItemNames.Add(itemDATA[10]["Icon"]);
         m_lItemNames.Add(itemDATA[11]["Icon"]);
         m_lItemNames.Add(itemDATA[12]["Icon"]);
         m_lItemNames.Add(itemDATA[13]["Icon"]);
-        m_lItemNames.Add(itemDATA[15]["Icon"]);
-        m_lItemNames.Add(itemDATA[16]["Icon"]);
-        m_lItemNames.Add(itemDATA[17]["Icon"]);
-        m_lItemNames.Add(itemDATA[18]["Icon"]);
+        m_lItemNames.Add(itemDATA[14]["Icon"]);
     }
 
 
@@ -131,7 +162,7 @@ public class InventoryManagerScript : MonoBehaviour {
           // GetComponent는 해당 게임 오브젝트가 가지고 있는 컴포넌트를 가져오는 역할을 해요.
 
           ItemScript itemScript = arrowSampleItem.GetComponent<ItemScript>();
-          itemScript.SettingInfo(m_lItemNames[0]);
+            itemScript.SettingInfo(m_lItemNames[0]);
 
             // 이제 그리드와 스크롤뷰를 재정렬 시킵시다.
 
@@ -933,6 +964,151 @@ public class InventoryManagerScript : MonoBehaviour {
 
 
 
+
+    // 삭제 함수를 만들겠습니다.
+
+    private void ClearOne(ItemScript itemScript)
+
+    {
+
+        for (int nIndex = 0; nIndex < m_lItems.Count; nIndex++)
+
+        {
+
+            // 인자로 넘어온것과 같으면 리스트에서 제거하고
+
+            // GameObject를 없애서 화면에서 지워줍니다.
+
+            if (itemScript == m_lItems[nIndex])
+
+            {
+
+                DestroyImmediate(m_lItems[nIndex].gameObject);
+
+                m_lItems.RemoveAt(nIndex);
+
+                break;
+
+            }
+
+        }
+
+    }
+
+
+
+    // 아이템이 선택되면 이 함수가 호출됩니다.
+
+    // 넘어온 정보를 가지고 이것저것 설정을 하고, 
+
+    // 선택 프레임도 활성/비활성 시켜줍니다.
+
+    public void SelectItem(ItemScript itemScript)
+
+    {
+
+        // 현재 선택된 정보와 같으면 표시할 갱신할 필요 없겠죠?
+
+        if (m_cCurScript == itemScript) return;
+
+        // 현재 선택된 아이템 정보 저장해놓고.
+
+        m_cCurScript = itemScript;
+
+        // 이제 선택 프레임을 활성/비활성 합니다.
+
+        // 전체 리스트를 가지고 있으니 그거가지고 하면 되겠네요.
+
+        for (int nIndex = 0; nIndex < m_lItems.Count; nIndex++)
+
+        {
+
+            // 넘어온 정보와 같은 아이템이면 선택한 아이템이겠죠?
+
+            //if(m_cCurScript == m_lItems[nIndex])
+
+            //{
+
+            //    m_lItems[nIndex].SetSelected(true);
+
+            //}
+
+            //else
+
+            //{
+
+            //    m_lItems[nIndex].SetSelected(false);
+
+            //}
+
+            // 전 한줄로 표시할께요 ㅎㅎ
+
+            m_lItems[nIndex].SetSelected(m_cCurScript == m_lItems[nIndex]);
+
+        }
+
+        //// 현재 선택된 정보를 표시하도록 할께요.
+
+        //m_lblInfo.text = "이름 :" + m_cCurScript.m_Item.NAME + "\n판매금액 :"
+
+        //                 + m_cCurScript.m_Item.SELL_COST.ToString();
+
+        // 판매 버튼도 보이도록 할께요
+
+        m_gObjSellButton.SetActive(true);
+
+
+
+    }
+
+
+
+    // 판매하는 함수 입니다.
+
+    // 판매 누르면 해당 아이템이 삭제되는것 까지만? 할께요.
+
+    public void Sell()
+
+    {
+
+        // 현재 선택된 데이터가 없으면 안되겠죠?
+
+        if (m_cCurScript == null) return;
+
+        // 판매를 누르면 판매한 금액을 합산할께요.
+
+        m_nMoney += m_cCurScript.m_Item.SELL_COST;
+
+        // 그리고 현재 아이템을 삭제해주어야 합니다.(위에 만든 삭제함수를 사용할꺼에요)
+
+        ClearOne(m_cCurScript);
+
+        // 그리고 현재 선택된 아이템 정보를 초기화 합니다.
+
+        m_cCurScript = null;
+
+        // 버튼도 숨기고 정보 레이블도 초기화합니다.
+
+        m_lblInfo.text = string.Empty;
+
+        m_gObjSellButton.SetActive(false);
+
+        // 다시 정렬을 해줍시다.
+
+        m_grid.Reposition();
+
+        //m_scrollView.ResetPosition();
+
+        // 확인 위해 로그찍어보아요
+
+        Debug.Log("현재 금액 : " + m_nMoney.ToString());
+
+    }
+
+
+    
+
+
     // 이 게임 오브젝트가 파괴될 때 생성했던 아이템도 삭제해줍시다.
 
     // 메모리 정리라고 생각하세요.
@@ -964,6 +1140,8 @@ public class InventoryManagerScript : MonoBehaviour {
         m_lItemNames.Clear();
 
         m_lItemNames = null;
+
+        m_cCurScript = null;
 
     }
 

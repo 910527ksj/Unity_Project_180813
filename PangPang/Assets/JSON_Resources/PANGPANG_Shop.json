@@ -1,135 +1,107 @@
-﻿[
+[
  {
    "ItemPotion": "HpPotion",
-   "PriceGem": "100",
-   "PriceGold": "1000",
-   "SellGold": "300",
+   "PriceGem": 100,
+   "PriceGold": 1000,
+   "SellGold": 300,
    "Icon": "HpPotion_Icon"
  },
  {
-   "ItemPotion": "Upgrade",
-   "PriceGem": "PriceGem",
-   "PriceGold": "PriceGold",
-   "SellGold": "SellGold",
-   "Icon": "Icon"
- },
- {
    "ItemPotion": "Weapon",
-   "PriceGem": "100",
-   "PriceGold": "1000",
-   "SellGold": "0",
+   "PriceGem": 100,
+   "PriceGold": 1000,
+   "SellGold": 0,
    "Icon": "Weapon_Icon"
  },
  {
    "ItemPotion": "Hp",
-   "PriceGem": "100",
-   "PriceGold": "1000",
-   "SellGold": "0",
+   "PriceGem": 100,
+   "PriceGold": 1000,
+   "SellGold": 0,
    "Icon": "Hp_Icon"
  },
  {
-   "ItemPotion": "ItemArrow",
-   "PriceGem": "PriceGem",
-   "PriceGold": "PriceGold",
-   "SellGold": "SellGold",
-   "Icon": "Icon"
- },
- {
    "ItemPotion": "RedArrow",
-   "PriceGem": "1000",
-   "PriceGold": "5000",
-   "SellGold": "1500",
+   "PriceGem": 1000,
+   "PriceGold": 5000,
+   "SellGold": 1500,
    "Icon": "RedArrow_Icon"
  },
  {
    "ItemPotion": "BlueArrow",
-   "PriceGem": "1000",
-   "PriceGold": "5000",
-   "SellGold": "1500",
+   "PriceGem": 1000,
+   "PriceGold": 5000,
+   "SellGold": 1500,
    "Icon": "BlueArrow_Icon"
  },
  {
    "ItemPotion": "WhiteArrow",
-   "PriceGem": "1000",
-   "PriceGold": "5000",
-   "SellGold": "1500",
+   "PriceGem": 1000,
+   "PriceGold": 5000,
+   "SellGold": 1500,
    "Icon": "WhiteArrow_Icon"
  },
  {
    "ItemPotion": "BlackArrow",
-   "PriceGem": "1000",
-   "PriceGold": "5000",
-   "SellGold": "1500",
+   "PriceGem": 1000,
+   "PriceGold": 5000,
+   "SellGold": 1500,
    "Icon": "BlackArrow_Icon"
  },
  {
-   "ItemPotion": "ItemArmor",
-   "PriceGem": "PriceGem",
-   "PriceGold": "PriceGold",
-   "SellGold": "SellGold",
-   "Icon": "Icon"
- },
- {
    "ItemPotion": "RedArmor",
-   "PriceGem": "1000",
-   "PriceGold": "5000",
-   "SellGold": "1500",
+   "PriceGem": 1000,
+   "PriceGold": 5000,
+   "SellGold": 1500,
    "Icon": "RedArmor_Icon"
  },
  {
    "ItemPotion": "BlueArmor",
-   "PriceGem": "1000",
-   "PriceGold": "5000",
-   "SellGold": "1500",
+   "PriceGem": 1000,
+   "PriceGold": 5000,
+   "SellGold": 1500,
    "Icon": "BlueArmor_Icon"
  },
  {
    "ItemPotion": "WhiteArmor",
-   "PriceGem": "1000",
-   "PriceGold": "5000",
-   "SellGold": "1500",
+   "PriceGem": 1000,
+   "PriceGold": 5000,
+   "SellGold": 1500,
    "Icon": "WhiteArmor_Icon"
  },
  {
    "ItemPotion": "BlackArmor",
-   "PriceGem": "1000",
-   "PriceGold": "5000",
-   "SellGold": "1500",
+   "PriceGem": 1000,
+   "PriceGold": 5000,
+   "SellGold": 1500,
    "Icon": "BlackArmor_Icon"
  },
  {
-   "ItemPotion": "ItemSkill",
-   "PriceGem": "PriceGem",
-   "PriceGold": "PriceGold",
-   "SellGold": "SellGold",
-   "Icon": "Icon"
- },
- {
    "ItemPotion": "RedSkill",
-   "PriceGem": "1000",
-   "PriceGold": "5000",
-   "SellGold": "1500",
+   "PriceGem": 1000,
+   "PriceGold": 5000,
+   "SellGold": 1500,
    "Icon": "RedSkill_Icon"
  },
  {
    "ItemPotion": "BlueSkill",
-   "PriceGem": "1000",
-   "PriceGold": "5000",
-   "SellGold": "1500",
+   "PriceGem": 1000,
+   "PriceGold": 5000,
+   "SellGold": 1500,
    "Icon": "BlueSkill_Icon"
  },
  {
    "ItemPotion": "WhiteSkill",
-   "PriceGem": "1000",
-   "PriceGold": "5000",
-   "SellGold": "1500",
+   "PriceGem": 1000,
+   "PriceGold": 5000,
+   "SellGold": 1500,
    "Icon": "WhiteSkill_Icon"
  },
  {
    "ItemPotion": "BlackSkill",
-   "PriceGem": "1000",
-   "PriceGold": "5000",
-   "SellGold": "1500",
+   "PriceGem": 1000,
+   "PriceGold": 5000,
+   "SellGold": 1500,
    "Icon": "BlackSkill_Icon"
  }
 ]

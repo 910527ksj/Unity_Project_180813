@@ -223,8 +223,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: armour
-    x: 998
-    y: 58
+    x: 2050
+    y: 3841
     width: 217
     height: 255
     borderLeft: 0
@@ -275,8 +275,8 @@ MonoBehaviour:
     paddingTop: 24
     paddingBottom: 21
   - name: "black\uD654\uC0B4"
-    x: 3169
-    y: 3627
+    x: 2134
+    y: 3370
     width: 82
     height: 469
     borderLeft: 0
@@ -301,7 +301,7 @@ MonoBehaviour:
     paddingTop: 24
     paddingBottom: 21
   - name: "blue\uD654\uC0B4"
-    x: 2269
+    x: 3169
     y: 3627
     width: 82
     height: 469
@@ -392,7 +392,7 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: fire
-    x: 1964
+    x: 2288
     y: 684
     width: 160
     height: 160
@@ -483,7 +483,7 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 7
   - name: light
-    x: 2288
+    x: 1964
     y: 684
     width: 160
     height: 160
@@ -549,7 +549,7 @@ MonoBehaviour:
     paddingBottom: 2
   - name: NULL
     x: 1308
-    y: 69
+    y: 111
     width: 48
     height: 40
     borderLeft: 0
@@ -562,7 +562,7 @@ MonoBehaviour:
     paddingBottom: 2
   - name: NULL2
     x: 1308
-    y: 111
+    y: 69
     width: 48
     height: 40
     borderLeft: 0
@@ -587,7 +587,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: red_armour
-    x: 2050
+    x: 2600
     y: 3841
     width: 217
     height: 255
@@ -600,8 +600,8 @@ MonoBehaviour:
     paddingTop: 24
     paddingBottom: 21
   - name: "red\uD654\uC0B4"
-    x: 2134
-    y: 3370
+    x: 2269
+    y: 3627
     width: 82
     height: 469
     borderLeft: 0
@@ -678,8 +678,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 1
   - name: white_armour
-    x: 2600
-    y: 3841
+    x: 998
+    y: 58
     width: 217
     height: 255
     borderLeft: 0
