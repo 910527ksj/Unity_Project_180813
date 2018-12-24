@@ -143,17 +143,17 @@ public class ItemInfo
 
 {
 
-    private int m_nID;
+    public int m_nID;
 
-    private string m_strName;
+    public string m_strName;
 
-    private string m_strIcon;
+    public string m_strIcon;
 
-    private int m_nBuyGoldCost;
+    public int m_nBuyGoldCost;
 
-    private int m_nBuyGemCost;
+    public int m_nBuyGemCost;
 
-    private int m_nSellCost;
+    public int m_nSellCost;
 
 
 

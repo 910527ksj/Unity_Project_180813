@@ -47,6 +47,7 @@ public class InventoryManagerScript : MonoBehaviour {
     // 지금은 DB가 없으니... 노다가로 아이템 이름을 넣어요.
 
     public List<string> m_lItemNames = new List<string>();
+    public List<int> m_lItemSellCost = new List<int>();
 
     // 새로 만들어진 아이템들을 모아둡니다.(삭제 및 수정 등을 하기위해서)
 
@@ -74,7 +75,7 @@ public class InventoryManagerScript : MonoBehaviour {
 
     // 테스트를 위해 현재 소지금을 저장해볼께요.
 
-    private int m_nMoney;
+    //public int m_nMoney;
 
     // 선택하면 정보를 표시할 레이블
 
@@ -114,25 +115,37 @@ public class InventoryManagerScript : MonoBehaviour {
     void Update()
     {
         AddItem();
-        DeleteItem();
         //m_grid.Reposition();
     }
 
     private void InitItems()
     {
-        var itemDATA = JSON.Parse(jsonItemData.text); //json 선언       
-        m_lItemNames.Add(itemDATA[3]["Icon"]);
-        m_lItemNames.Add(itemDATA[4]["Icon"]);
-        m_lItemNames.Add(itemDATA[5]["Icon"]);
-        m_lItemNames.Add(itemDATA[6]["Icon"]);
-        m_lItemNames.Add(itemDATA[7]["Icon"]);
-        m_lItemNames.Add(itemDATA[8]["Icon"]);
-        m_lItemNames.Add(itemDATA[9]["Icon"]);
-        m_lItemNames.Add(itemDATA[10]["Icon"]);
-        m_lItemNames.Add(itemDATA[11]["Icon"]);
-        m_lItemNames.Add(itemDATA[12]["Icon"]);
-        m_lItemNames.Add(itemDATA[13]["Icon"]);
-        m_lItemNames.Add(itemDATA[14]["Icon"]);
+        var itemIconDATA = JSON.Parse(jsonItemData.text); //json 선언       
+        m_lItemNames.Add(itemIconDATA[3]["Icon"]);
+        m_lItemNames.Add(itemIconDATA[4]["Icon"]);
+        m_lItemNames.Add(itemIconDATA[5]["Icon"]);
+        m_lItemNames.Add(itemIconDATA[6]["Icon"]);
+        m_lItemNames.Add(itemIconDATA[7]["Icon"]);
+        m_lItemNames.Add(itemIconDATA[8]["Icon"]);
+        m_lItemNames.Add(itemIconDATA[9]["Icon"]);
+        m_lItemNames.Add(itemIconDATA[10]["Icon"]);
+        m_lItemNames.Add(itemIconDATA[11]["Icon"]);
+        m_lItemNames.Add(itemIconDATA[12]["Icon"]);
+        m_lItemNames.Add(itemIconDATA[13]["Icon"]);
+        m_lItemNames.Add(itemIconDATA[14]["Icon"]);
+        var itemSellDATA = JSON.Parse(jsonItemData.text); //json 선언 
+        m_lItemSellCost.Add(itemSellDATA[3]["SellGold"]);
+        m_lItemSellCost.Add(itemSellDATA[4]["SellGold"]);
+        m_lItemSellCost.Add(itemSellDATA[5]["SellGold"]);
+        m_lItemSellCost.Add(itemSellDATA[6]["SellGold"]);
+        m_lItemSellCost.Add(itemSellDATA[7]["SellGold"]);
+        m_lItemSellCost.Add(itemSellDATA[8]["SellGold"]);
+        m_lItemSellCost.Add(itemSellDATA[9]["SellGold"]);
+        m_lItemSellCost.Add(itemSellDATA[10]["SellGold"]);
+        m_lItemSellCost.Add(itemSellDATA[11]["SellGold"]);
+        m_lItemSellCost.Add(itemSellDATA[12]["SellGold"]);
+        m_lItemSellCost.Add(itemSellDATA[13]["SellGold"]);
+        m_lItemSellCost.Add(itemSellDATA[14]["SellGold"]);
     }
 
 
@@ -1048,17 +1061,64 @@ public class InventoryManagerScript : MonoBehaviour {
         }
 
         //// 현재 선택된 정보를 표시하도록 할께요.
+        
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[0])
+        {
+            m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[0].ToString();
+        }
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[1])
+        {
+            m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[1].ToString();
+        }
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[2])
+        {
+            m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[2].ToString();
+        }
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[3])
+        {
+            m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[3].ToString();
+        }
 
-        //m_lblInfo.text = "이름 :" + m_cCurScript.m_Item.NAME + "\n판매금액 :"
 
-        //                 + m_cCurScript.m_Item.SELL_COST.ToString();
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[4])
+        {
+            m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[4].ToString();
+        }
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[5])
+        {
+            m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[5].ToString();
+        }
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[6])
+        {
+            m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[6].ToString();
+        }
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[7])
+        {
+            m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[7].ToString();
+        }
+
+
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[8])
+        {
+            m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[8].ToString();
+        }
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[9])
+        {
+            m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[9].ToString();
+        }
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[10])
+        {
+            m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[10].ToString();
+        }
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[11])
+        {
+            m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[11].ToString();
+        }
+
 
         // 판매 버튼도 보이도록 할께요
 
         m_gObjSellButton.SetActive(true);
-
-
-
     }
 
 
@@ -1068,45 +1128,484 @@ public class InventoryManagerScript : MonoBehaviour {
     // 판매 누르면 해당 아이템이 삭제되는것 까지만? 할께요.
 
     public void Sell()
-
     {
+        /*-----무기------*/
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[0] )
+        {
+            // 현재 선택된 데이터가 없으면 안되겠죠?
 
-        // 현재 선택된 데이터가 없으면 안되겠죠?
+            //if (m_cCurScript == null) return;
 
-        if (m_cCurScript == null) return;
+            // 판매를 누르면 판매한 금액을 합산할께요.
 
-        // 판매를 누르면 판매한 금액을 합산할께요.
+            LobbySceneBtnScript.Instance().myGold += m_lItemSellCost[0];
 
-        m_nMoney += m_cCurScript.m_Item.SELL_COST;
+            // 그리고 현재 아이템을 삭제해주어야 합니다.(위에 만든 삭제함수를 사용할꺼에요)
 
-        // 그리고 현재 아이템을 삭제해주어야 합니다.(위에 만든 삭제함수를 사용할꺼에요)
+            //ClearOne(m_cCurScript);
 
-        ClearOne(m_cCurScript);
+            // 그리고 현재 선택된 아이템 정보를 초기화 합니다.
 
-        // 그리고 현재 선택된 아이템 정보를 초기화 합니다.
+            //m_cCurScript = null;
 
-        m_cCurScript = null;
+            // 버튼도 숨기고 정보 레이블도 초기화합니다.
 
-        // 버튼도 숨기고 정보 레이블도 초기화합니다.
+            m_lblInfo.text = string.Empty;
 
-        m_lblInfo.text = string.Empty;
+            m_gObjSellButton.SetActive(false);
 
-        m_gObjSellButton.SetActive(false);
+            // 다시 정렬을 해줍시다.
 
-        // 다시 정렬을 해줍시다.
+            m_grid.Reposition();
 
-        m_grid.Reposition();
+            //m_scrollView.ResetPosition();
 
-        //m_scrollView.ResetPosition();
+            // 확인 위해 로그찍어보아요
 
-        // 확인 위해 로그찍어보아요
+            Debug.Log("현재 금액0 : " + LobbySceneBtnScript.Instance().myGold.ToString());
 
-        Debug.Log("현재 금액 : " + m_nMoney.ToString());
+            redArrow = false;
+            DeleteItem();
+            LobbySceneBtnScript.Instance().haveRedArrow.text = "0";
+        }
 
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[1])
+        {
+            // 현재 선택된 데이터가 없으면 안되겠죠?
+
+            if (m_cCurScript == null) return;
+
+            // 판매를 누르면 판매한 금액을 합산할께요.
+
+            LobbySceneBtnScript.Instance().myGold += m_lItemSellCost[1];
+
+            // 그리고 현재 아이템을 삭제해주어야 합니다.(위에 만든 삭제함수를 사용할꺼에요)
+
+            //ClearOne(m_cCurScript);
+
+            // 그리고 현재 선택된 아이템 정보를 초기화 합니다.
+
+            //m_cCurScript = null;
+
+            // 버튼도 숨기고 정보 레이블도 초기화합니다.
+
+            m_lblInfo.text = string.Empty;
+
+            m_gObjSellButton.SetActive(false);
+
+            // 다시 정렬을 해줍시다.
+
+            m_grid.Reposition();
+
+            //m_scrollView.ResetPosition();
+
+            // 확인 위해 로그찍어보아요
+
+            Debug.Log("현재 금액1 : " + LobbySceneBtnScript.Instance().myGold.ToString());
+
+            blueArrow = false;
+            DeleteItem();
+            LobbySceneBtnScript.Instance().haveBlueArrow.text = "0";
+        }
+
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[2])
+        {
+            // 현재 선택된 데이터가 없으면 안되겠죠?
+
+            if (m_cCurScript == null) return;
+
+            // 판매를 누르면 판매한 금액을 합산할께요.
+
+            LobbySceneBtnScript.Instance().myGold += m_lItemSellCost[2];
+
+            // 그리고 현재 아이템을 삭제해주어야 합니다.(위에 만든 삭제함수를 사용할꺼에요)
+
+            //ClearOne(m_cCurScript);
+
+            // 그리고 현재 선택된 아이템 정보를 초기화 합니다.
+
+            //m_cCurScript = null;
+
+            // 버튼도 숨기고 정보 레이블도 초기화합니다.
+
+            m_lblInfo.text = string.Empty;
+
+            m_gObjSellButton.SetActive(false);
+
+            // 다시 정렬을 해줍시다.
+
+            m_grid.Reposition();
+
+            //m_scrollView.ResetPosition();
+
+            // 확인 위해 로그찍어보아요
+
+            Debug.Log("현재 금액 : " + LobbySceneBtnScript.Instance().myGold.ToString());
+
+            whiteArrow = false;
+            DeleteItem();
+            LobbySceneBtnScript.Instance().haveWhiteArrow.text = "0";
+        }
+
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[3])
+        {
+            // 현재 선택된 데이터가 없으면 안되겠죠?
+
+            if (m_cCurScript == null) return;
+
+            // 판매를 누르면 판매한 금액을 합산할께요.
+
+            LobbySceneBtnScript.Instance().myGold += m_lItemSellCost[3];
+
+            // 그리고 현재 아이템을 삭제해주어야 합니다.(위에 만든 삭제함수를 사용할꺼에요)
+
+            //ClearOne(m_cCurScript);
+
+            // 그리고 현재 선택된 아이템 정보를 초기화 합니다.
+
+            //m_cCurScript = null;
+
+            // 버튼도 숨기고 정보 레이블도 초기화합니다.
+
+            m_lblInfo.text = string.Empty;
+
+            m_gObjSellButton.SetActive(false);
+
+            // 다시 정렬을 해줍시다.
+
+            m_grid.Reposition();
+
+            //m_scrollView.ResetPosition();
+
+            // 확인 위해 로그찍어보아요
+
+            Debug.Log("현재 금액 : " + LobbySceneBtnScript.Instance().myGold.ToString());
+
+            blackArrow = false;
+            DeleteItem();
+            LobbySceneBtnScript.Instance().haveBlackArrow.text = "0";
+        }
+        /*-----무기------*/
+
+        /*-----방어구------*/
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[4])
+        {
+            // 현재 선택된 데이터가 없으면 안되겠죠?
+
+            //if (m_cCurScript == null) return;
+
+            // 판매를 누르면 판매한 금액을 합산할께요.
+
+            LobbySceneBtnScript.Instance().myGold += m_lItemSellCost[4];
+
+            // 그리고 현재 아이템을 삭제해주어야 합니다.(위에 만든 삭제함수를 사용할꺼에요)
+
+            //ClearOne(m_cCurScript);
+
+            // 그리고 현재 선택된 아이템 정보를 초기화 합니다.
+
+            //m_cCurScript = null;
+
+            // 버튼도 숨기고 정보 레이블도 초기화합니다.
+
+            m_lblInfo.text = string.Empty;
+
+            m_gObjSellButton.SetActive(false);
+
+            // 다시 정렬을 해줍시다.
+
+            m_grid.Reposition();
+
+            //m_scrollView.ResetPosition();
+
+            // 확인 위해 로그찍어보아요
+
+            Debug.Log("현재 금액0 : " + LobbySceneBtnScript.Instance().myGold.ToString());
+
+            redArmor = false;
+            DeleteItem();
+            LobbySceneBtnScript.Instance().haveRedArmor.text = "0";
+        }
+
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[5])
+        {
+            // 현재 선택된 데이터가 없으면 안되겠죠?
+
+            //if (m_cCurScript == null) return;
+
+            // 판매를 누르면 판매한 금액을 합산할께요.
+
+            LobbySceneBtnScript.Instance().myGold += m_lItemSellCost[5];
+
+            // 그리고 현재 아이템을 삭제해주어야 합니다.(위에 만든 삭제함수를 사용할꺼에요)
+
+            //ClearOne(m_cCurScript);
+
+            // 그리고 현재 선택된 아이템 정보를 초기화 합니다.
+
+            //m_cCurScript = null;
+
+            // 버튼도 숨기고 정보 레이블도 초기화합니다.
+
+            m_lblInfo.text = string.Empty;
+
+            m_gObjSellButton.SetActive(false);
+
+            // 다시 정렬을 해줍시다.
+
+            m_grid.Reposition();
+
+            //m_scrollView.ResetPosition();
+
+            // 확인 위해 로그찍어보아요
+
+            Debug.Log("현재 금액0 : " + LobbySceneBtnScript.Instance().myGold.ToString());
+
+            blueArmor = false;
+            DeleteItem();
+            LobbySceneBtnScript.Instance().haveBlueArmor.text = "0";
+        }
+
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[6])
+        {
+            // 현재 선택된 데이터가 없으면 안되겠죠?
+
+            //if (m_cCurScript == null) return;
+
+            // 판매를 누르면 판매한 금액을 합산할께요.
+
+            LobbySceneBtnScript.Instance().myGold += m_lItemSellCost[6];
+
+            // 그리고 현재 아이템을 삭제해주어야 합니다.(위에 만든 삭제함수를 사용할꺼에요)
+
+            //ClearOne(m_cCurScript);
+
+            // 그리고 현재 선택된 아이템 정보를 초기화 합니다.
+
+            //m_cCurScript = null;
+
+            // 버튼도 숨기고 정보 레이블도 초기화합니다.
+
+            m_lblInfo.text = string.Empty;
+
+            m_gObjSellButton.SetActive(false);
+
+            // 다시 정렬을 해줍시다.
+
+            m_grid.Reposition();
+
+            //m_scrollView.ResetPosition();
+
+            // 확인 위해 로그찍어보아요
+
+            Debug.Log("현재 금액0 : " + LobbySceneBtnScript.Instance().myGold.ToString());
+
+            whiteArmor = false;
+            DeleteItem();
+            LobbySceneBtnScript.Instance().haveWhiteArmor.text = "0";
+        }
+
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[7])
+        {
+            // 현재 선택된 데이터가 없으면 안되겠죠?
+
+            //if (m_cCurScript == null) return;
+
+            // 판매를 누르면 판매한 금액을 합산할께요.
+
+            LobbySceneBtnScript.Instance().myGold += m_lItemSellCost[7];
+
+            // 그리고 현재 아이템을 삭제해주어야 합니다.(위에 만든 삭제함수를 사용할꺼에요)
+
+            //ClearOne(m_cCurScript);
+
+            // 그리고 현재 선택된 아이템 정보를 초기화 합니다.
+
+            //m_cCurScript = null;
+
+            // 버튼도 숨기고 정보 레이블도 초기화합니다.
+
+            m_lblInfo.text = string.Empty;
+
+            m_gObjSellButton.SetActive(false);
+
+            // 다시 정렬을 해줍시다.
+
+            m_grid.Reposition();
+
+            //m_scrollView.ResetPosition();
+
+            // 확인 위해 로그찍어보아요
+
+            Debug.Log("현재 금액0 : " + LobbySceneBtnScript.Instance().myGold.ToString());
+
+            blackArmor = false;
+            DeleteItem();
+            LobbySceneBtnScript.Instance().haveBlackArmor.text = "0";
+        }
+        /*-----방어구------*/
+
+        /*-----스킬------*/
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[8])
+        {
+            // 현재 선택된 데이터가 없으면 안되겠죠?
+
+            //if (m_cCurScript == null) return;
+
+            // 판매를 누르면 판매한 금액을 합산할께요.
+
+            LobbySceneBtnScript.Instance().myGold += m_lItemSellCost[8];
+
+            // 그리고 현재 아이템을 삭제해주어야 합니다.(위에 만든 삭제함수를 사용할꺼에요)
+
+            //ClearOne(m_cCurScript);
+
+            // 그리고 현재 선택된 아이템 정보를 초기화 합니다.
+
+            //m_cCurScript = null;
+
+            // 버튼도 숨기고 정보 레이블도 초기화합니다.
+
+            m_lblInfo.text = string.Empty;
+
+            m_gObjSellButton.SetActive(false);
+
+            // 다시 정렬을 해줍시다.
+
+            m_grid.Reposition();
+
+            //m_scrollView.ResetPosition();
+
+            // 확인 위해 로그찍어보아요
+
+            Debug.Log("현재 금액0 : " + LobbySceneBtnScript.Instance().myGold.ToString());
+
+            redSkill = false;
+            DeleteItem();
+            LobbySceneBtnScript.Instance().haveRedSkill.text = "0";
+        }
+
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[9])
+        {
+            // 현재 선택된 데이터가 없으면 안되겠죠?
+
+            //if (m_cCurScript == null) return;
+
+            // 판매를 누르면 판매한 금액을 합산할께요.
+
+            LobbySceneBtnScript.Instance().myGold += m_lItemSellCost[9];
+
+            // 그리고 현재 아이템을 삭제해주어야 합니다.(위에 만든 삭제함수를 사용할꺼에요)
+
+            //ClearOne(m_cCurScript);
+
+            // 그리고 현재 선택된 아이템 정보를 초기화 합니다.
+
+            //m_cCurScript = null;
+
+            // 버튼도 숨기고 정보 레이블도 초기화합니다.
+
+            m_lblInfo.text = string.Empty;
+
+            m_gObjSellButton.SetActive(false);
+
+            // 다시 정렬을 해줍시다.
+
+            m_grid.Reposition();
+
+            //m_scrollView.ResetPosition();
+
+            // 확인 위해 로그찍어보아요
+
+            Debug.Log("현재 금액0 : " + LobbySceneBtnScript.Instance().myGold.ToString());
+
+            blueSkill = false;
+            DeleteItem();
+            LobbySceneBtnScript.Instance().haveBlueSkill.text = "0";
+        }
+
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[10])
+        {
+            // 현재 선택된 데이터가 없으면 안되겠죠?
+
+            //if (m_cCurScript == null) return;
+
+            // 판매를 누르면 판매한 금액을 합산할께요.
+
+            LobbySceneBtnScript.Instance().myGold += m_lItemSellCost[10];
+
+            // 그리고 현재 아이템을 삭제해주어야 합니다.(위에 만든 삭제함수를 사용할꺼에요)
+
+            //ClearOne(m_cCurScript);
+
+            // 그리고 현재 선택된 아이템 정보를 초기화 합니다.
+
+            //m_cCurScript = null;
+
+            // 버튼도 숨기고 정보 레이블도 초기화합니다.
+
+            m_lblInfo.text = string.Empty;
+
+            m_gObjSellButton.SetActive(false);
+
+            // 다시 정렬을 해줍시다.
+
+            m_grid.Reposition();
+
+            //m_scrollView.ResetPosition();
+
+            // 확인 위해 로그찍어보아요
+
+            Debug.Log("현재 금액0 : " + LobbySceneBtnScript.Instance().myGold.ToString());
+
+            whiteSkill = false;
+            DeleteItem();
+            LobbySceneBtnScript.Instance().haveWhiteSkill.text = "0";
+        }
+
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[11])
+        {
+            // 현재 선택된 데이터가 없으면 안되겠죠?
+
+            //if (m_cCurScript == null) return;
+
+            // 판매를 누르면 판매한 금액을 합산할께요.
+
+            LobbySceneBtnScript.Instance().myGold += m_lItemSellCost[11];
+
+            // 그리고 현재 아이템을 삭제해주어야 합니다.(위에 만든 삭제함수를 사용할꺼에요)
+
+            //ClearOne(m_cCurScript);
+
+            // 그리고 현재 선택된 아이템 정보를 초기화 합니다.
+
+            //m_cCurScript = null;
+
+            // 버튼도 숨기고 정보 레이블도 초기화합니다.
+
+            m_lblInfo.text = string.Empty;
+
+            m_gObjSellButton.SetActive(false);
+
+            // 다시 정렬을 해줍시다.
+
+            m_grid.Reposition();
+
+            //m_scrollView.ResetPosition();
+
+            // 확인 위해 로그찍어보아요
+
+            Debug.Log("현재 금액0 : " + LobbySceneBtnScript.Instance().myGold.ToString());
+
+            blackSkill = false;
+            DeleteItem();
+            LobbySceneBtnScript.Instance().haveBlackSkill.text = "0";
+        }
+        /*-----스킬------*/
     }
 
 
-    
+
 
 
     // 이 게임 오브젝트가 파괴될 때 생성했던 아이템도 삭제해줍시다.
