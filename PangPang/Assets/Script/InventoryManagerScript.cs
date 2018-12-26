@@ -1125,7 +1125,6 @@ public class InventoryManagerScript : MonoBehaviour {
 
     // 판매하는 함수 입니다.
 
-    // 판매 누르면 해당 아이템이 삭제되는것 까지만? 할께요.
 
     public void Sell()
     {
