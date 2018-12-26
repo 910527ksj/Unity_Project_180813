@@ -85,7 +85,28 @@ public class InventoryManagerScript : MonoBehaviour {
 
     public GameObject m_gObjSellButton;
 
+    //장착창
 
+    public GameObject redArrowSlot;
+    public GameObject blueArrowSlot;
+    public GameObject whiteArrowSlot;
+    public GameObject blackArrowSlot;
+
+    public GameObject redArmorSlot;
+    public GameObject blueArmorSlot;
+    public GameObject whiteArmorSlot;
+    public GameObject blackArmorSlot;
+
+    public GameObject redSkillSlot;
+    public GameObject blueSkillSlot;
+    public GameObject whiteSkillSlot;
+    public GameObject blackSkillSlot;
+
+
+    //장착,해제 버튼
+
+    public GameObject equipBtn;
+    public GameObject takeOffBtn;
 
     void Awake()
     {
@@ -110,6 +131,8 @@ public class InventoryManagerScript : MonoBehaviour {
         // 버튼은 화면에서 안보이게.
 
         m_gObjSellButton.SetActive(false);
+        equipBtn.SetActive(false);
+        takeOffBtn.SetActive(false);
     }
 
     void Update()
@@ -175,7 +198,7 @@ public class InventoryManagerScript : MonoBehaviour {
           // GetComponent는 해당 게임 오브젝트가 가지고 있는 컴포넌트를 가져오는 역할을 해요.
 
           ItemScript itemScript = arrowSampleItem.GetComponent<ItemScript>();
-            itemScript.SettingInfo(m_lItemNames[0]);
+          itemScript.SettingInfo(m_lItemNames[0]);
 
             // 이제 그리드와 스크롤뷰를 재정렬 시킵시다.
 
@@ -628,7 +651,7 @@ public class InventoryManagerScript : MonoBehaviour {
 
             // 그리고 그리드와 스크롤뷰 재정렬 시켜줍니다.
 
-            //m_grid.Reposition();
+            m_grid.Reposition();
 
             //m_scrollView.ResetPosition();
 
@@ -658,7 +681,7 @@ public class InventoryManagerScript : MonoBehaviour {
 
             // 그리고 그리드와 스크롤뷰 재정렬 시켜줍니다.
 
-            //m_grid.Reposition();
+            m_grid.Reposition();
 
             //m_scrollView.ResetPosition();
 
@@ -688,7 +711,7 @@ public class InventoryManagerScript : MonoBehaviour {
 
             // 그리고 그리드와 스크롤뷰 재정렬 시켜줍니다.
 
-            //m_grid.Reposition();
+            m_grid.Reposition();
 
             //m_scrollView.ResetPosition();
 
@@ -718,7 +741,7 @@ public class InventoryManagerScript : MonoBehaviour {
 
             // 그리고 그리드와 스크롤뷰 재정렬 시켜줍니다.
 
-            //m_grid.Reposition();
+            m_grid.Reposition();
 
             //m_scrollView.ResetPosition();
 
@@ -752,7 +775,7 @@ public class InventoryManagerScript : MonoBehaviour {
 
             // 그리고 그리드와 스크롤뷰 재정렬 시켜줍니다.
 
-            //m_grid.Reposition();
+            m_grid.Reposition();
 
             //m_scrollView.ResetPosition();
 
@@ -782,7 +805,7 @@ public class InventoryManagerScript : MonoBehaviour {
 
             // 그리고 그리드와 스크롤뷰 재정렬 시켜줍니다.
 
-            //m_grid.Reposition();
+            m_grid.Reposition();
 
             //m_scrollView.ResetPosition();
 
@@ -812,7 +835,7 @@ public class InventoryManagerScript : MonoBehaviour {
 
             // 그리고 그리드와 스크롤뷰 재정렬 시켜줍니다.
 
-            //m_grid.Reposition();
+            m_grid.Reposition();
 
             //m_scrollView.ResetPosition();
 
@@ -842,7 +865,7 @@ public class InventoryManagerScript : MonoBehaviour {
 
             // 그리고 그리드와 스크롤뷰 재정렬 시켜줍니다.
 
-            //m_grid.Reposition();
+            m_grid.Reposition();
 
             //m_scrollView.ResetPosition();
 
@@ -876,7 +899,7 @@ public class InventoryManagerScript : MonoBehaviour {
 
             // 그리고 그리드와 스크롤뷰 재정렬 시켜줍니다.
 
-            //m_grid.Reposition();
+            m_grid.Reposition();
 
             //m_scrollView.ResetPosition();
 
@@ -906,7 +929,7 @@ public class InventoryManagerScript : MonoBehaviour {
 
             // 그리고 그리드와 스크롤뷰 재정렬 시켜줍니다.
 
-            //m_grid.Reposition();
+            m_grid.Reposition();
 
             //m_scrollView.ResetPosition();
 
@@ -936,7 +959,7 @@ public class InventoryManagerScript : MonoBehaviour {
 
             // 그리고 그리드와 스크롤뷰 재정렬 시켜줍니다.
 
-            //m_grid.Reposition();
+            m_grid.Reposition();
 
             //m_scrollView.ResetPosition();
 
@@ -966,7 +989,7 @@ public class InventoryManagerScript : MonoBehaviour {
 
             // 그리고 그리드와 스크롤뷰 재정렬 시켜줍니다.
 
-            //m_grid.Reposition();
+            m_grid.Reposition();
 
             //m_scrollView.ResetPosition();
 
@@ -1017,7 +1040,6 @@ public class InventoryManagerScript : MonoBehaviour {
     // 선택 프레임도 활성/비활성 시켜줍니다.
 
     public void SelectItem(ItemScript itemScript)
-
     {
 
         // 현재 선택된 정보와 같으면 표시할 갱신할 필요 없겠죠?
@@ -1119,6 +1141,8 @@ public class InventoryManagerScript : MonoBehaviour {
         // 판매 버튼도 보이도록 할께요
 
         m_gObjSellButton.SetActive(true);
+        equipBtn.SetActive(true);
+        takeOffBtn.SetActive(true);
     }
 
 
@@ -1129,7 +1153,7 @@ public class InventoryManagerScript : MonoBehaviour {
     public void Sell()
     {
         /*-----무기------*/
-        if (m_cCurScript.m_sprIcon.name == m_lItemNames[0] )
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[0])
         {
             // 현재 선택된 데이터가 없으면 안되겠죠?
 
@@ -1152,6 +1176,8 @@ public class InventoryManagerScript : MonoBehaviour {
             m_lblInfo.text = string.Empty;
 
             m_gObjSellButton.SetActive(false);
+            equipBtn.SetActive(false);
+            takeOffBtn.SetActive(false);
 
             // 다시 정렬을 해줍시다.
 
@@ -1161,7 +1187,7 @@ public class InventoryManagerScript : MonoBehaviour {
 
             // 확인 위해 로그찍어보아요
 
-            Debug.Log("현재 금액0 : " + LobbySceneBtnScript.Instance().myGold.ToString());
+            Debug.Log("현재 금액 : " + LobbySceneBtnScript.Instance().myGold.ToString());
 
             redArrow = false;
             DeleteItem();
@@ -1200,7 +1226,7 @@ public class InventoryManagerScript : MonoBehaviour {
 
             // 확인 위해 로그찍어보아요
 
-            Debug.Log("현재 금액1 : " + LobbySceneBtnScript.Instance().myGold.ToString());
+            Debug.Log("현재 금액 : " + LobbySceneBtnScript.Instance().myGold.ToString());
 
             blueArrow = false;
             DeleteItem();
@@ -1603,7 +1629,103 @@ public class InventoryManagerScript : MonoBehaviour {
         /*-----스킬------*/
     }
 
+    public void EquipItem()
+    {
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[0])
+        {
+            m_lItems.Find(x => x.name == m_lItemNames[0]).gameObject.SetActive(false);
+            if(m_lItems.Find(x => x.name == m_lItemNames[1]) != null )
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[1]).gameObject.SetActive(true);
+            }
+            if(m_lItems.Find(x => x.name == m_lItemNames[2]) != null )
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[2]).gameObject.SetActive(true);
+            }
+            if(m_lItems.Find(x => x.name == m_lItemNames[3]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[3]).gameObject.SetActive(true);
+            }
+            redArrowSlot.SetActive(true);
+            m_grid.enabled =true;
+        }
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[1])
+        {
+            m_lItems.Find(x => x.name == m_lItemNames[1]).gameObject.SetActive(false);
+            if (m_lItems.Find(x => x.name == m_lItemNames[0]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[0]).gameObject.SetActive(true);
+            }
+            if (m_lItems.Find(x => x.name == m_lItemNames[2]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[2]).gameObject.SetActive(true);
+            }
+            if (m_lItems.Find(x => x.name == m_lItemNames[3]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[3]).gameObject.SetActive(true);
+            }
+            blueArrowSlot.SetActive(true);
+            m_grid.enabled = true;
+        }
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[2])
+        {
+            m_lItems.Find(x => x.name == m_lItemNames[2]).gameObject.SetActive(false);
+            if (m_lItems.Find(x => x.name == m_lItemNames[1]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[1]).gameObject.SetActive(true);
+            }
+            if (m_lItems.Find(x => x.name == m_lItemNames[0]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[0]).gameObject.SetActive(true);
+            }
+            if (m_lItems.Find(x => x.name == m_lItemNames[3]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[3]).gameObject.SetActive(true);
+            }
+            whiteArrowSlot.SetActive(true);
+            m_grid.enabled = true;
+        }
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[3])
+        {
+            m_lItems.Find(x => x.name == m_lItemNames[3]).gameObject.SetActive(false);
+            if (m_lItems.Find(x => x.name == m_lItemNames[1]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[1]).gameObject.SetActive(true);
+            }
+            if (m_lItems.Find(x => x.name == m_lItemNames[2]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[2]).gameObject.SetActive(true);
+            }
+            if (m_lItems.Find(x => x.name == m_lItemNames[0]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[0]).gameObject.SetActive(true);
+            }
+            blackArrowSlot.SetActive(true);
+            m_grid.enabled = true;
+        }
 
+
+
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[4])
+        {
+            m_lItems.Find(x => x.name == m_lItemNames[4]).gameObject.SetActive(false);
+            if (m_lItems.Find(x => x.name == m_lItemNames[5]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[5]).gameObject.SetActive(true);
+            }
+            if (m_lItems.Find(x => x.name == m_lItemNames[6]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[6]).gameObject.SetActive(true);
+            }
+            if (m_lItems.Find(x => x.name == m_lItemNames[7]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[7]).gameObject.SetActive(true);
+            }
+            redArmorSlot.SetActive(true);
+            m_grid.enabled = true;
+        }
+        
+    }
 
 
 

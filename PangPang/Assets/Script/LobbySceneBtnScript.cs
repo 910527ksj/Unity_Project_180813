@@ -2081,6 +2081,10 @@ public class LobbySceneBtnScript : MonoBehaviour {
     public void PlayerInformationPopUpCancel()
     {
         playerInformationPopUp.SetActive(false);
+        //if(ItemScript.Instance().m_sprFrame.enabled == true)
+        //{
+        //    ItemScript.Instance().m_sprFrame.enabled = false;
+        //}
     }
 
     public void GameStartPopUpClick()

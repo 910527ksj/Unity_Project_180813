@@ -10,11 +10,18 @@ using UnityEngine;
 /// 
 public class ItemScript : MonoBehaviour
 {
+    static ItemScript _instance;
+    public static ItemScript Instance()
+    {
+        return _instance;
+    }
 
     // 아이템 이름. 구분 짓기 위해 만들어요.
     private string m_strName;
+
     // 아이콘을 표시할 스프라이트 이름입니다.
     private string m_strSpriteName;
+
     // 아이콘을 표시하는 Sprite 클래스 입니다.
     // 여기에 아이템 아이콘 이미지 세팅 할꺼에요.
     public UISprite m_sprIcon;
@@ -24,6 +31,10 @@ public class ItemScript : MonoBehaviour
     // 선택 프레임을 표시할 스프라이트에요.
 
     public UISprite m_sprFrame;
+
+    // 장착 표시
+
+    public GameObject m_equipLabel;
 
     // Inventory 부모도 가지고 있겠습니다.
 
@@ -41,7 +52,13 @@ public class ItemScript : MonoBehaviour
 
     public ItemInfo m_Item;
 
-
+    void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+    }
 
     void Start()
     {
@@ -72,7 +89,6 @@ public class ItemScript : MonoBehaviour
         //m_sprFrame.enabled = bSelected;
 
     }
-
 
 
     // 정보를 설정하는 함수 입니다.
