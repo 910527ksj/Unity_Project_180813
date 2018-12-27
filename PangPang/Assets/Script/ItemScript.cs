@@ -17,7 +17,7 @@ public class ItemScript : MonoBehaviour
     }
 
     // 아이템 이름. 구분 짓기 위해 만들어요.
-    private string m_strName;
+    public string m_strName;
 
     // 아이콘을 표시할 스프라이트 이름입니다.
     private string m_strSpriteName;
@@ -118,5 +118,6 @@ public class ItemScript : MonoBehaviour
 
         //InventoryManagerScript 함수
         m_cParent.SelectItem(this);     // 이 함수는 조금 후에 만들꺼에요. 우선 이렇게 작성.
+
     }
 }

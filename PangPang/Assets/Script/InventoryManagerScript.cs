@@ -53,6 +53,8 @@ public class InventoryManagerScript : MonoBehaviour {
 
     public List<ItemScript> m_lItems = new List<ItemScript>();
 
+    public List<ItemScript> m_slotitem = new List<ItemScript>();
+
     // 우리가 만든 SampleItem을 복사해서 만들기 위해 선언합니다.
 
     public GameObject m_gObjArrowSampleItem;
@@ -1039,7 +1041,7 @@ public class InventoryManagerScript : MonoBehaviour {
 
     // 선택 프레임도 활성/비활성 시켜줍니다.
 
-    public void SelectItem(ItemScript itemScript)
+    public void SelectItem(ItemScript itemScript) // (ItemScript itemScript)이 스크립트가 들어가있는 오브젝트 누를시 아래 함수 실행)
     {
 
         // 현재 선택된 정보와 같으면 표시할 갱신할 필요 없겠죠?
@@ -1082,8 +1084,36 @@ public class InventoryManagerScript : MonoBehaviour {
 
         }
 
+        for (int nIndex = 0; nIndex < m_slotitem.Count; nIndex++)
+
+        {
+
+            // 넘어온 정보와 같은 아이템이면 선택한 아이템이겠죠?
+
+            //if(m_cCurScript == m_lItems[nIndex])
+
+            //{
+
+            //    m_lItems[nIndex].SetSelected(true);
+
+            //}
+
+            //else
+
+            //{
+
+            //    m_lItems[nIndex].SetSelected(false);
+
+            //}
+
+            // 전 한줄로 표시할께요 ㅎㅎ
+
+            m_slotitem[nIndex].SetSelected(m_cCurScript == m_slotitem[nIndex]);
+
+        }
+
         //// 현재 선택된 정보를 표시하도록 할께요.
-        
+
         if (m_cCurScript.m_sprIcon.name == m_lItemNames[0])
         {
             m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[0].ToString();
@@ -1136,6 +1166,7 @@ public class InventoryManagerScript : MonoBehaviour {
         {
             m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[11].ToString();
         }
+
 
 
         // 판매 버튼도 보이도록 할께요
@@ -1629,8 +1660,12 @@ public class InventoryManagerScript : MonoBehaviour {
         /*-----스킬------*/
     }
 
+
+
+
     public void EquipItem()
     {
+        //무기
         if (m_cCurScript.m_sprIcon.name == m_lItemNames[0])
         {
             m_lItems.Find(x => x.name == m_lItemNames[0]).gameObject.SetActive(false);
@@ -1647,6 +1682,9 @@ public class InventoryManagerScript : MonoBehaviour {
                 m_lItems.Find(x => x.name == m_lItemNames[3]).gameObject.SetActive(true);
             }
             redArrowSlot.SetActive(true);
+            blueArrowSlot.SetActive(false);
+            whiteArrowSlot.SetActive(false);
+            blackArrowSlot.SetActive(false);
             m_grid.enabled =true;
         }
         if (m_cCurScript.m_sprIcon.name == m_lItemNames[1])
@@ -1665,6 +1703,9 @@ public class InventoryManagerScript : MonoBehaviour {
                 m_lItems.Find(x => x.name == m_lItemNames[3]).gameObject.SetActive(true);
             }
             blueArrowSlot.SetActive(true);
+            whiteArrowSlot.SetActive(false);
+            blackArrowSlot.SetActive(false);
+            redArrowSlot.SetActive(false);
             m_grid.enabled = true;
         }
         if (m_cCurScript.m_sprIcon.name == m_lItemNames[2])
@@ -1683,6 +1724,9 @@ public class InventoryManagerScript : MonoBehaviour {
                 m_lItems.Find(x => x.name == m_lItemNames[3]).gameObject.SetActive(true);
             }
             whiteArrowSlot.SetActive(true);
+            redArrowSlot.SetActive(false);
+            blueArrowSlot.SetActive(false);
+            blackArrowSlot.SetActive(false);
             m_grid.enabled = true;
         }
         if (m_cCurScript.m_sprIcon.name == m_lItemNames[3])
@@ -1701,11 +1745,14 @@ public class InventoryManagerScript : MonoBehaviour {
                 m_lItems.Find(x => x.name == m_lItemNames[0]).gameObject.SetActive(true);
             }
             blackArrowSlot.SetActive(true);
+            redArrowSlot.SetActive(false);
+            blueArrowSlot.SetActive(false);
+            whiteArrowSlot.SetActive(false);
             m_grid.enabled = true;
         }
+        //무기
 
-
-
+        //방어구
         if (m_cCurScript.m_sprIcon.name == m_lItemNames[4])
         {
             m_lItems.Find(x => x.name == m_lItemNames[4]).gameObject.SetActive(false);
@@ -1722,11 +1769,249 @@ public class InventoryManagerScript : MonoBehaviour {
                 m_lItems.Find(x => x.name == m_lItemNames[7]).gameObject.SetActive(true);
             }
             redArmorSlot.SetActive(true);
+            blueArmorSlot.SetActive(false);
+            whiteArmorSlot.SetActive(false);
+            blackArmorSlot.SetActive(false);
             m_grid.enabled = true;
         }
-        
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[5])
+        {
+            m_lItems.Find(x => x.name == m_lItemNames[5]).gameObject.SetActive(false);
+            if (m_lItems.Find(x => x.name == m_lItemNames[4]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[4]).gameObject.SetActive(true);
+            }
+            if (m_lItems.Find(x => x.name == m_lItemNames[6]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[6]).gameObject.SetActive(true);
+            }
+            if (m_lItems.Find(x => x.name == m_lItemNames[7]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[7]).gameObject.SetActive(true);
+            }
+            redArmorSlot.SetActive(false);
+            blueArmorSlot.SetActive(true);
+            whiteArmorSlot.SetActive(false);
+            blackArmorSlot.SetActive(false);
+            m_grid.enabled = true;
+        }
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[6])
+        {
+            m_lItems.Find(x => x.name == m_lItemNames[6]).gameObject.SetActive(false);
+            if (m_lItems.Find(x => x.name == m_lItemNames[5]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[5]).gameObject.SetActive(true);
+            }
+            if (m_lItems.Find(x => x.name == m_lItemNames[4]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[4]).gameObject.SetActive(true);
+            }
+            if (m_lItems.Find(x => x.name == m_lItemNames[7]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[7]).gameObject.SetActive(true);
+            }
+            redArmorSlot.SetActive(false);
+            blueArmorSlot.SetActive(false);
+            whiteArmorSlot.SetActive(true);
+            blackArmorSlot.SetActive(false);
+            m_grid.enabled = true;
+        }
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[7])
+        {
+            m_lItems.Find(x => x.name == m_lItemNames[7]).gameObject.SetActive(false);
+            if (m_lItems.Find(x => x.name == m_lItemNames[5]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[5]).gameObject.SetActive(true);
+            }
+            if (m_lItems.Find(x => x.name == m_lItemNames[6]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[6]).gameObject.SetActive(true);
+            }
+            if (m_lItems.Find(x => x.name == m_lItemNames[4]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[4]).gameObject.SetActive(true);
+            }
+            redArmorSlot.SetActive(false);
+            blueArmorSlot.SetActive(false);
+            whiteArmorSlot.SetActive(false);
+            blackArmorSlot.SetActive(true);
+            m_grid.enabled = true;
+        }
+        //방어구
+
+        //스킬
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[8])
+        {
+            m_lItems.Find(x => x.name == m_lItemNames[8]).gameObject.SetActive(false);
+            if (m_lItems.Find(x => x.name == m_lItemNames[9]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[9]).gameObject.SetActive(true);
+            }
+            if (m_lItems.Find(x => x.name == m_lItemNames[10]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[10]).gameObject.SetActive(true);
+            }
+            if (m_lItems.Find(x => x.name == m_lItemNames[11]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[11]).gameObject.SetActive(true);
+            }
+            redSkillSlot.SetActive(true);
+            blueSkillSlot.SetActive(false);
+            whiteSkillSlot.SetActive(false);
+            blackSkillSlot.SetActive(false);
+            m_grid.enabled = true;
+        }
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[9])
+        {
+            m_lItems.Find(x => x.name == m_lItemNames[9]).gameObject.SetActive(false);
+            if (m_lItems.Find(x => x.name == m_lItemNames[8]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[8]).gameObject.SetActive(true);
+            }
+            if (m_lItems.Find(x => x.name == m_lItemNames[10]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[10]).gameObject.SetActive(true);
+            }
+            if (m_lItems.Find(x => x.name == m_lItemNames[11]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[11]).gameObject.SetActive(true);
+            }
+            redSkillSlot.SetActive(false);
+            blueSkillSlot.SetActive(true);
+            whiteSkillSlot.SetActive(false);
+            blackSkillSlot.SetActive(false);
+            m_grid.enabled = true;
+        }
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[10])
+        {
+            m_lItems.Find(x => x.name == m_lItemNames[10]).gameObject.SetActive(false);
+            if (m_lItems.Find(x => x.name == m_lItemNames[9]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[9]).gameObject.SetActive(true);
+            }
+            if (m_lItems.Find(x => x.name == m_lItemNames[8]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[8]).gameObject.SetActive(true);
+            }
+            if (m_lItems.Find(x => x.name == m_lItemNames[11]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[11]).gameObject.SetActive(true);
+            }
+            redSkillSlot.SetActive(false);
+            blueSkillSlot.SetActive(false);
+            whiteSkillSlot.SetActive(true);
+            blackSkillSlot.SetActive(false);
+            m_grid.enabled = true;
+        }
+        if (m_cCurScript.m_sprIcon.name == m_lItemNames[11])
+        {
+            m_lItems.Find(x => x.name == m_lItemNames[11]).gameObject.SetActive(false);
+            if (m_lItems.Find(x => x.name == m_lItemNames[9]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[9]).gameObject.SetActive(true);
+            }
+            if (m_lItems.Find(x => x.name == m_lItemNames[10]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[10]).gameObject.SetActive(true);
+            }
+            if (m_lItems.Find(x => x.name == m_lItemNames[8]) != null)
+            {
+                m_lItems.Find(x => x.name == m_lItemNames[8]).gameObject.SetActive(true);
+            }
+            redSkillSlot.SetActive(false);
+            blueSkillSlot.SetActive(false);
+            whiteSkillSlot.SetActive(false);
+            blackSkillSlot.SetActive(true);
+            m_grid.enabled = true;
+        }
     }
 
+
+    public void TakeOffItem()
+    {
+        //무기
+        if (m_cCurScript.m_sprIcon.name ==  m_slotitem[0].name)
+        {
+            redArrowSlot.SetActive(false);
+            m_lItems.Find(x => x.name == m_lItemNames[0]).gameObject.SetActive(true);
+            m_grid.enabled = true;
+        }
+        if (m_cCurScript.m_sprIcon.name == m_slotitem[1].name)
+        {
+            blueArrowSlot.SetActive(false);
+            m_lItems.Find(x => x.name == m_lItemNames[1]).gameObject.SetActive(true);
+            m_grid.enabled = true;
+        }
+        if (m_cCurScript.m_sprIcon.name == m_slotitem[2].name)
+        {
+            whiteArrowSlot.SetActive(false);
+            m_lItems.Find(x => x.name == m_lItemNames[2]).gameObject.SetActive(true);
+            m_grid.enabled = true;
+        }
+        if (m_cCurScript.m_sprIcon.name == m_slotitem[3].name)
+        {
+            blackArrowSlot.SetActive(false);
+            m_lItems.Find(x => x.name == m_lItemNames[3]).gameObject.SetActive(true);
+            m_grid.enabled = true;
+        }
+        //무기
+
+
+        //방어구
+        if (m_cCurScript.m_sprIcon.name == m_slotitem[4].name)
+        {
+            redArmorSlot.SetActive(false);
+            m_lItems.Find(x => x.name == m_lItemNames[4]).gameObject.SetActive(true);
+            m_grid.enabled = true;
+        }
+        if (m_cCurScript.m_sprIcon.name == m_slotitem[5].name)
+        {
+            blueArmorSlot.SetActive(false);
+            m_lItems.Find(x => x.name == m_lItemNames[5]).gameObject.SetActive(true);
+            m_grid.enabled = true;
+        }
+        if (m_cCurScript.m_sprIcon.name == m_slotitem[6].name)
+        {
+            whiteArmorSlot.SetActive(false);
+            m_lItems.Find(x => x.name == m_lItemNames[6]).gameObject.SetActive(true);
+            m_grid.enabled = true;
+        }
+        if (m_cCurScript.m_sprIcon.name == m_slotitem[7].name)
+        {
+            blackArmorSlot.SetActive(false);
+            m_lItems.Find(x => x.name == m_lItemNames[7]).gameObject.SetActive(true);
+            m_grid.enabled = true;
+        }
+        //방어구
+
+
+        //스킬
+        if (m_cCurScript.m_sprIcon.name == m_slotitem[8].name)
+        {
+            redSkillSlot.SetActive(false);
+            m_lItems.Find(x => x.name == m_lItemNames[8]).gameObject.SetActive(true);
+            m_grid.enabled = true;
+        }
+        if (m_cCurScript.m_sprIcon.name == m_slotitem[9].name)
+        {
+            blueSkillSlot.SetActive(false);
+            m_lItems.Find(x => x.name == m_lItemNames[9]).gameObject.SetActive(true);
+            m_grid.enabled = true;
+        }
+        if (m_cCurScript.m_sprIcon.name == m_slotitem[10].name)
+        {
+            whiteSkillSlot.SetActive(false);
+            m_lItems.Find(x => x.name == m_lItemNames[10]).gameObject.SetActive(true);
+            m_grid.enabled = true;
+        }
+        if (m_cCurScript.m_sprIcon.name == m_slotitem[11].name)
+        {
+            blackSkillSlot.SetActive(false);
+            m_lItems.Find(x => x.name == m_lItemNames[11]).gameObject.SetActive(true);
+            m_grid.enabled = true;
+        }
+        //스킬
+    }
 
 
     // 이 게임 오브젝트가 파괴될 때 생성했던 아이템도 삭제해줍시다.
