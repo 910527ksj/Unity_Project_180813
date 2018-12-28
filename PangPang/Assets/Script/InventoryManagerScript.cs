@@ -1081,7 +1081,7 @@ public class InventoryManagerScript : MonoBehaviour {
             // 전 한줄로 표시할께요 ㅎㅎ
 
             m_lItems[nIndex].SetSelected(m_cCurScript == m_lItems[nIndex]);
-
+            
         }
 
         for (int nIndex = 0; nIndex < m_slotitem.Count; nIndex++)
@@ -1113,65 +1113,75 @@ public class InventoryManagerScript : MonoBehaviour {
         }
 
         //// 현재 선택된 정보를 표시하도록 할께요.
-
-        if (m_cCurScript.m_sprIcon.name == m_lItemNames[0])
-        {
-            m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[0].ToString();
-        }
-        if (m_cCurScript.m_sprIcon.name == m_lItemNames[1])
-        {
-            m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[1].ToString();
-        }
-        if (m_cCurScript.m_sprIcon.name == m_lItemNames[2])
-        {
-            m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[2].ToString();
-        }
-        if (m_cCurScript.m_sprIcon.name == m_lItemNames[3])
-        {
-            m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[3].ToString();
-        }
-
-
-        if (m_cCurScript.m_sprIcon.name == m_lItemNames[4])
-        {
-            m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[4].ToString();
-        }
-        if (m_cCurScript.m_sprIcon.name == m_lItemNames[5])
-        {
-            m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[5].ToString();
-        }
-        if (m_cCurScript.m_sprIcon.name == m_lItemNames[6])
-        {
-            m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[6].ToString();
-        }
-        if (m_cCurScript.m_sprIcon.name == m_lItemNames[7])
-        {
-            m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[7].ToString();
-        }
+            if (m_cCurScript.m_sprIcon.name == m_lItemNames[0])
+            {
+                 m_gObjSellButton.SetActive(true);
+                 m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[0].ToString();
+            }
+            if (m_cCurScript.m_sprIcon.name == m_lItemNames[1])
+            {
+                m_gObjSellButton.SetActive(true);
+                  m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[1].ToString();
+            }
+            if (m_cCurScript.m_sprIcon.name == m_lItemNames[2])
+            {
+              m_gObjSellButton.SetActive(true);
+              m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[2].ToString();
+            }
+            if (m_cCurScript.m_sprIcon.name == m_lItemNames[3])
+            {
+                m_gObjSellButton.SetActive(true);
+              m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[3].ToString();
+            }
 
 
-        if (m_cCurScript.m_sprIcon.name == m_lItemNames[8])
-        {
-            m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[8].ToString();
-        }
-        if (m_cCurScript.m_sprIcon.name == m_lItemNames[9])
-        {
-            m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[9].ToString();
-        }
-        if (m_cCurScript.m_sprIcon.name == m_lItemNames[10])
-        {
-            m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[10].ToString();
-        }
-        if (m_cCurScript.m_sprIcon.name == m_lItemNames[11])
-        {
-            m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[11].ToString();
-        }
+            if (m_cCurScript.m_sprIcon.name == m_lItemNames[4])
+            {
+               m_gObjSellButton.SetActive(true);
+             m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[4].ToString();
+            }
+            if (m_cCurScript.m_sprIcon.name == m_lItemNames[5])
+            {
+              m_gObjSellButton.SetActive(true);
+              m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[5].ToString();
+            }
+            if (m_cCurScript.m_sprIcon.name == m_lItemNames[6])
+            {
+              m_gObjSellButton.SetActive(true);
+              m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[6].ToString();
+            }
+            if (m_cCurScript.m_sprIcon.name == m_lItemNames[7])
+            {
+                m_gObjSellButton.SetActive(true);
+              m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[7].ToString();
+            }
 
+
+            if (m_cCurScript.m_sprIcon.name == m_lItemNames[8])
+            {
+              m_gObjSellButton.SetActive(true);
+               m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[8].ToString();
+            }
+            if (m_cCurScript.m_sprIcon.name == m_lItemNames[9])
+            {
+               m_gObjSellButton.SetActive(true);
+               m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[9].ToString();
+            }
+            if (m_cCurScript.m_sprIcon.name == m_lItemNames[10])
+            {
+               m_gObjSellButton.SetActive(true);
+                m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[10].ToString();
+            }
+            if (m_cCurScript.m_sprIcon.name == m_lItemNames[11])
+            {
+                m_gObjSellButton.SetActive(true);
+              m_lblInfo.text = "판매 금액 : " + m_lItemSellCost[11].ToString();
+            }
 
 
         // 판매 버튼도 보이도록 할께요
+        //m_gObjSellButton.SetActive(true);
 
-        m_gObjSellButton.SetActive(true);
         equipBtn.SetActive(true);
         takeOffBtn.SetActive(true);
     }
@@ -1665,6 +1675,8 @@ public class InventoryManagerScript : MonoBehaviour {
 
     public void EquipItem()
     {
+        m_gObjSellButton.SetActive(false);
+        m_lblInfo.text = string.Empty;
         //무기
         if (m_cCurScript.m_sprIcon.name == m_lItemNames[0])
         {
