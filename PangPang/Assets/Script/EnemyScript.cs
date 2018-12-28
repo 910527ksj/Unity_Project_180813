@@ -38,7 +38,7 @@ public class EnemyScript : MonoBehaviour {
             enemyHp -= LobbySceneBtnScript.Instance().basicDamage;
             if (enemyHp <= 0)
             {
-                LobbySceneBtnScript.Instance().myScore += score;
+                //LobbySceneBtnScript.Instance().myScore += score;
                 Instantiate(dieEffect, transform.position,transform.rotation);
                 Destroy(gameObject);
                 GameObject obj1 = Instantiate(enemyChange) as GameObject;
@@ -54,7 +54,7 @@ public class EnemyScript : MonoBehaviour {
             enemyHp -= LobbySceneBtnScript.Instance().basicDamage +2;
             if (enemyHp <= 0)
             {
-                LobbySceneBtnScript.Instance().myScore += score;
+                //LobbySceneBtnScript.Instance().myScore += score;
                 Instantiate(dieEffect, transform.position, transform.rotation);
                 Destroy(gameObject);
                 GameObject obj1 = Instantiate(enemyChange) as GameObject;
@@ -70,7 +70,7 @@ public class EnemyScript : MonoBehaviour {
             enemyHp -= LobbySceneBtnScript.Instance().basicDamage +4;
             if (enemyHp <= 0)
             {
-                LobbySceneBtnScript.Instance().myScore += score;
+                //LobbySceneBtnScript.Instance().myScore += score;
                 Instantiate(dieEffect, transform.position, transform.rotation);
                 Destroy(gameObject);
                 GameObject obj1 = Instantiate(enemyChange) as GameObject;

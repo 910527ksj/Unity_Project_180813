@@ -97,7 +97,7 @@ public class PlayerScript : MonoBehaviour {
         haveGold.text = LobbySceneBtnScript.Instance().myGold.ToString();
         havePotion.text = LobbySceneBtnScript.Instance().myPotion.ToString();
 
-        nowSocer.text = "Score  :  "  + LobbySceneBtnScript.Instance().myScore.ToString();
+        //nowSocer.text = "Score  :  "  + LobbySceneBtnScript.Instance().myScore.ToString();
         //bestScore.text = "3rd Score  :  " +  LobbySceneBtnScript.Instance().thirdScore.ToString();
         //bestScore.text = scoreBest.ToString();
 
@@ -605,7 +605,7 @@ public class PlayerScript : MonoBehaviour {
             playerHp -= 1;
             if (playerHp >= 1)
             {
-                LobbySceneBtnScript.Instance().myScore -= score;
+                //LobbySceneBtnScript.Instance().myScore -= score;
                 isUnBeatTime = true;
                 StartCoroutine("UnBeatTime");
             }
@@ -647,11 +647,11 @@ public class PlayerScript : MonoBehaviour {
         if (other.tag == "Win")
         {
             winItemEA -= 1;
-            LobbySceneBtnScript.Instance().myScore += 100;
+            //LobbySceneBtnScript.Instance().myScore += 100;
             if (Application.loadedLevelName == "Stage_01" && winItemEA == 0)
             {
                 winPopUp.SetActive(true); // 밑에 보상은 플레이어 오브젝트가 파괴 되지 않아서 실시간으로 오름
-                LobbySceneBtnScript.Instance().myScore += 3500;
+                //LobbySceneBtnScript.Instance().myScore += 3500;
                 LobbySceneBtnScript.Instance().myGold += 100;
                 LobbySceneBtnScript.Instance().myGem += 35;
             }

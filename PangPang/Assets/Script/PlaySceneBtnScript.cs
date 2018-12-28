@@ -39,6 +39,7 @@ public class PlaySceneBtnScript : MonoBehaviour {
     void Start()
     {
         StartCoroutine("ReadyMessage");
+        LobbyScript.Instance().UIChagner();
     }
 
 
@@ -152,6 +153,7 @@ public class PlaySceneBtnScript : MonoBehaviour {
         Application.LoadLevel("Lobby");
         Time.timeScale = 1.0f;
         AudioManagerScript.Instance().bgm.enabled = true;
+        LobbyScript.Instance().UIChagner();
     }
 
     public void LobbyExitCancel()
@@ -165,6 +167,7 @@ public class PlaySceneBtnScript : MonoBehaviour {
         Application.LoadLevel("Lobby");
         Time.timeScale = 1.0f;
         AudioManagerScript.Instance().bgm.enabled = true;
+        LobbyScript.Instance().UIChagner();
     }
 
     public void ReStart()

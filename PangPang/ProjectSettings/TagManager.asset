@@ -11,6 +11,7 @@ TagManager:
   - Charge50Attack
   - Charge100Attack
   - Win
+  - redA
   layers:
   - Default
   - TransparentFX

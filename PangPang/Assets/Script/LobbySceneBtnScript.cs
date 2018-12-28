@@ -214,71 +214,71 @@ public class LobbySceneBtnScript : MonoBehaviour {
 
 
     /* ---------------미완성 스코어 보드 --------------------*/
-    public UILabel bestScoreLabel; 
-    public UILabel secondScoreLabel;
-    public UILabel thirdScoreLabel;
-    public int _bestScore;
-    public int _secondScore;
-    public int _thirdScore;
-    int _myScore;
+    //public UILabel bestScoreLabel; 
+    //public UILabel secondScoreLabel;
+    //public UILabel thirdScoreLabel;
+    //public int _bestScore;
+    //public int _secondScore;
+    //public int _thirdScore;
+    //int _myScore;
 
-    public int bestScore
-    {
-        get
-        {
-            return _bestScore;
-        }
-    }
+    //public int bestScore
+    //{
+    //    get
+    //    {
+    //        return _bestScore;
+    //    }
+    //}
 
-    public int secondScore
-    {
-        get
-        {
-            return _secondScore;
-        }
-    }
+    //public int secondScore
+    //{
+    //    get
+    //    {
+    //        return _secondScore;
+    //    }
+    //}
 
-    public int thirdScore
-    {
-        get
-        {
-            return _thirdScore;
-        }
-    }
+    //public int thirdScore
+    //{
+    //    get
+    //    {
+    //        return _thirdScore;
+    //    }
+    //}
 
-    public int myScore
-    {
-        get
-        {
-            return _myScore;
-        }
-        set
-        {
-            _myScore = value;
-            if (_myScore >= _bestScore)
-            {
-                _thirdScore = _secondScore;
-                _secondScore = _bestScore;
-                _bestScore = _myScore;
-                SaveBestScore();
-            }
-            else
-            if (_myScore > _secondScore)
-            {
-                _thirdScore = _secondScore;
-                _secondScore = _myScore;
-                SaveSecondScore();
-            }
-            else
-            if (_myScore > _thirdScore )
-            {
-                Debug.Log("3등 저장하기");
-                _thirdScore = _myScore;
-                SaveThirdScore();
-            }
+    //public int myScore
+    //{
+    //    get
+    //    {
+    //        return _myScore;
+    //    }
+    //    set
+    //    {
+    //        _myScore = value;
+    //        if (_myScore >= _bestScore)
+    //        {
+    //            _thirdScore = _secondScore;
+    //            _secondScore = _bestScore;
+    //            _bestScore = _myScore;
+    //            SaveBestScore();
+    //        }
+    //        else
+    //        if (_myScore > _secondScore)
+    //        {
+    //            _thirdScore = _secondScore;
+    //            _secondScore = _myScore;
+    //            SaveSecondScore();
+    //        }
+    //        else
+    //        if (_myScore > _thirdScore )
+    //        {
+    //            Debug.Log("3등 저장하기");
+    //            _thirdScore = _myScore;
+    //            SaveThirdScore();
+    //        }
 
-        }
-    }
+    //    }
+    //}
     /* ---------------미완성 스코어 보드 --------------------*/
 
 
@@ -352,9 +352,9 @@ public class LobbySceneBtnScript : MonoBehaviour {
         LoadDamage();
         LoadHp();
 
-        LoadBestScore();
-        LoadSecondScore();
-        LoadThirdScore();
+        //LoadBestScore();
+        //LoadSecondScore();
+        //LoadThirdScore();
     }
 
     void Start ()
@@ -431,9 +431,9 @@ public class LobbySceneBtnScript : MonoBehaviour {
         afterPlayerHp = playerMaxHp + 1;
         afterHp.text = afterPlayerHp.ToString();
 
-        bestScoreLabel.text = bestScore.ToString();
-        secondScoreLabel.text = secondScore.ToString();
-        thirdScoreLabel.text = thirdScore.ToString();
+        //bestScoreLabel.text = bestScore.ToString();
+        //secondScoreLabel.text = secondScore.ToString();
+        //thirdScoreLabel.text = thirdScore.ToString();
  
     
         if(buyGemCheckPopUp.activeSelf == true)
@@ -515,36 +515,36 @@ public class LobbySceneBtnScript : MonoBehaviour {
         _playerMaxHp = PlayerPrefs.GetInt("MyHp", _playerMaxHp);
     }
 
-    void SaveBestScore()
-    {
-        PlayerPrefs.SetInt("BestScore", _bestScore);
-    }
+    //void SaveBestScore()
+    //{
+    //    PlayerPrefs.SetInt("BestScore", _bestScore);
+    //}
 
-    void LoadBestScore()
-    {
-        _bestScore = PlayerPrefs.GetInt("BestScore", 0);
-    }
+    //void LoadBestScore()
+    //{
+    //    _bestScore = PlayerPrefs.GetInt("BestScore", 0);
+    //}
 
-    void SaveSecondScore()
-    {
-        PlayerPrefs.SetInt("SecondScore", _secondScore);
-    }
+    //void SaveSecondScore()
+    //{
+    //    PlayerPrefs.SetInt("SecondScore", _secondScore);
+    //}
 
-    void LoadSecondScore()
-    {
-        _secondScore = PlayerPrefs.GetInt("SecondScore", 0);
-    }
+    //void LoadSecondScore()
+    //{
+    //    _secondScore = PlayerPrefs.GetInt("SecondScore", 0);
+    //}
 
-    void SaveThirdScore()
-    {
-        PlayerPrefs.SetInt("ThirdScoree", _thirdScore);
-    }
+    //void SaveThirdScore()
+    //{
+    //    PlayerPrefs.SetInt("ThirdScoree", _thirdScore);
+    //}
 
-    void LoadThirdScore()
-    {
-        Debug.Log("3등 불러오기");
-        _thirdScore = PlayerPrefs.GetInt("ThirdScore", _thirdScore);
-    }
+    //void LoadThirdScore()
+    //{
+    //    Debug.Log("3등 불러오기");
+    //    _thirdScore = PlayerPrefs.GetInt("ThirdScore", _thirdScore);
+    //}
 
     public void ExitPopUpClick()
     {
@@ -2116,6 +2116,7 @@ public class LobbySceneBtnScript : MonoBehaviour {
     public void EasyGame()
     {
         Application.LoadLevel("Stage_01");
+        gameStartPopUp.SetActive(false);
         Time.timeScale = 1.0f;
     }
 

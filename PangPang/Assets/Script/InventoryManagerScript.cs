@@ -135,9 +135,16 @@ public class InventoryManagerScript : MonoBehaviour {
         m_gObjSellButton.SetActive(false);
         equipBtn.SetActive(false);
         takeOffBtn.SetActive(false);
+
+
+        //m_slotitem[0] = GameObject.Find("redA").GetComponent<ItemScript>();
+        //m_gObjArrowSampleItem = GameObject.Find("Arrow_Sample");
+        //m_slotitem[0] = transform.Find("redA").parent.GetComponent<ItemScript>();
+        //GameObject.Find("Inven").transform.FindChild("redA").gameObject.SetActive(true);
+        //m_slotitem[0] = GameObject.FindGameObjectWithTag("redA").GetComponent<ItemScript>();
     }
 
-    void Update()
+void Update()
     {
         AddItem();
         //m_grid.Reposition();
