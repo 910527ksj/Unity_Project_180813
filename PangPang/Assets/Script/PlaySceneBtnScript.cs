@@ -20,20 +20,57 @@ public class PlaySceneBtnScript : MonoBehaviour {
 
     public GameObject readyLabel;
 
-    public GameObject enemySpawn;
+    public List<GameObject> enemySpawn = new List<GameObject>();
     public GameObject enemyBlue;
+    public GameObject enemyRed;
+    public GameObject enemyBlack;
+    public GameObject enemyWhite;
 
     IEnumerator ReadyMessage()
     {
         readyLabel.SetActive(true);
         Debug.Log("준비");
-        readyLabel.GetComponent<UILabel>().text = "STAGE 1";
+        if(Application.loadedLevelName == "Stage_01")
+        { 
+            readyLabel.GetComponent<UILabel>().text = "STAGE 1";
+        }
+        if (Application.loadedLevelName == "Stage_02")
+        {
+            readyLabel.GetComponent<UILabel>().text = "STAGE 2";
+        }
+        if (Application.loadedLevelName == "Stage_03")
+        {
+            readyLabel.GetComponent<UILabel>().text = "STAGE 3";
+        }
+        if (Application.loadedLevelName == "Stage_04")
+        {
+            readyLabel.GetComponent<UILabel>().text = "STAGE 4";
+        }
         yield return new WaitForSeconds(2f);
         Debug.Log("시작");
         readyLabel.GetComponent<UILabel>().text = "시작 !";
         yield return new WaitForSeconds(0.5f);
         readyLabel.SetActive(false);
-        Instantiate(enemyBlue, enemySpawn.transform.position, enemySpawn.transform.rotation);
+        if (Application.loadedLevelName == "Stage_01")
+        {
+            Instantiate(enemyBlue, enemySpawn[0].transform.position, enemySpawn[0].transform.rotation);
+        }
+        if(Application.loadedLevelName == "Stage_02")
+        {
+            Instantiate(enemyRed, enemySpawn[0].transform.position, enemySpawn[0].transform.rotation);
+            Instantiate(enemyRed, enemySpawn[1].transform.position, enemySpawn[1].transform.rotation);
+        }
+        if (Application.loadedLevelName == "Stage_03")
+        {
+            Instantiate(enemyBlack, enemySpawn[0].transform.position, enemySpawn[0].transform.rotation);
+            Instantiate(enemyBlack, enemySpawn[1].transform.position, enemySpawn[1].transform.rotation);
+        }
+        if (Application.loadedLevelName == "Stage_04")
+        {
+            Instantiate(enemyWhite, enemySpawn[0].transform.position, enemySpawn[0].transform.rotation);
+            Instantiate(enemyWhite, enemySpawn[1].transform.position, enemySpawn[1].transform.rotation);
+            Instantiate(enemyWhite, enemySpawn[2].transform.position, enemySpawn[2].transform.rotation);
+        }
     }
 
     void Start()
@@ -172,9 +209,53 @@ public class PlaySceneBtnScript : MonoBehaviour {
 
     public void ReStart()
     {
-        Application.LoadLevel("Stage_01");
-        Time.timeScale = 1.0f;
-        AudioManagerScript.Instance().bgm.enabled = true;
+        if (Application.loadedLevelName == "Stage_01")
+        {
+            Application.LoadLevel("Stage_01");
+            Time.timeScale = 1.0f;
+            AudioManagerScript.Instance().bgm.enabled = true;
+        }
+        if (Application.loadedLevelName == "Stage_02")
+        {
+            Application.LoadLevel("Stage_02");
+            Time.timeScale = 1.0f;
+            AudioManagerScript.Instance().bgm.enabled = true;
+        }
+        if (Application.loadedLevelName == "Stage_03")
+        {
+            Application.LoadLevel("Stage_03");
+            Time.timeScale = 1.0f;
+            AudioManagerScript.Instance().bgm.enabled = true;
+        }
+        if (Application.loadedLevelName == "Stage_04")
+        {
+            Application.LoadLevel("Stage_04");
+            Time.timeScale = 1.0f;
+            AudioManagerScript.Instance().bgm.enabled = true;
+        }
     }
+
+    public void NextStage()
+    {
+        if(Application.loadedLevelName == "Stage_01")
+        {
+            Application.LoadLevel("Stage_02");
+            Time.timeScale = 1.0f;
+            AudioManagerScript.Instance().bgm.enabled = true;
+        }
+        if (Application.loadedLevelName == "Stage_02")
+        {
+            Application.LoadLevel("Stage_03");
+            Time.timeScale = 1.0f;
+            AudioManagerScript.Instance().bgm.enabled = true;
+        }
+        if (Application.loadedLevelName == "Stage_03")
+        {
+            Application.LoadLevel("Stage_04");
+            Time.timeScale = 1.0f;
+            AudioManagerScript.Instance().bgm.enabled = true;
+        }
+    }
+
 
 }

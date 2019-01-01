@@ -49,6 +49,8 @@ public class InventoryManagerScript : MonoBehaviour {
     public List<string> m_lItemNames = new List<string>();
     public List<int> m_lItemSellCost = new List<int>();
 
+    public List<int> m_lItemValue = new List<int>();
+
     // 새로 만들어진 아이템들을 모아둡니다.(삭제 및 수정 등을 하기위해서)
 
     public List<ItemScript> m_lItems = new List<ItemScript>();
@@ -109,6 +111,22 @@ public class InventoryManagerScript : MonoBehaviour {
 
     public GameObject equipBtn;
     public GameObject takeOffBtn;
+    //장착,해제 버튼
+
+
+    //장착창 장착시 수치 변경을 위한 bool
+    bool redAbool = false;
+    bool blueAbool = false;
+    bool whiteAbool = false;
+    bool blackAbool = false;
+    bool redMbool = false;
+    bool blueMbool = false;
+    bool whiteMbool = false;
+    bool blackMbool = false;
+    bool redSbool = false;
+    bool blueSbool = false;
+    bool whiteSbool = false;
+    bool blackSbool = false;
 
     void Awake()
     {
@@ -144,10 +162,11 @@ public class InventoryManagerScript : MonoBehaviour {
         //m_slotitem[0] = GameObject.FindGameObjectWithTag("redA").GetComponent<ItemScript>();
     }
 
-void Update()
+    void Update()
     {
         AddItem();
         //m_grid.Reposition();
+        
     }
 
     private void InitItems()
@@ -178,8 +197,20 @@ void Update()
         m_lItemSellCost.Add(itemSellDATA[12]["SellGold"]);
         m_lItemSellCost.Add(itemSellDATA[13]["SellGold"]);
         m_lItemSellCost.Add(itemSellDATA[14]["SellGold"]);
+        var itemValueDATA = JSON.Parse(jsonItemData.text);  //json 선언 
+        m_lItemValue.Add(itemValueDATA[3]["value"]);
+        m_lItemValue.Add(itemValueDATA[4]["value"]);
+        m_lItemValue.Add(itemValueDATA[5]["value"]);
+        m_lItemValue.Add(itemValueDATA[6]["value"]);
+        m_lItemValue.Add(itemValueDATA[7]["value"]);
+        m_lItemValue.Add(itemValueDATA[8]["value"]);
+        m_lItemValue.Add(itemValueDATA[9]["value"]);
+        m_lItemValue.Add(itemValueDATA[10]["value"]);
+        m_lItemValue.Add(itemValueDATA[11]["value"]);
+        m_lItemValue.Add(itemValueDATA[12]["value"]);
+        m_lItemValue.Add(itemValueDATA[13]["value"]);
+        m_lItemValue.Add(itemValueDATA[14]["value"]);
     }
-
 
 
     // 키를 누르면 아이템을 화면에 보여주는 역할을 합니다.
@@ -1701,6 +1732,7 @@ void Update()
                 m_lItems.Find(x => x.name == m_lItemNames[3]).gameObject.SetActive(true);
             }
             redArrowSlot.SetActive(true);
+       
             blueArrowSlot.SetActive(false);
             whiteArrowSlot.SetActive(false);
             blackArrowSlot.SetActive(false);
@@ -1721,7 +1753,7 @@ void Update()
             {
                 m_lItems.Find(x => x.name == m_lItemNames[3]).gameObject.SetActive(true);
             }
-            blueArrowSlot.SetActive(true);
+            blueArrowSlot.SetActive(true);      
             whiteArrowSlot.SetActive(false);
             blackArrowSlot.SetActive(false);
             redArrowSlot.SetActive(false);
@@ -1742,7 +1774,7 @@ void Update()
             {
                 m_lItems.Find(x => x.name == m_lItemNames[3]).gameObject.SetActive(true);
             }
-            whiteArrowSlot.SetActive(true);
+            whiteArrowSlot.SetActive(true);       
             redArrowSlot.SetActive(false);
             blueArrowSlot.SetActive(false);
             blackArrowSlot.SetActive(false);
@@ -1763,7 +1795,7 @@ void Update()
             {
                 m_lItems.Find(x => x.name == m_lItemNames[0]).gameObject.SetActive(true);
             }
-            blackArrowSlot.SetActive(true);
+            blackArrowSlot.SetActive(true);        
             redArrowSlot.SetActive(false);
             blueArrowSlot.SetActive(false);
             whiteArrowSlot.SetActive(false);
@@ -1943,6 +1975,170 @@ void Update()
             blackSkillSlot.SetActive(true);
             m_grid.enabled = true;
         }
+
+
+        //아이템 변경 및 장착시 수치 변경
+
+        // 무기
+        //1
+        if (redArrowSlot.activeSelf == true && redAbool == false)
+        {
+            redAbool = true;
+            LobbySceneBtnScript.Instance().basicDamage += m_lItemValue[0];
+        }
+        if (redArrowSlot.activeSelf == false && redAbool == true)
+        {
+            redAbool = false;
+            LobbySceneBtnScript.Instance().basicDamage -= m_lItemValue[0];
+        }
+        //1
+
+        //2
+        if (blueArrowSlot.activeSelf == true && blueAbool == false)
+        {
+            blueAbool = true;
+            LobbySceneBtnScript.Instance().basicDamage += m_lItemValue[1];
+        }
+        if (blueArrowSlot.activeSelf == false && blueAbool == true)
+        {
+            blueAbool = false;
+            LobbySceneBtnScript.Instance().basicDamage -= m_lItemValue[1];
+        }
+        //2
+
+        //3
+        if (whiteArrowSlot.activeSelf == true && whiteAbool == false)
+        {
+            whiteAbool = true;
+            LobbySceneBtnScript.Instance().basicDamage += m_lItemValue[2];
+        }
+        if (whiteArrowSlot.activeSelf == false && whiteAbool == true)
+        {
+            whiteAbool = false;
+            LobbySceneBtnScript.Instance().basicDamage -= m_lItemValue[2];
+        }
+        //3
+
+        //4
+        if (blackArrowSlot.activeSelf == true && blackAbool == false)
+        {
+            blackAbool = true;
+            LobbySceneBtnScript.Instance().basicDamage += m_lItemValue[3];
+        }
+        if (blackArrowSlot.activeSelf == false && blackAbool == true)
+        {
+            blackAbool = false;
+            LobbySceneBtnScript.Instance().basicDamage -= m_lItemValue[3];
+        }
+        //4
+
+
+        //방어구
+        //1
+        if (redArmorSlot.activeSelf == true && redMbool == false)
+        {
+            redMbool = true;
+            LobbySceneBtnScript.Instance().playerMaxHp += m_lItemValue[4];
+        }
+        if (redArmorSlot.activeSelf == false && redMbool == true)
+        {
+            redMbool = false;
+            LobbySceneBtnScript.Instance().playerMaxHp -= m_lItemValue[4];
+        }
+        //1
+
+        //2
+        if (blueArmorSlot.activeSelf == true && blueMbool == false)
+        {
+            blueMbool = true;
+            LobbySceneBtnScript.Instance().playerMaxHp += m_lItemValue[5];
+        }
+        if (blueArmorSlot.activeSelf == false && blueMbool == true)
+        {
+            blueMbool = false;
+            LobbySceneBtnScript.Instance().playerMaxHp -= m_lItemValue[5];
+        }
+        //2
+
+        //3
+        if (whiteArmorSlot.activeSelf == true && whiteMbool == false)
+        {
+            whiteMbool = true;
+            LobbySceneBtnScript.Instance().playerMaxHp += m_lItemValue[6];
+        }
+        if (whiteArmorSlot.activeSelf == false && whiteMbool == true)
+        {
+            whiteMbool = false;
+            LobbySceneBtnScript.Instance().playerMaxHp -= m_lItemValue[6];
+        }
+        //3
+
+        //4
+        if (blackArmorSlot.activeSelf == true && blackMbool == false)
+        {
+            blackMbool = true;
+            LobbySceneBtnScript.Instance().playerMaxHp += m_lItemValue[7];
+        }
+        if (blackArmorSlot.activeSelf == false && blackMbool == true)
+        {
+            blackMbool = false;
+            LobbySceneBtnScript.Instance().playerMaxHp -= m_lItemValue[7];
+        }
+        //4
+
+
+        //스킬
+        //1
+        if (redSkillSlot.activeSelf == true && redSbool == false)
+        {
+            redSbool = true;
+            LobbySceneBtnScript.Instance().chargeDamage += m_lItemValue[8];
+        }
+        if (redSkillSlot.activeSelf == false && redSbool == true)
+        {
+            redSbool = false;
+            LobbySceneBtnScript.Instance().chargeDamage -= m_lItemValue[8];
+        }
+        //1
+
+        //2
+        if (blueSkillSlot.activeSelf == true && blueSbool == false)
+        {
+            blueSbool = true;
+            LobbySceneBtnScript.Instance().chargeDamage += m_lItemValue[9];
+        }
+        if (blueSkillSlot.activeSelf == false && blueSbool == true)
+        {
+            blueSbool = false;
+            LobbySceneBtnScript.Instance().chargeDamage -= m_lItemValue[9];
+        }
+        //2
+
+        //3
+        if (whiteSkillSlot.activeSelf == true && whiteSbool == false)
+        {
+            whiteSbool = true;
+            LobbySceneBtnScript.Instance().chargeDamage += m_lItemValue[10];
+        }
+        if (whiteSkillSlot.activeSelf == false && whiteSbool == true)
+        {
+            whiteSbool = false;
+            LobbySceneBtnScript.Instance().chargeDamage -= m_lItemValue[10];
+        }
+        //3
+
+        //4
+        if (blackSkillSlot.activeSelf == true && blackSbool == false)
+        {
+            blackSbool = true;
+            LobbySceneBtnScript.Instance().chargeDamage += m_lItemValue[11];
+        }
+        if (blackSkillSlot.activeSelf == false && blackSbool == true)
+        {
+            blackSbool = false;
+            LobbySceneBtnScript.Instance().chargeDamage -= m_lItemValue[11];
+        }
+        //4
     }
 
 
@@ -1952,24 +2148,44 @@ void Update()
         if (m_cCurScript.m_sprIcon.name ==  m_slotitem[0].name)
         {
             redArrowSlot.SetActive(false);
+            if (redArrowSlot.activeSelf == false && redAbool == true)
+            {
+                redAbool = false;
+                LobbySceneBtnScript.Instance().basicDamage -= m_lItemValue[0];
+            }
             m_lItems.Find(x => x.name == m_lItemNames[0]).gameObject.SetActive(true);
             m_grid.enabled = true;
         }
         if (m_cCurScript.m_sprIcon.name == m_slotitem[1].name)
         {
             blueArrowSlot.SetActive(false);
+            if (blueArrowSlot.activeSelf == false && blueAbool == true)
+            {
+                blueAbool = false;
+                LobbySceneBtnScript.Instance().basicDamage -= m_lItemValue[1];
+            }
             m_lItems.Find(x => x.name == m_lItemNames[1]).gameObject.SetActive(true);
             m_grid.enabled = true;
         }
         if (m_cCurScript.m_sprIcon.name == m_slotitem[2].name)
         {
             whiteArrowSlot.SetActive(false);
+            if (whiteArrowSlot.activeSelf == false && whiteAbool == true)
+            {
+                whiteAbool = false;
+                LobbySceneBtnScript.Instance().basicDamage -= m_lItemValue[2];
+            }
             m_lItems.Find(x => x.name == m_lItemNames[2]).gameObject.SetActive(true);
             m_grid.enabled = true;
         }
         if (m_cCurScript.m_sprIcon.name == m_slotitem[3].name)
         {
             blackArrowSlot.SetActive(false);
+            if (blackArrowSlot.activeSelf == false && blackAbool == true)
+            {
+                blackAbool = false;
+                LobbySceneBtnScript.Instance().basicDamage -= m_lItemValue[3];
+            }
             m_lItems.Find(x => x.name == m_lItemNames[3]).gameObject.SetActive(true);
             m_grid.enabled = true;
         }
@@ -1980,24 +2196,44 @@ void Update()
         if (m_cCurScript.m_sprIcon.name == m_slotitem[4].name)
         {
             redArmorSlot.SetActive(false);
+            if (redArmorSlot.activeSelf == false && redMbool == true)
+            {
+                redMbool = false;
+                LobbySceneBtnScript.Instance().playerMaxHp -= m_lItemValue[4];
+            }
             m_lItems.Find(x => x.name == m_lItemNames[4]).gameObject.SetActive(true);
             m_grid.enabled = true;
         }
         if (m_cCurScript.m_sprIcon.name == m_slotitem[5].name)
         {
             blueArmorSlot.SetActive(false);
+            if (blueArmorSlot.activeSelf == false && blueMbool == true)
+            {
+                blueMbool = false;
+                LobbySceneBtnScript.Instance().playerMaxHp -= m_lItemValue[5];
+            }
             m_lItems.Find(x => x.name == m_lItemNames[5]).gameObject.SetActive(true);
             m_grid.enabled = true;
         }
         if (m_cCurScript.m_sprIcon.name == m_slotitem[6].name)
         {
             whiteArmorSlot.SetActive(false);
+            if (whiteArmorSlot.activeSelf == false && whiteMbool == true)
+            {
+                whiteMbool = false;
+                LobbySceneBtnScript.Instance().playerMaxHp -= m_lItemValue[6];
+            }
             m_lItems.Find(x => x.name == m_lItemNames[6]).gameObject.SetActive(true);
             m_grid.enabled = true;
         }
         if (m_cCurScript.m_sprIcon.name == m_slotitem[7].name)
         {
             blackArmorSlot.SetActive(false);
+            if (blackArmorSlot.activeSelf == false && blackMbool == true)
+            {
+                blackMbool = false;
+                LobbySceneBtnScript.Instance().playerMaxHp -= m_lItemValue[7];
+            }
             m_lItems.Find(x => x.name == m_lItemNames[7]).gameObject.SetActive(true);
             m_grid.enabled = true;
         }
@@ -2008,24 +2244,44 @@ void Update()
         if (m_cCurScript.m_sprIcon.name == m_slotitem[8].name)
         {
             redSkillSlot.SetActive(false);
+            if (redSkillSlot.activeSelf == false && redSbool == true)
+            {
+                redSbool = false;
+                LobbySceneBtnScript.Instance().chargeDamage -= m_lItemValue[8];
+            }
             m_lItems.Find(x => x.name == m_lItemNames[8]).gameObject.SetActive(true);
             m_grid.enabled = true;
         }
         if (m_cCurScript.m_sprIcon.name == m_slotitem[9].name)
         {
             blueSkillSlot.SetActive(false);
+            if (blueSkillSlot.activeSelf == false && blueSbool == true)
+            {
+                blueSbool = false;
+                LobbySceneBtnScript.Instance().chargeDamage -= m_lItemValue[9];
+            }
             m_lItems.Find(x => x.name == m_lItemNames[9]).gameObject.SetActive(true);
             m_grid.enabled = true;
         }
         if (m_cCurScript.m_sprIcon.name == m_slotitem[10].name)
         {
             whiteSkillSlot.SetActive(false);
+            if (whiteSkillSlot.activeSelf == false && whiteSbool == true)
+            {
+                whiteSbool = false;
+                LobbySceneBtnScript.Instance().chargeDamage -= m_lItemValue[10];
+            }
             m_lItems.Find(x => x.name == m_lItemNames[10]).gameObject.SetActive(true);
             m_grid.enabled = true;
         }
         if (m_cCurScript.m_sprIcon.name == m_slotitem[11].name)
         {
             blackSkillSlot.SetActive(false);
+            if (blackSkillSlot.activeSelf == false && blackSbool == true)
+            {
+                blackSbool = false;
+                LobbySceneBtnScript.Instance().chargeDamage -= m_lItemValue[11];
+            }
             m_lItems.Find(x => x.name == m_lItemNames[11]).gameObject.SetActive(true);
             m_grid.enabled = true;
         }

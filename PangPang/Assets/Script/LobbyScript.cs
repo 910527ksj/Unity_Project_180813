@@ -38,19 +38,31 @@ public class LobbyScript : MonoBehaviour {
     public void UIChagner()
     {
         string loadedSceneName = Application.loadedLevelName;
-        Debug.Log("loadedSceneName  :::  " + loadedSceneName);
+        //Debug.Log("loadedSceneName  :::  " + loadedSceneName);
         switch (loadedSceneName)
         {
             case "Lobby":
-                Debug.Log("Lobby");
+                //Debug.Log("Lobby");
                 lobbyUI.SetActive(true);
                 break;
             case "Stage_01":
-                Debug.Log("Lobby x");                
+                //Debug.Log("Lobby x");                
+                lobbyUI.SetActive(false);
+                break;
+            case "Stage_02":
+                //Debug.Log("Lobby x");                
+                lobbyUI.SetActive(false);
+                break;
+            case "Stage_03":
+                //Debug.Log("Lobby x");                
+                lobbyUI.SetActive(false);
+                break;
+            case "Stage_04":
+                //Debug.Log("Lobby x");                
                 lobbyUI.SetActive(false);
                 break;
             case "Title":
-                Debug.Log("Lobby x");
+                //Debug.Log("Lobby x");
                 lobbyUI.SetActive(false);
                 break;
         }

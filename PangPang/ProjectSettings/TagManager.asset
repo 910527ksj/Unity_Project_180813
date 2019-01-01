@@ -12,6 +12,10 @@ TagManager:
   - Charge100Attack
   - Win
   - redA
+  - BlueEnemy
+  - RedEnemy
+  - BlackEnemy
+  - WhiteEnemy
   layers:
   - Default
   - TransparentFX

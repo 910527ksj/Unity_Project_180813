@@ -3419,6 +3419,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1487180541901368
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4338754385928106}
+  - component: {fileID: 114678768413413230}
+  m_Layer: 8
+  m_Name: Player_Charge_Skill_Dam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1489058578114534
 GameObject:
   m_ObjectHideFlags: 1
@@ -3658,7 +3674,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1532148475002102
 GameObject:
   m_ObjectHideFlags: 1
@@ -7468,8 +7484,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1086211828627476}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.72872806, y: -0.13048194, z: -3.447797}
   m_LocalScale: {x: 0.0027777778, y: 0.0027777778, z: 0.0027777778}
   m_Children:
   - {fileID: 4984234268571334}
@@ -9168,6 +9184,19 @@ Transform:
   m_Father: {fileID: 4083618637831794}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4338754385928106
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1487180541901368}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 113.18399, y: -191.97202, z: 0.000036239624}
+  m_LocalScale: {x: 1.0008001, y: 1.0008001, z: 1.0008001}
+  m_Children: []
+  m_Father: {fileID: 4741523306434118}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4340376714705062
 Transform:
   m_ObjectHideFlags: 1
@@ -9647,7 +9676,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1245714647603438}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -50, y: -227, z: 0}
+  m_LocalPosition: {x: -117.00004, y: -227, z: 0}
   m_LocalScale: {x: 1.0008001, y: 1.0008001, z: 1.0008001}
   m_Children: []
   m_Father: {fileID: 4741523306434118}
@@ -10422,7 +10451,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1657475410079362}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.000015, y: -157.00002, z: 0}
+  m_LocalPosition: {x: -37, y: -157.00002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4741523306434118}
@@ -11321,7 +11350,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1327734915441734}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -50, y: -162.00002, z: 0}
+  m_LocalPosition: {x: -117.00004, y: -162.00002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4741523306434118}
@@ -11606,6 +11635,7 @@ Transform:
   - {fileID: 4695519329358830}
   - {fileID: 4523115275727234}
   - {fileID: 4873622618980894}
+  - {fileID: 4338754385928106}
   m_Father: {fileID: 4463976089186744}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12013,7 +12043,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1284090950265774}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -945, y: 25, z: 0}
+  m_LocalPosition: {x: -120, y: 25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4505274318169752}
@@ -12477,7 +12507,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1868797902734476}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.000015, y: -222, z: 0}
+  m_LocalPosition: {x: -37.000023, y: -222, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4741523306434118}
@@ -14382,8 +14412,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 128.95001, y: 35, z: 0}
-  m_Center: {x: 335.525, y: 0, z: 0}
+  m_Size: {x: 137.4, y: 35, z: 0}
+  m_Center: {x: 71.625, y: 0, z: 0}
 --- !u!65 &65593509985388812
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -15506,7 +15536,7 @@ MonoBehaviour:
   mPivot: 4
   mWidth: 86
   mHeight: 78
-  mDepth: 0
+  mDepth: 99
   mMat: {fileID: 0}
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
@@ -16244,7 +16274,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: 2446ca0b42c378443b29aaa02e764202, type: 3}
   mFont: {fileID: 0}
-  mText: 100
+  mText: 2500
   mFontSize: 40
   mFontStyle: 1
   mAlignment: 0
@@ -18223,7 +18253,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: 2446ca0b42c378443b29aaa02e764202, type: 3}
   mFont: {fileID: 0}
-  mText: 1000
+  mText: 1500
   mFontSize: 40
   mFontStyle: 1
   mAlignment: 0
@@ -18701,7 +18731,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: 2446ca0b42c378443b29aaa02e764202, type: 3}
   mFont: {fileID: 0}
-  mText: 5000
+  mText: 7500
   mFontSize: 40
   mFontStyle: 1
   mAlignment: 0
@@ -20376,7 +20406,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3003
+  startingRenderQueue: 3017
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -21714,7 +21744,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: 2446ca0b42c378443b29aaa02e764202, type: 3}
   mFont: {fileID: 0}
-  mText: 5000
+  mText: 12500
   mFontSize: 40
   mFontStyle: 1
   mAlignment: 0
@@ -22354,13 +22384,9 @@ MonoBehaviour:
   beforeHp: {fileID: 114363506694253010}
   afterHp: {fileID: 114549732191391426}
   _playerMaxHp: 5
+  nowChargeDamage: {fileID: 114678768413413230}
+  chargeDamage: 2
   gameStartPopUp: {fileID: 1040800475558160}
-  bestScoreLabel: {fileID: 114008762441287944}
-  secondScoreLabel: {fileID: 114212913508632964}
-  thirdScoreLabel: {fileID: 114889733537037312}
-  _bestScore: 0
-  _secondScore: 0
-  _thirdScore: 0
   wattingUpdateLabel: {fileID: 1035598463098776}
   haveRedArmor: {fileID: 114487297961038004}
   haveBlueArmor: {fileID: 114836445236125048}
@@ -23448,7 +23474,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: 2446ca0b42c378443b29aaa02e764202, type: 3}
   mFont: {fileID: 0}
-  mText: 1000
+  mText: 12500
   mFontSize: 40
   mFontStyle: 1
   mAlignment: 0
@@ -23583,7 +23609,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: 2446ca0b42c378443b29aaa02e764202, type: 3}
   mFont: {fileID: 0}
-  mText: 1000
+  mText: 2000
   mFontSize: 40
   mFontStyle: 1
   mAlignment: 0
@@ -25358,7 +25384,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: 2446ca0b42c378443b29aaa02e764202, type: 3}
   mFont: {fileID: 0}
-  mText: 1000
+  mText: 2500
   mFontSize: 40
   mFontStyle: 1
   mAlignment: 0
@@ -27059,7 +27085,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: 2446ca0b42c378443b29aaa02e764202, type: 3}
   mFont: {fileID: 0}
-  mText: 5000
+  mText: 10000
   mFontSize: 40
   mFontStyle: 1
   mAlignment: 0
@@ -28676,7 +28702,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: 2446ca0b42c378443b29aaa02e764202, type: 3}
   mFont: {fileID: 0}
-  mText: 5000
+  mText: 12500
   mFontSize: 40
   mFontStyle: 1
   mAlignment: 0
@@ -28735,7 +28761,7 @@ MonoBehaviour:
   mPivot: 4
   mWidth: 86
   mHeight: 78
-  mDepth: 0
+  mDepth: 99
   mMat: {fileID: 0}
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
@@ -30148,7 +30174,7 @@ MonoBehaviour:
   mPivot: 4
   mWidth: 152
   mHeight: 50
-  mDepth: 11
+  mDepth: 12
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
@@ -31016,7 +31042,7 @@ MonoBehaviour:
   thumb: {fileID: 0}
   mBG: {fileID: 114028011010326048}
   mFG: {fileID: 114331953317840162}
-  mValue: 1
+  mValue: 0.011138612
   mFill: 0
   numberOfSteps: 0
   onChange: []
@@ -31024,7 +31050,7 @@ MonoBehaviour:
   rawValue: 1
   direction: 2
   mInverted: 0
-  mSize: 0.305
+  mSize: 0.32666665
   mScroll: 0
   mDir: 2
 --- !u!114 &114505764192877790
@@ -31603,7 +31629,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: 2446ca0b42c378443b29aaa02e764202, type: 3}
   mFont: {fileID: 0}
-  mText: 5000
+  mText: 7500
   mFontSize: 40
   mFontStyle: 1
   mAlignment: 0
@@ -32336,7 +32362,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: 2446ca0b42c378443b29aaa02e764202, type: 3}
   mFont: {fileID: 0}
-  mText: 1000
+  mText: 2500
   mFontSize: 40
   mFontStyle: 1
   mAlignment: 0
@@ -33207,7 +33233,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: 2446ca0b42c378443b29aaa02e764202, type: 3}
   mFont: {fileID: 0}
-  mText: 5000
+  mText: 10000
   mFontSize: 40
   mFontStyle: 1
   mAlignment: 0
@@ -33266,7 +33292,7 @@ MonoBehaviour:
   mPivot: 4
   mWidth: 146
   mHeight: 78
-  mDepth: 10
+  mDepth: 11
   mMat: {fileID: 0}
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
@@ -34246,7 +34272,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: 2446ca0b42c378443b29aaa02e764202, type: 3}
   mFont: {fileID: 0}
-  mText: 100
+  mText: 2500
   mFontSize: 40
   mFontStyle: 1
   mAlignment: 0
@@ -35161,7 +35187,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: 2446ca0b42c378443b29aaa02e764202, type: 3}
   mFont: {fileID: 0}
-  mText: 1000
+  mText: 2000
   mFontSize: 40
   mFontStyle: 1
   mAlignment: 0
@@ -35507,7 +35533,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: 2446ca0b42c378443b29aaa02e764202, type: 3}
   mFont: {fileID: 0}
-  mText: 1000
+  mText: 2000
   mFontSize: 40
   mFontStyle: 1
   mAlignment: 0
@@ -36067,6 +36093,74 @@ MonoBehaviour:
     mMethodName: PlayerInformationPopUpCancel
     mParameters: []
     oneShot: 0
+--- !u!114 &114678768413413230
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1487180541901368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mWidth: 212
+  mHeight: 70
+  mDepth: 9
+  mMat: {fileID: 0}
+  autoResizeBoxCollider: 0
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: 3.0285714
+  keepCrispWhenShrunk: 1
+  mTrueTypeFont: {fileID: 12800000, guid: 2446ca0b42c378443b29aaa02e764202, type: 3}
+  mFont: {fileID: 0}
+  mText: 99
+  mFontSize: 70
+  mFontStyle: 1
+  mAlignment: 0
+  mEncoding: 1
+  mMaxLineCount: 0
+  mEffectStyle: 0
+  mEffectColor: {r: 0, g: 0, b: 0, a: 1}
+  mSymbols: 1
+  mEffectDistance: {x: 1, y: 1}
+  mOverflow: 0
+  mApplyGradient: 1
+  mGradientTop: {r: 0, g: 0, b: 0, a: 1}
+  mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  mSpacingX: 0
+  mSpacingY: 0
+  mUseFloatSpacing: 0
+  mFloatSpacingX: 0
+  mFloatSpacingY: 0
+  mOverflowEllipsis: 0
+  mOverflowWidth: 0
+  mModifier: 0
+  mShrinkToFit: 0
+  mMaxLineWidth: 0
+  mMaxLineHeight: 0
+  mLineWidth: 0
+  mMultiline: 1
 --- !u!114 &114680341427186230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -36927,7 +37021,7 @@ MonoBehaviour:
   mPivot: 4
   mWidth: 86
   mHeight: 78
-  mDepth: 0
+  mDepth: 99
   mMat: {fileID: 0}
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
@@ -37875,7 +37969,7 @@ MonoBehaviour:
   mPivot: 4
   mWidth: 86
   mHeight: 78
-  mDepth: 0
+  mDepth: 99
   mMat: {fileID: 0}
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
@@ -38069,6 +38163,7 @@ MonoBehaviour:
   cha01: 0
   m_lItemNames: []
   m_lItemSellCost: 
+  m_lItemValue: 
   m_lItems: []
   m_slotitem:
   - {fileID: 114013842284758948}
@@ -38265,7 +38360,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: 2446ca0b42c378443b29aaa02e764202, type: 3}
   mFont: {fileID: 0}
-  mText: 1000
+  mText: 1500
   mFontSize: 40
   mFontStyle: 1
   mAlignment: 0
@@ -38333,7 +38428,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: 2446ca0b42c378443b29aaa02e764202, type: 3}
   mFont: {fileID: 0}
-  mText: 1000
+  mText: 12500
   mFontSize: 40
   mFontStyle: 1
   mAlignment: 0
@@ -39046,7 +39141,7 @@ MonoBehaviour:
   mPivot: 4
   mWidth: 86
   mHeight: 78
-  mDepth: 0
+  mDepth: 99
   mMat: {fileID: 0}
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
@@ -40039,7 +40134,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: 2446ca0b42c378443b29aaa02e764202, type: 3}
   mFont: {fileID: 0}
-  mText: 5000
+  mText: 12500
   mFontSize: 40
   mFontStyle: 1
   mAlignment: 0
@@ -40756,7 +40851,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: 2446ca0b42c378443b29aaa02e764202, type: 3}
   mFont: {fileID: 0}
-  mText: 5000
+  mText: 7500
   mFontSize: 40
   mFontStyle: 1
   mAlignment: 0
@@ -41322,7 +41417,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: 2446ca0b42c378443b29aaa02e764202, type: 3}
   mFont: {fileID: 0}
-  mText: 1000
+  mText: 2500
   mFontSize: 40
   mFontStyle: 1
   mAlignment: 0
@@ -41484,7 +41579,7 @@ MonoBehaviour:
   mPivot: 4
   mWidth: 86
   mHeight: 78
-  mDepth: 0
+  mDepth: 99
   mMat: {fileID: 0}
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
@@ -41779,7 +41874,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: 2446ca0b42c378443b29aaa02e764202, type: 3}
   mFont: {fileID: 0}
-  mText: 5000
+  mText: 10000
   mFontSize: 40
   mFontStyle: 1
   mAlignment: 0
@@ -42651,7 +42746,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: 2446ca0b42c378443b29aaa02e764202, type: 3}
   mFont: {fileID: 0}
-  mText: 1000
+  mText: 1500
   mFontSize: 40
   mFontStyle: 1
   mAlignment: 0

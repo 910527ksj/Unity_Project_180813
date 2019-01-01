@@ -210,6 +210,9 @@ public class LobbySceneBtnScript : MonoBehaviour {
         }
     }
 
+    public UILabel nowChargeDamage;
+    public int chargeDamage = 2; 
+
     public GameObject gameStartPopUp;
 
 
@@ -334,7 +337,18 @@ public class LobbySceneBtnScript : MonoBehaviour {
     public UILabel haveWhiteSkill;
     public UILabel haveBlackSkill;
 
+    //스테이지 
+    public GameObject stage02OFF;
+    public GameObject stage02ON;
+    public GameObject stage03OFF;
+    public GameObject stage03ON;
+    public GameObject stage04OFF;
+    public GameObject stage04ON;
 
+    //스테이지 클리어 확인
+    public bool stage02Clear;
+    public bool stage03Clear;
+    public bool stage04Clear;
 
     void Awake()
     {
@@ -393,7 +407,9 @@ public class LobbySceneBtnScript : MonoBehaviour {
     }
 	
 	void Update ()
-    {    
+    {
+        StageClear();
+
         if (_myGold >= 0)
         {
             SaveGold();
@@ -431,6 +447,8 @@ public class LobbySceneBtnScript : MonoBehaviour {
         afterPlayerHp = playerMaxHp + 1;
         afterHp.text = afterPlayerHp.ToString();
 
+        nowChargeDamage.text = chargeDamage.ToString();
+
         //bestScoreLabel.text = bestScore.ToString();
         //secondScoreLabel.text = secondScore.ToString();
         //thirdScoreLabel.text = thirdScore.ToString();
@@ -443,6 +461,24 @@ public class LobbySceneBtnScript : MonoBehaviour {
 
     }
 
+    public void StageClear()
+    {
+        if(stage02Clear == true)
+        {
+            stage02OFF.SetActive(false);
+            stage02ON.SetActive(true);
+        }
+        if (stage03Clear == true)
+        {
+            stage03OFF.SetActive(false);
+            stage03ON.SetActive(true);
+        }
+        if (stage04Clear == true)
+        {
+            stage04OFF.SetActive(false);
+            stage04ON.SetActive(true);
+        }
+    }
 
     public void BgmVolume()
     {
@@ -2113,9 +2149,30 @@ public class LobbySceneBtnScript : MonoBehaviour {
         gameStartPopUp.SetActive(false);
     }
 
-    public void EasyGame()
+    public void Stage01()
     {
         Application.LoadLevel("Stage_01");
+        gameStartPopUp.SetActive(false);
+        Time.timeScale = 1.0f;
+    }
+
+    public void Stage02()
+    {
+        Application.LoadLevel("Stage_02");
+        gameStartPopUp.SetActive(false);
+        Time.timeScale = 1.0f;
+    }
+
+    public void Stage03()
+    {
+        Application.LoadLevel("Stage_03");
+        gameStartPopUp.SetActive(false);
+        Time.timeScale = 1.0f;
+    }
+
+    public void Stage04()
+    {
+        Application.LoadLevel("Stage_04");
         gameStartPopUp.SetActive(false);
         Time.timeScale = 1.0f;
     }

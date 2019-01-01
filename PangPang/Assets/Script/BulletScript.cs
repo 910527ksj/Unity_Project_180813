@@ -22,7 +22,7 @@ public class BulletScript : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D coll)
     {
-        if(coll.tag == "Enemy")
+        if(coll.tag == "BlueEnemy" || coll.tag == "RedEnemy" || coll.tag == "BlackEnemy" || coll.tag == "WhiteEnemy" )
         {
             Instantiate(hitEffect,transform.position,transform.rotation);
             Destroy(gameObject);

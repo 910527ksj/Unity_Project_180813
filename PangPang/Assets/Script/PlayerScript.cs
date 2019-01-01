@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SimpleJSON;
 
 public class PlayerScript : MonoBehaviour {
 
@@ -63,6 +64,9 @@ public class PlayerScript : MonoBehaviour {
 
     public int winItemEA;
 
+    public TextAsset jsonEnemyData;
+    public List<int> enemyStateDam = new List<int>();
+
     void Start()
     {
         if (_instance == null)
@@ -72,13 +76,13 @@ public class PlayerScript : MonoBehaviour {
         //shotDelay = 1;
         playerHp = LobbySceneBtnScript.Instance().playerMaxHp; // 인스턴스와 같다고 해줘야 업그레이드시 정보 넘어옴
         playerMaxHp = LobbySceneBtnScript.Instance().playerMaxHp;
-        if(Application.loadedLevelName == "Stage_01")
-        {
-            winItemEA = 8;
-        }
+
+        EnemyStateDamage();
+
+        StageObject();
     }
 
-
+   
 
     void Update ()
     {
@@ -330,6 +334,50 @@ public class PlayerScript : MonoBehaviour {
                 rb2D.velocity = new Vector2(0, 0);
             }
         }
+    }
+
+    public void StageObject()
+    {
+        if (Application.loadedLevelName == "Stage_01")
+        {
+            winItemEA = 8;
+        }
+
+        if (Application.loadedLevelName == "Stage_02")
+        {
+            winItemEA = 16;
+        }
+
+        if (Application.loadedLevelName == "Stage_03")
+        {
+            winItemEA = 16;
+        }
+
+        if (Application.loadedLevelName == "Stage_04")
+        {
+            winItemEA = 24;
+        }
+    }
+
+    public void EnemyStateDamage()
+    {
+        var enemyDamageData = JSON.Parse(jsonEnemyData.text);
+        enemyStateDam.Add(enemyDamageData[0]["Attack_LV_1~5"]);
+        enemyStateDam.Add(enemyDamageData[1]["Attack_LV_1~5"]);
+        enemyStateDam.Add(enemyDamageData[2]["Attack_LV_1~5"]);
+        enemyStateDam.Add(enemyDamageData[3]["Attack_LV_1~5"]);
+        //까지 1
+        enemyStateDam.Add(enemyDamageData[4]["Attack_LV_1~5"]);
+        enemyStateDam.Add(enemyDamageData[5]["Attack_LV_1~5"]);
+        enemyStateDam.Add(enemyDamageData[6]["Attack_LV_1~5"]);
+        enemyStateDam.Add(enemyDamageData[7]["Attack_LV_1~5"]);
+        //까지 2
+        enemyStateDam.Add(enemyDamageData[8]["Attack_LV_1~5"]);
+        enemyStateDam.Add(enemyDamageData[9]["Attack_LV_1~5"]);
+        enemyStateDam.Add(enemyDamageData[10]["Attack_LV_1~5"]);
+        enemyStateDam.Add(enemyDamageData[11]["Attack_LV_1~5"]);
+        //까지 3
+        enemyStateDam.Add(enemyDamageData[12]["Attack_LV_1~5"]);
     }
 
     void ShotDelay() // 기본 공격 쿨타임 
@@ -599,10 +647,10 @@ public class PlayerScript : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Enemy" && !isUnBeatTime)
-        // 코루틴 false, 적과 부딪혔을시 ( 코루틴 실행시 hp 안닳게 하기위해 && ! 사용)
+        //파랑한테 맞았을때
+        if (other.tag == "BlueEnemy" && !isUnBeatTime)// 코루틴 false, 적과 부딪혔을시 ( 코루틴 실행시 hp 안닳게 하기위해 && ! 사용)        
         {
-            playerHp -= 1;
+            playerHp -= enemyStateDam[0];
             if (playerHp >= 1)
             {
                 //LobbySceneBtnScript.Instance().myScore -= score;
@@ -632,7 +680,106 @@ public class PlayerScript : MonoBehaviour {
                 //rb2D.AddForce(attackVel, ForceMode2D.Impulse);
             }            
         }
-        if (playerHp == 0)
+        //빨강한테 맞았을때
+        if (other.tag == "RedEnemy" && !isUnBeatTime)// 코루틴 false, 적과 부딪혔을시 ( 코루틴 실행시 hp 안닳게 하기위해 && ! 사용)        
+        {
+            playerHp -= enemyStateDam[1];
+            if (playerHp >= 1)
+            {
+                //LobbySceneBtnScript.Instance().myScore -= score;
+                isUnBeatTime = true;
+                StartCoroutine("UnBeatTime");
+            }
+            AttackedVelocityTime = true;
+            if (AttackedVelocityTime == true)
+            {
+                //Vector2 attackVel = Vector2.zero;
+                //Debug.Log("1");
+                if (other.gameObject.transform.position.x > transform.position.x) // 밀림 효과
+                {
+                    rb2D.velocity = new Vector2(-10f, 5f);
+                }
+                else
+                {
+                    rb2D.velocity = new Vector2(10f, 5f);
+                }
+                //{
+                //    attackVel = new Vector2(-10f, 5f);
+                //}
+                //else
+                //{
+                //    attackVel = new Vector2(10f, 5f);
+                //}
+                //rb2D.AddForce(attackVel, ForceMode2D.Impulse);
+            }
+        }
+        //검정한테 맞았을때
+        if (other.tag == "BlackEnemy" && !isUnBeatTime)// 코루틴 false, 적과 부딪혔을시 ( 코루틴 실행시 hp 안닳게 하기위해 && ! 사용)        
+        {
+            playerHp -= enemyStateDam[2];
+            if (playerHp >= 1)
+            {
+                //LobbySceneBtnScript.Instance().myScore -= score;
+                isUnBeatTime = true;
+                StartCoroutine("UnBeatTime");
+            }
+            AttackedVelocityTime = true;
+            if (AttackedVelocityTime == true)
+            {
+                //Vector2 attackVel = Vector2.zero;
+                //Debug.Log("1");
+                if (other.gameObject.transform.position.x > transform.position.x) // 밀림 효과
+                {
+                    rb2D.velocity = new Vector2(-10f, 5f);
+                }
+                else
+                {
+                    rb2D.velocity = new Vector2(10f, 5f);
+                }
+                //{
+                //    attackVel = new Vector2(-10f, 5f);
+                //}
+                //else
+                //{
+                //    attackVel = new Vector2(10f, 5f);
+                //}
+                //rb2D.AddForce(attackVel, ForceMode2D.Impulse);
+            }
+        }
+        //하얀한테 맞았을때
+        if (other.tag == "WhiteEnemy" && !isUnBeatTime)// 코루틴 false, 적과 부딪혔을시 ( 코루틴 실행시 hp 안닳게 하기위해 && ! 사용)        
+        {
+            playerHp -= enemyStateDam[3];
+            if (playerHp >= 1)
+            {
+                //LobbySceneBtnScript.Instance().myScore -= score;
+                isUnBeatTime = true;
+                StartCoroutine("UnBeatTime");
+            }
+            AttackedVelocityTime = true;
+            if (AttackedVelocityTime == true)
+            {
+                //Vector2 attackVel = Vector2.zero;
+                //Debug.Log("1");
+                if (other.gameObject.transform.position.x > transform.position.x) // 밀림 효과
+                {
+                    rb2D.velocity = new Vector2(-10f, 5f);
+                }
+                else
+                {
+                    rb2D.velocity = new Vector2(10f, 5f);
+                }
+                //{
+                //    attackVel = new Vector2(-10f, 5f);
+                //}
+                //else
+                //{
+                //    attackVel = new Vector2(10f, 5f);
+                //}
+                //rb2D.AddForce(attackVel, ForceMode2D.Impulse);
+            }
+        }
+        if (playerHp <= 0)
         {
             Instantiate(dieEffect, transform.position, transform.rotation);
             losePopUp.SetActive(true); // 팝업은 켜지지만 플레이어 파괴라서 보상이 실시간으로 보이지 않음. 되도록이면 다른곳에 달아줄거나 밑에처럼 한번더 써줄것
@@ -654,6 +801,30 @@ public class PlayerScript : MonoBehaviour {
                 //LobbySceneBtnScript.Instance().myScore += 3500;
                 LobbySceneBtnScript.Instance().myGold += 100;
                 LobbySceneBtnScript.Instance().myGem += 35;
+            }
+            if (Application.loadedLevelName == "Stage_02" && winItemEA == 0)
+            {
+                winPopUp.SetActive(true); // 밑에 보상은 플레이어 오브젝트가 파괴 되지 않아서 실시간으로 오름
+                //LobbySceneBtnScript.Instance().myScore += 3500;
+                LobbySceneBtnScript.Instance().myGold += 100;
+                LobbySceneBtnScript.Instance().myGem += 35;
+                LobbySceneBtnScript.Instance().stage02Clear = true;
+            }
+            if (Application.loadedLevelName == "Stage_03" && winItemEA == 0)
+            {
+                winPopUp.SetActive(true); // 밑에 보상은 플레이어 오브젝트가 파괴 되지 않아서 실시간으로 오름
+                //LobbySceneBtnScript.Instance().myScore += 3500;
+                LobbySceneBtnScript.Instance().myGold += 100;
+                LobbySceneBtnScript.Instance().myGem += 35;
+                LobbySceneBtnScript.Instance().stage03Clear = true;
+            }
+            if (Application.loadedLevelName == "Stage_04" && winItemEA == 0)
+            {
+                winPopUp.SetActive(true); // 밑에 보상은 플레이어 오브젝트가 파괴 되지 않아서 실시간으로 오름
+                //LobbySceneBtnScript.Instance().myScore += 3500;
+                LobbySceneBtnScript.Instance().myGold += 100;
+                LobbySceneBtnScript.Instance().myGem += 35;
+                LobbySceneBtnScript.Instance().stage04Clear = true;
             }
         }
     }
