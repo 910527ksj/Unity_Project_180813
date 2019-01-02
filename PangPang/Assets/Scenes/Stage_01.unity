@@ -967,7 +967,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1219271343742628, guid: 1fa1796453ca57a4f87b086538b8f3cd, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1018174994615300, guid: 1fa1796453ca57a4f87b086538b8f3cd, type: 2}
       propertyPath: m_IsActive
@@ -977,6 +977,17 @@ Prefab:
         type: 2}
       propertyPath: onClick.Array.data[0].mMethodName
       value: NextStage
+      objectReference: {fileID: 0}
+    - target: {fileID: 114724102150609756, guid: 1fa1796453ca57a4f87b086538b8f3cd,
+        type: 2}
+      propertyPath: mAtlas
+      value: 
+      objectReference: {fileID: 114065975338809726, guid: e0ab38282f9967446bfcc4f30ba67a8a,
+        type: 2}
+    - target: {fileID: 114724102150609756, guid: 1fa1796453ca57a4f87b086538b8f3cd,
+        type: 2}
+      propertyPath: mSpriteName
+      value: Win_0102
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fa1796453ca57a4f87b086538b8f3cd, type: 2}

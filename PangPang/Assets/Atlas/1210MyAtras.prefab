@@ -54,8 +54,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 1b500f86212d9d54c85a47c597652ca0, type: 2}
   mSprites:
   - name: 1
-    x: 671
-    y: 24
+    x: 612
+    y: 809
     width: 20
     height: 37
     borderLeft: 0
@@ -67,8 +67,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: 10
-    x: 491
-    y: 22
+    x: 562
+    y: 723
     width: 49
     height: 39
     borderLeft: 0
@@ -80,8 +80,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 1
   - name: 1210hp
-    x: 1392
-    y: 184
+    x: 0
+    y: 638
     width: 560
     height: 490
     borderLeft: 0
@@ -93,8 +93,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: 1210Progress
-    x: 3092
-    y: 31
+    x: 855
+    y: 216
     width: 631
     height: 15
     borderLeft: 0
@@ -106,8 +106,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 5
   - name: 1210Progress1
-    x: 3092
-    y: 48
+    x: 486
+    y: 173
     width: 471
     height: 33
     borderLeft: 0
@@ -119,8 +119,8 @@ MonoBehaviour:
     paddingTop: 6
     paddingBottom: 5
   - name: 2
-    x: 2278
-    y: 142
+    x: 562
+    y: 683
     width: 28
     height: 38
     borderLeft: 0
@@ -132,8 +132,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: 3
-    x: 2247
-    y: 142
+    x: 855
+    y: 306
     width: 29
     height: 38
     borderLeft: 0
@@ -145,8 +145,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 2
   - name: 4
-    x: 2543
-    y: 207
+    x: 648
+    y: 948
     width: 32
     height: 37
     borderLeft: 0
@@ -158,8 +158,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: 5
-    x: 639
-    y: 24
+    x: 855
+    y: 346
     width: 30
     height: 37
     borderLeft: 0
@@ -171,8 +171,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: 6
-    x: 2543
-    y: 167
+    x: 653
+    y: 1090
     width: 31
     height: 38
     borderLeft: 0
@@ -184,8 +184,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: 7
-    x: 607
-    y: 23
+    x: 855
+    y: 385
     width: 30
     height: 38
     borderLeft: 0
@@ -197,8 +197,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 1
   - name: 8
-    x: 575
-    y: 23
+    x: 855
+    y: 425
     width: 30
     height: 38
     borderLeft: 0
@@ -210,8 +210,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: 9
-    x: 542
-    y: 23
+    x: 653
+    y: 1050
     width: 31
     height: 38
     borderLeft: 0
@@ -223,8 +223,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: armour
-    x: 3564
-    y: 3841
+    x: 636
+    y: 208
     width: 217
     height: 255
     borderLeft: 0
@@ -236,8 +236,8 @@ MonoBehaviour:
     paddingTop: 24
     paddingBottom: 21
   - name: Base 1
-    x: 2163
-    y: 87
+    x: 562
+    y: 848
     width: 82
     height: 93
     borderLeft: 0
@@ -250,7 +250,7 @@ MonoBehaviour:
     paddingBottom: 2
   - name: Bg
     x: 0
-    y: 14
+    y: 26
     width: 489
     height: 47
     borderLeft: 0
@@ -262,8 +262,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 4
   - name: black_armour
-    x: 998
-    y: 58
+    x: 1694
+    y: 1400
     width: 217
     height: 255
     borderLeft: 0
@@ -275,8 +275,8 @@ MonoBehaviour:
     paddingTop: 24
     paddingBottom: 21
   - name: "black\uD654\uC0B4"
-    x: 2819
-    y: 3627
+    x: 3969
+    y: 2685
     width: 82
     height: 469
     borderLeft: 0
@@ -288,8 +288,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: blue_armour
-    x: 3345
-    y: 3841
+    x: 1694
+    y: 1657
     width: 217
     height: 255
     borderLeft: 0
@@ -301,8 +301,8 @@ MonoBehaviour:
     paddingTop: 24
     paddingBottom: 21
   - name: "blue\uD654\uC0B4"
-    x: 4002
-    y: 3627
+    x: 1108
+    y: 340
     width: 82
     height: 469
     borderLeft: 0
@@ -314,8 +314,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: clock
-    x: 2539
-    y: 799
+    x: 646
+    y: 896
     width: 48
     height: 45
     borderLeft: 0
@@ -327,8 +327,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: damage
-    x: 2591
-    y: 429
+    x: 1268
+    y: 535
     width: 576
     height: 415
     borderLeft: 0
@@ -340,8 +340,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: dark
-    x: 2126
-    y: 684
+    x: 0
+    y: 75
     width: 160
     height: 160
     borderLeft: 0
@@ -353,8 +353,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 1
   - name: delete
-    x: 2372
-    y: 131
+    x: 1601
+    y: 1392
     width: 78
     height: 113
     borderLeft: 0
@@ -366,8 +366,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Dot
-    x: 2556
-    y: 155
+    x: 682
+    y: 961
     width: 11
     height: 10
     borderLeft: 0
@@ -379,8 +379,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 2
   - name: Dot_selected
-    x: 2543
-    y: 153
+    x: 682
+    y: 973
     width: 11
     height: 12
     borderLeft: 0
@@ -392,8 +392,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: equip
-    x: 1954
-    y: 181
+    x: 1392
+    y: 1385
     width: 207
     height: 63
     borderLeft: 0
@@ -405,8 +405,8 @@ MonoBehaviour:
     paddingTop: 4
     paddingBottom: 1
   - name: fire
-    x: 1964
-    y: 684
+    x: 1392
+    y: 1450
     width: 160
     height: 160
     borderLeft: 0
@@ -418,8 +418,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 1
   - name: Flag
-    x: 2545
-    y: 707
+    x: 648
+    y: 987
     width: 34
     height: 48
     borderLeft: 0
@@ -431,7 +431,7 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 2
   - name: inven
-    x: 0
+    x: 1919
     y: 1247
     width: 2048
     height: 1357
@@ -444,8 +444,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: inven_item
-    x: 696
-    y: 13
+    x: 1392
+    y: 1612
     width: 300
     height: 300
     borderLeft: 0
@@ -457,8 +457,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: inven_item2
-    x: 1392
-    y: 676
+    x: 696
+    y: 811
     width: 570
     height: 569
     borderLeft: 0
@@ -471,7 +471,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: inven_player
     x: 0
-    y: 63
+    y: 1130
     width: 694
     height: 1182
     borderLeft: 0
@@ -483,8 +483,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: LEVEL_SELECT
-    x: 1954
-    y: 246
+    x: 1268
+    y: 952
     width: 635
     height: 428
     borderLeft: 0
@@ -496,8 +496,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 7
   - name: light
-    x: 1217
-    y: 153
+    x: 324
+    y: 75
     width: 160
     height: 160
     borderLeft: 0
@@ -509,8 +509,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 1
   - name: LOCK
-    x: 2450
-    y: 741
+    x: 1601
+    y: 1507
     width: 87
     height: 103
     borderLeft: 0
@@ -522,8 +522,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Magnet1
-    x: 2452
-    y: 153
+    x: 562
+    y: 1037
     width: 89
     height: 91
     borderLeft: 0
@@ -535,8 +535,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: MOVE
-    x: 2538
-    y: 27
+    x: 562
+    y: 806
     width: 48
     height: 40
     borderLeft: 0
@@ -548,8 +548,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: MOVE2
-    x: 2538
-    y: 69
+    x: 562
+    y: 764
     width: 48
     height: 40
     borderLeft: 0
@@ -561,8 +561,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: NULL
-    x: 2539
-    y: 757
+    x: 646
+    y: 854
     width: 48
     height: 40
     borderLeft: 0
@@ -574,8 +574,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: NULL2
-    x: 2538
-    y: 111
+    x: 646
+    y: 812
     width: 48
     height: 40
     borderLeft: 0
@@ -587,8 +587,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: potion
-    x: 1964
-    y: 846
+    x: 0
+    y: 237
     width: 634
     height: 399
     borderLeft: 0
@@ -600,8 +600,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: red_armour
-    x: 3783
-    y: 3841
+    x: 889
+    y: 297
     width: 217
     height: 255
     borderLeft: 0
@@ -613,8 +613,8 @@ MonoBehaviour:
     paddingTop: 24
     paddingBottom: 21
   - name: "red\uD654\uC0B4"
-    x: 3253
-    y: 3627
+    x: 3969
+    y: 3156
     width: 82
     height: 469
     borderLeft: 0
@@ -627,7 +627,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: sell
     x: 696
-    y: 315
+    y: 1382
     width: 694
     height: 930
     borderLeft: 0
@@ -639,8 +639,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Shield icon
-    x: 2452
-    y: 59
+    x: 562
+    y: 943
     width: 84
     height: 92
     borderLeft: 0
@@ -652,7 +652,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: shop_new
-    x: 0
+    x: 1919
     y: 2606
     width: 2048
     height: 1490
@@ -665,8 +665,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Skill
-    x: 3092
-    y: 83
+    x: 636
+    y: 465
     width: 251
     height: 344
     borderLeft: 0
@@ -678,8 +678,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: takeoff
-    x: 2163
-    y: 182
+    x: 855
+    y: 233
     width: 207
     height: 62
     borderLeft: 0
@@ -691,8 +691,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: tap
-    x: 2591
-    y: 29
+    x: 1392
+    y: 1914
     width: 499
     height: 398
     borderLeft: 0
@@ -704,8 +704,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: water
-    x: 2288
-    y: 684
+    x: 162
+    y: 75
     width: 160
     height: 160
     borderLeft: 0
@@ -717,8 +717,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 1
   - name: white_armour
-    x: 2600
-    y: 3841
+    x: 889
+    y: 554
     width: 217
     height: 255
     borderLeft: 0
@@ -730,7 +730,7 @@ MonoBehaviour:
     paddingTop: 24
     paddingBottom: 21
   - name: "white\uD654\uC0B4"
-    x: 3169
+    x: 3969
     y: 3627
     width: 82
     height: 469
@@ -742,9 +742,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: Win_0102
+    x: 0
+    y: 2314
+    width: 1917
+    height: 1782
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: Worm
-    x: 2450
-    y: 688
+    x: 1064
+    y: 244
     width: 93
     height: 51
     borderLeft: 0

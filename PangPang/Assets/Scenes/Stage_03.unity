@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1067,6 +1067,17 @@ Prefab:
         type: 2}
       propertyPath: onClick.Array.data[0].mMethodName
       value: NextStage
+      objectReference: {fileID: 0}
+    - target: {fileID: 114724102150609756, guid: 1fa1796453ca57a4f87b086538b8f3cd,
+        type: 2}
+      propertyPath: mAtlas
+      value: 
+      objectReference: {fileID: 114065975338809726, guid: e0ab38282f9967446bfcc4f30ba67a8a,
+        type: 2}
+    - target: {fileID: 114724102150609756, guid: 1fa1796453ca57a4f87b086538b8f3cd,
+        type: 2}
+      propertyPath: mSpriteName
+      value: Win_0102
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fa1796453ca57a4f87b086538b8f3cd, type: 2}
