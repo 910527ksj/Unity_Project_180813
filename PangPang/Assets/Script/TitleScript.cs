@@ -13,7 +13,7 @@ public class TitleScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began || Input.GetKey(KeyCode.Mouse0))
         {
             //Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
             //transform.Translate(0, touchDeltaPosition.y * Time.deltaTime, 0);
